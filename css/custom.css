@@ -287,8 +287,11 @@ label.rdiobox { margin: 0; }
 #collapseOne, #userCollapse {
     padding: 20px 0;
 }
-.card-block {
-    padding: 0 30px;
+
+@media (min-width: 460px) {
+    .card-block {
+        padding: 0 30px;
+    }
 }
 
 

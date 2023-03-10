@@ -167,7 +167,7 @@ function reqAdd(req) {
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-calendar tx-16 lh-0 op-6"></i></div></div><input name="sf-email'+(reqCnt+1)+'" id="dateMask" type="text" class="form-control" placeholder="YYYY/MM/DD"></div></div></div></div>';
         break;
       case 'sfaFile':
-        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14 mg-0-auto"><div class="media"><div class="media-body"><div class="input-group"><input type="file" name="sf-file'+(reqCnt+1)+'" id="sfaFile" class="inputfile" multiple><label for="sfaFile" class="if-outline if-outline-dark"><i class="icon ion-ios-upload-outline tx-24"></i><span>파일을 선택해주세요</span></label></div></div></div></div>';
+        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group wd-md-50p mg-0-auto"><div class="custom-file"><input type="file"  id="sfaFile" name="sf-file'+(reqCnt+1)+'" class="custom-file-input"><label class="custom-file-label">파일을 선택해주세요.</label></div></div></div></div></div>';
         break;
       case 'sfaTxt':
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input name="sf-txt'+(reqCnt+1)+'" id="" class="form-control" type="text" placeholder="답안을 입력해 주세요" value=""></div></div></div></div>';
