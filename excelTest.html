@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('td input').bind('paste', null, function (e) {
+                $txt = $(this);
+                setTimeout(function () {
+                    var values = $txt.val().split(/\s+/);
+                    var currentRowIndex = $txt.parent().parent().index();
+                    var currentColIndex = $txt.parent().index(); 
+                    
+                    var totalRows = $('#example tbody tr').length;
+                    var totalCols = $('#example thead th').length;
+                    var count =0;
+                    for (var i = currentColIndex; i < totalCols; i++) {
+                        if (i != currentColIndex)
+                            if (i != currentColIndex)
+                                currentRowIndex = 0;
+                        for (var j = currentRowIndex; j < totalRows; j++) {                           
+                            var value = values[count];
+                            var inp = $('#example tbody tr').eq(j).find('td').eq(i).find('input');
+                            inp.val(value);
+                            count++;
+                           
+                        }
+                    }
+
+
+                }, 0);
+            });
+        });
+    </script>
+
+</body>
+</html>

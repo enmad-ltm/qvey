@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <meta property="og:image" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:secure_url" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <title>Qvey Admin(draft)</title>
+
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+    
+  </head>
+
+  <body>
+
+<!-- ########## START: LEFT PANEL ########## -->
+<div class="br-logo"><a href="qvey_admin.html">Qvey <i>Admin</i> <i class="icon ion-ios-paperplane-outline"></i></a></div>
+<div class="br-sideleft sideleft-scrollbar">
+  <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
+  <ul class="br-sideleft-menu kr-font">
+    <li class="br-menu-item">
+      <a href="qvey_admin.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
+        <span class="menu-item-label">발송 및 조회</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+    <li class="br-menu-item">
+      <a href="qvey_event.html" class="br-menu-link active">
+        <i class="menu-item-icon icon ion-ios-gear-outline tx-20"></i>
+        <span class="menu-item-label">이벤트 관리</span>
+      </a><!-- br-menu-link -->
+    </li>
+    <li class="br-menu-item">
+      <a href="qvey_member.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-list-outline tx-24"></i>
+        <span class="menu-item-label">회원 관리</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+    <li class="br-menu-item">
+      <a href="qvey_company.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-world-outline tx-24"></i>
+        <span class="menu-item-label">기업 관리</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+    <li class="br-menu-item">
+      <a href="qvey_log.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-timer-outline tx-24"></i>
+        <span class="menu-item-label">로그 관리</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+
+  </ul><!-- br-sideleft-menu -->
+</div><!-- br-sideleft -->
+<!-- ########## END: LEFT PANEL ########## -->
+
+<!-- ########## START: HEAD PANEL ########## -->
+<div class="br-header">
+  <div class="br-header-left">
+    <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+    <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+  </div><!-- br-header-left -->
+  <div class="br-header-right">
+    <nav class="nav">
+      <div class="dropdown">
+        <a href="javascript:void(0);" class="nav-link nav-link-profile" data-toggle="dropdown">
+          <span class="logged-name hidden-md-down">관리자</span>
+          <img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
+          <span class="square-10 bg-success"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-header wd-250">
+          <div class="tx-center">
+            <a href="javascript:void(0);"><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
+            <h6 class="logged-fullname">Sky. L</h6>
+            <p>admin@enmad.com</p>
+            <p>이용가능 금액 : <span class="tx-info">3,000</span>원</p>
+          </div>
+          <hr>
+          <ul class="list-unstyled user-profile-nav">
+            <li><a id="chargeInfo" href="javascript:void(0);"><i class="icon ion-ios-barcode-outline"></i> 요금 충전</a></li>
+            <li><a id="chgPass" href="javascript:void(0);"><i class="icon ion-ios-locked"></i> 비밀번호 변경</a></li>
+            <li><a href="javascript:void(0);"><i class="icon ion-ios-gear"></i> 계정 관리</a></li>
+            <li><a href="index.html"><i class="icon ion-power"></i> 로그 아웃</a></li>
+          </ul>
+        </div><!-- dropdown-menu -->
+      </div><!-- dropdown -->
+    </nav>
+  </div><!-- br-header-right -->
+</div><!-- br-header -->
+<!-- ########## END: HEAD PANEL ########## -->
+
+<!-- ########## START: MAIN PANEL ########## -->
+<div class="br-mainpanel kr-font">
+  <div class="br-pageheader">
+    <nav class="breadcrumb pd-0 mg-0 tx-12">
+      <a class="breadcrumb-item" href="">Qvey Admin</a>
+      <a class="breadcrumb-item" href="">Webpage management</a>
+      <span class="breadcrumb-item active">Unique number management</span>
+    </nav>
+  </div><!-- br-pageheader -->
+  <div class="br-pagetitle">
+    <i class="icon ion-ios-compose-outline"></i>
+    <div>
+      <h4>이벤트 신규 생성</h4>
+      <p class="mg-b-0">생성할 이벤트의 제목, 기간, 인증절차를 선택하여 이벤트 진입시 난수번호인증을 추가해주세요. 범용인증 사용시 인증번호 작성 후 업로드 가능합니다.</p>
+    </div>
+  </div><!-- d-flex -->
+
+  <div id="createNewEvt" class="show br-pagebody">
+    <div class="bg-white show">
+      <ul class="nav nav-tabs nav-tabs-style-1 nav-justified tx-13" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link pd-y-15 tx-16 active" data-toggle="tab" href="#tabPrivacy" role="tab">개인정보취합</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pd-y-15 tx-16" data-toggle="tab" href="#tabSurvey" role="tab">설문조사</a>
+        </li>
+      </ul>
+      <div class="tab-content">
+<!-- ################################################################################################################################
+                                                              tabPrivacy
+  ################################################################################################################################ -->
+        <div class="tab-pane active" id="tabPrivacy" role="tabpanel">
+          <div class="br-section-wrapper">
+            <div class="form-layout form-layout-7">
+              <h6 class="br-section-label">이벤트 옵션 설정</h6>
+              <p class="br-section-text">해당 이벤트의 이벤트명, 진행기간, 개인 인증 여부 등을 설정할 수 있습니다.</p>
+              <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                  이벤트명
+                </div>
+                <div class="col-7 col-sm-8">
+                  <input class="form-control" type="text" name="fullname" placeholder="입력란">
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                  진행기간
+                </div>
+                <div class="col-7 col-sm-8">
+                  <input class="form-control" type="text" name="firstname" placeholder="입력란">
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                  개인 인증 여부
+                </div>
+                <div id="relativeBox" class="col-7 col-sm-8">
+                  <div class="certi-chk">
+                    <div class="col-lg-6 d-inline-block">
+                      <label class="rdiobox">
+                        <input name="certi-chk" value="realName" type="radio" checked>
+                        <span>실명 인증</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 d-inline-block">
+                      <label class="rdiobox">
+                        <input name="certi-chk" value="phoneName" type="radio" checked>
+                        <span>휴대폰 인증</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 d-inline-block">
+                      <label class="rdiobox">
+                        <input name="certi-chk" value="univCert" type="radio" checked>
+                        <span>범용 인증</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 d-inline-block">
+                      <label class="rdiobox">
+                        <input name="certi-chk" value="noCert" type="radio" checked>
+                        <span>인증 없음</span>
+                      </label>
+                    </div>
+                    <!-- <label id="certReal" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan" title="개인정보 취합시 문자 발송 인원만 응답 허용, 휴대폰 번호 실명 인증">실명 인증</span></label>
+                    <label id="certPhone" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span onclick="chkChg();" id="certPhoneSpan" title="발송 휴대폰 번호로 인증 (휴대폰 실명 인증 아님)">휴대폰 인증</span></label>
+                    <label id="certComm" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan" title="수동으로 인증번호 입력">범용 인증</span></label>
+                    <label id="certNone" class="ckbox d-inline-block"><input type="checkbox"><span id="certNoneSpan">인증 없음</span></label> -->
+                  </div>
+                  <div class="certi-file">
+                    <div id="UnivsAuthUpload" onclick="go2path('newEvent')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                      <i class="icon ion-ios-upload-outline tx-16 mg-r-4"></i> <span>범용인증 업로드</span>
+                    </div>
+                    <div id="formDownload" onclick="go2path('newEvent')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                      <i class="icon ion-ios-download-outline tx-16 mg-r-4"></i> 양식 다운로드
+                    </div>
+                  </div>
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters">
+                <div class="col-5 col-sm-4">이벤트 난수생성</div>
+                <div class="col-7 col-sm-8">
+                  <input class="form-control d-inline-block w-auto" type="number" name="" placeholder="난수 생성 개수">
+                  <div class="btn btn-outline-light pd-y-10 pd-x-20 mg-md-l-10 mg-t-10 mg-md-t-0 tx-uppercase tx-spacing-2 d-inline-block">생성</div>
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters mg-b-100">
+                <div class="col-5 col-sm-4">QR 간편인증 사용 여부</div>
+                <div class="col-7 col-sm-8">
+                  <div class="col-lg-2 d-inline-block">
+                    <label class="rdiobox">
+                      <input name="rdio" type="radio">
+                      <span>유</span>
+                    </label>
+                  </div>
+                  <div class="col-lg-2 d-inline-block">
+                    <label class="rdiobox">
+                      <input name="rdio" type="radio" checked>
+                      <span>무</span>
+                    </label>
+                  </div>
+                </div>
+              </div><!-- row -->
+            </div><!-- form-layout -->
+            <div>
+              <h6 class="br-section-label">이벤트 문항 설정</h6>
+              <p class="br-section-text">해당 이벤트의 질문, 답변의 유형과 파일업로드를 통한 등록 등을 설정합니다.</p>
+              <!-- Question Label -->
+              <hr>
+              <div class="mg-b-10">
+                <h5>질문</h5>
+              </div>
+              <!-- Question -->
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="d-md-flex">
+                    <div id="slWrapper" class="parsley-select wd-100p">
+                      <select name="slWrapperSelect" class="form-control select2" data-placeholder="질문유형" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" required>
+                        <option label="질문유형"></option>
+                        <option value="multi-choice">객관식</option>
+                        <option value="multi-multi-choice">객관식 (Multi-choice Test)</option>
+                        <option value="short-form">주관식</option>
+                        <option value="short-form-auto">주관식 (Automation Test)</option>
+                      </select>
+                      <div id="slErrorContainer"></div>
+                    </div>
+                  </div><!-- d-flex -->
+                </div>
+                <div class="col-lg-9 mg-t-10 mg-lg-t-0">
+                  <div class="input-group">
+                    <input id="sfaIp" type="text" class="form-control" placeholder="질문을 입력해 주세요.">
+                    <button id="prReqBtn" value="" onclick="reqAdd(this)" type="submit" class="btn btn-outline-info mg-l-10">
+                      <i class="icon ion-ios-checkmark-empty tx-24 "></i>
+                    </button>
+                  </div>
+                </div>
+              </div><!-- row -->
+              <!-- ##############################
+                주관식
+                ############################## -->
+              <!-- Answer Label -->
+              <div id="privacySFA"><!-- ShortForm Answer -->
+                <div class="mg-b-10 mg-t-20">
+                  <h5>주관식 답안</h5>
+                </div>
+                <!-- Answer -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="d-md-flex">
+                      <div id="slWrapper2" class="parsley-select wd-100p">
+                        <select name="sfaSelect" class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper2" data-parsley-errors-container="#slErrorContainer" required>
+                          <option label="응답유형"></option>
+                          <option value="sfaPhone">연락처</option>
+                          <option value="sfaAddr">주소</option>
+                          <option value="sfaJumin">주민번호</option>
+                          <option value="sfaEmail">이메일</option>
+                          <option value="sfaDate">날짜</option>
+                          <option value="sfaFile">파일</option>
+                          <option value="sfaTxt">텍스트</option>
+                        </select>
+                        <div id="slErrorContainer"></div>
+                      </div>
+                    </div><!-- d-flex -->
+                  </div>
+                </div><!-- row -->
+              </div>
+              <!-- ##############################
+                객관식
+                ############################## -->
+              <!-- Answer Label -->
+              <div id="privacyMCA"><!-- MultiChoice Answer -->
+                <div class="mg-b-10 mg-t-20">
+                  <h5>객관식 답안</h5>
+                </div>
+                <!-- Answer -->
+                <div class="row">
+                  <div class="col-lg-12 mg-t-10 mg-lg-t-0 flex-row-reverse">
+                    <div class="input-group" id="groupRelative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>No</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="">
+                      <button name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="privacy">
+                        <i class="icon ion-plus tx-14 "></i>
+                        <!-- <i class="icon ion-ios-folder-outline tx-14 "></i> -->
+                      </button>
+                    </div>
+                  </div>
+                </div><!-- row -->
+              </div>
+              <div class="bg-light mg-t-50 pd-y-50 pd-x-30">
+                <div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                      <h6 class="mg-b-0">
+                        <a onclick="testJS()" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="tx-gray-800 transition d-flex align-items-center justify-content-center">
+                          <p class="flex-1 mg-0">이벤트 문항 미리보기</p>
+                          <i class="icon ion-ios-arrow-down lh-0"></i>
+                        </a>
+                      </h6>
+                    </div><!-- card-header -->
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                      <div class="card-block">
+                        <div class="col-md-12 mg-y-10">
+                          <div class="list-group pd-b-20">
+                            <div class="list-group-item">
+                              <div class="media justify-content-center align-items-center">
+                                <div class="media-body">
+                                  <h6 class="tx-inverse mg-0">가장 쾌적하게 자고 일어난 수면 시각은 언제인가요?</h6>
+                                </div>
+                                <i class="icon ion-ios-close-empty tx-28 mg-l-20 question-set"></i>
+                              </div>
+                            </div>
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" value="mca01" type="radio">
+                                    <span>새벽잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>아침잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>낮잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>밤잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>부레옥잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                          </div>
+                        </div><!-- question -->
+                      </div><!-- card -->
+
+                      <div class="card-block">
+                        <div class="col-md-12 mg-y-10">
+                          <div class="list-group pd-b-20">
+                            <div class="list-group-item">
+                              <div class="media justify-content-center align-items-center">
+                                <div class="media-body">
+                                  <h6 class="tx-inverse mg-0">가장 쾌적하게 자고 일어난 수면 시각은 언제인가요?</h6>
+                                </div>
+                                <i class="icon ion-ios-close-empty tx-28 mg-l-20 question-set"></i>
+                              </div>
+                            </div>
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" value="mca01" type="radio">
+                                    <span>새벽잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>아침잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>낮잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>밤잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                            <div class="list-group-item pd-y-14">
+                              <div class="media">
+                                <div class="media-body">
+                                  <label class="rdiobox">
+                                    <input name="question-radio" type="radio">
+                                    <span>부레옥잠</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div><!-- row -->
+                          </div>
+                        </div><!-- question -->
+                      </div><!-- card -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tx-center mg-t-60">
+              <a href="qvey_event.html" class="btn btn-secondary pd-x-50">목록으로</a>
+              <a href="javascript:void(0);" class="btn btn-info pd-x-50">이벤트 저장</a>
+            </div>
+          </div>
+        </div>
+<!-- ################################################################################################################################
+                                                              tabSurvey
+  ################################################################################################################################ -->
+        <div class="tab-pane" id="tabSurvey" role="tabpanel">
+            <div class="br-section-wrapper">
+                <div class="form-layout form-layout-7">
+                    <h6 class="br-section-label">이벤트 옵션 설정2</h6>
+                    <p class="br-section-text">해당 이벤트의 이벤트명, 진행기간, 개인 인증 여부 등을 설정할 수 있습니다.</p>
+                    <div class="row no-gutters">
+                      <div class="col-5 col-sm-4">
+                        이벤트명
+                      </div><!-- col-4 -->
+                      <div class="col-7 col-sm-8">
+                        <input class="form-control" type="text" name="fullname" placeholder="입력란">
+                      </div><!-- col-8 -->
+                    </div><!-- row -->
+                    <div class="row no-gutters">
+                      <div class="col-5 col-sm-4">
+                        진행기간
+                      </div><!-- col-4 -->
+                      <div class="col-7 col-sm-8">
+                        <input class="form-control" type="text" name="firstname" placeholder="입력란">
+                      </div><!-- col-8 -->
+                    </div><!-- row -->
+                    <div class="row no-gutters mg-b-100">
+                      <div class="col-5 col-sm-4">
+                        개인 인증 여부
+                      </div><!-- col-4 -->
+                      <div id="relativeBox2" class="col-7 col-sm-8">
+                        <div class="certi-chk">
+                          <label id="certReal2" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan2" title="개인정보 취합시 문자 발송 인원만 응답 허용, 휴대폰 번호 실명 인증">실명 인증</span></label>
+                    <label id="certPhone2" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span onclick="chkChg();" id="certPhoneSpan2" title="발송 휴대폰 번호로 인증 (휴대폰 실명 인증 아님)">휴대폰 인증</span></label>
+                    <label id="certComm2" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan2" title="수동으로 인증번호 입력">범용 인증</span></label>
+                          <label id="certNone2" class="ckbox d-inline-block"><input type="checkbox"><span id="certNoneSpan2">인증 없음</span></label>
+                        </div>
+                        <div class="certi-file">
+                          <div id="UnivsAuthUpload2" onclick="go2path('newEvent')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                            <i class="icon ion-ios-upload-outline tx-16 mg-r-4"></i> <span>범용인증 업로드</span>
+                          </div>
+                          <div id="formDownload2" onclick="go2path('newEvent')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                            <i class="icon ion-ios-download-outline tx-16 mg-r-4"></i> 양식 다운로드
+                          </div>
+                        </div>
+                      </div><!-- col-8 -->
+                    </div><!-- row -->
+                  </div><!-- form-layout -->
+                  <div>
+                    <h6 class="br-section-label">이벤트 문항 설정</h6>
+                    <p class="br-section-text">해당 이벤트의 질문, 답변의 유형과 파일업로드를 통한 등록 등을 설정합니다.</p>
+                    <!-- Question Label -->
+                    <hr>
+                    <div class="mg-b-10">
+                      <h5 class="d-inline">Q</h5><span class="d-inline">uestion</span>&nbsp;<h5 class="d-inline">01</h5>
+                    </div>
+                    <!-- Question -->
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="d-md-flex">
+                          <div id="slWrapper3" class="parsley-select wd-100p">
+                            <select name="slWrapperSelect" class="form-control select2" data-placeholder="질문유형" data-parsley-class-handler="#slWrapper3" data-parsley-errors-container="#slErrorContainer" required>
+                              <option label="질문유형"></option>
+                              <option value="객관식">객관식</option>
+                              <option value="주관식">주관식</option>
+                            </select>
+                            <div id="slErrorContainer"></div>
+                          </div>
+                        </div><!-- d-flex -->
+                      </div>
+                      <div class="col-lg-9 mg-t-10 mg-lg-t-0">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <label class="ckbox wd-16 mg-b-0">
+                                <input type="checkbox"><span></span>
+                              </label>
+                            </div>
+                          </div>
+                          <input type="text" class="form-control" placeholder="질문을 입력해 주세요.">
+                          <button id="regBtn" name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="survey">
+                            <i class="icon ion-ios-folder-outline tx-14 "></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div><!-- row -->
+                    <!-- ##############################
+                      주관식
+                      ############################## -->
+                    <!-- Answer Label -->
+                    <div class="mg-b-10 mg-t-20">
+                      <h5 class="d-inline">A</h5><span class="d-inline">nswer</span>&nbsp;<h5 class="d-inline">01&nbsp;(주관식)</h5>
+                    </div>
+                    <!-- Answer -->
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="d-md-flex">
+                          <div id="slWrapper4" class="parsley-select wd-100p">
+                            <select class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper4" data-parsley-errors-container="#slErrorContainer" required>
+                              <option label="응답유형"></option>
+                              <option value="객관식">연락처</option>
+                              <option value="주관식">주소</option>
+                              <option value="주관식">주민번호</option>
+                              <option value="주관식">이메일</option>
+                              <option value="주관식">날짜</option>
+                            </select>
+                            <div id="slErrorContainer"></div>
+                          </div>
+                        </div><!-- d-flex -->
+                      </div>
+                      <div class="col-lg-9 mg-t-10 mg-lg-t-0">
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                    </div><!-- row -->
+                    <!-- ##############################
+                      객관식
+                      ############################## -->
+                    <!-- Answer Label -->
+                    <div class="mg-b-10 mg-t-20">
+                      <h5 class="d-inline">A</h5><span class="d-inline">nswer</span>&nbsp;<h5 class="d-inline">01&nbsp;(객관식)</h5>
+                    </div>
+                    <!-- Answer -->
+                    <div class="row">
+                      <div class="col-lg-12 mg-t-10 mg-lg-t-0 flex-row-reverse">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>01</span>
+                          </div>
+                          <input type="text" class="form-control" placeholder="">
+                          <button type="submit" class="btn btn-outline-light mg-l-10">
+                            <i class="icon ion-plus tx-14 "></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div><!-- row -->
+                    <hr class="mg-t-30">
+                  </div>
+                  <div class="tx-center mg-t-60">
+                    <a href="qvey_event.html" class="btn btn-secondary pd-x-50">목록으로</a>
+                    <a href="javascript:void(0);" class="btn btn-info pd-x-50">이벤트 저장</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+
+  <footer class="br-footer">
+    <div class="footer-left">
+      <div class="mg-b-2">Copyright &copy; 2023. SYSCUSS Corp. All rights reserved.</div>
+      <!-- <div>Attentively and carefully made by ThemePixels.</div> -->
+    </div>
+  </footer>
+</div><!-- br-mainpanel -->
+<!-- ########## END: MAIN PANEL ########## -->
+
+
+<!-- ########## START: MODAL ########## -->
+<div id="passModal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="pd-x-30 pd-y-10">
+          <h3 class="tx-inverse  mg-b-5 tx-bold">비밀번호 변경</h3>
+          <p>현재 사용중인 비밀번호와 새 비밀번호를 입력하세요.</p>
+          <br>
+          <div class="form-group">
+            <input type="password" name="crnt-password" class="form-control pd-y-12" placeholder="현재 비밀번호">
+          </div>
+          <div class="form-group">
+            <input type="password" name="new-password" class="form-control pd-y-12" placeholder="새 비밀번호">
+            <!-- <a href="" class="tx-12 d-block mg-t-10">Forgot password?</a> -->
+          </div>
+          <div class="form-group mg-b-20">
+            <input type="password" name="chk-new-password" class="form-control pd-y-12" placeholder="새 비밀번호 확인">
+            <!-- <a href="" class="tx-12 d-block mg-t-10">Forgot password?</a> -->
+          </div>
+
+          <button onclick="passChk()" class="btn btn-info pd-y-12 btn-block">저장</button>
+
+          <div class="mg-t-30 mg-b-20 tx-12"><a class="text-info" href="javascript:void(0);">비밀번호 분실 문의</a></div>
+        </div>
+
+      </div><!-- modal-body -->
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
+<!-- ########## END: MAIN PANEL ########## -->
+
+<!-- ########## START: ALERT ########## -->
+<!-- success -->
+<div id="sucAlert" class="op-0 alert alert-info pos-fixed col-lg-5 col-12 z-index-100" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="d-flex align-items-center justify-content-start">
+    <i class="icon ion-ios-checkmark alert-icon tx-32 mg-t-5 mg-xs-t-0"></i>
+    <span><strong>완료</strong> : 비밀번호가 정상적으로 변경되었습니다.</span>
+  </div><!-- d-flex -->
+</div><!-- alert -->
+<!-- ########## END: ALERT ########## -->
+
+<!-- modal -->
+<div id="authUpload" class="modal fade show" style="padding-right: 17px;">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content bd-0 tx-14">
+      <div class="modal-header pd-x-20">
+        <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">범용인증 업로드</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body pd-20">
+        <p class="mg-b-5">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile"></label>
+          </div>
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium">등록</button>
+        <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div><!-- modal-dialog -->
+</div>
+
+<!-- 개발 일시 보류 -->
+<!-- <div id="registQ" class="modal fade show" style="padding-right: 17px;">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content bd-0 tx-14">
+      <div class="modal-header pd-x-20">
+        <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">문항 등록</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body pd-20">
+        <p class="mg-b-5">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile"></label>
+          </div>
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium">등록</button>
+        <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- charge info -->
+<div id="chargeModal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="tx-danger mg-t-20 tx-semibold mg-b-20">충전 안내</h4>
+        <p id="loginModalCopy" class="mg-b-20 mg-x-20">카드 또는 현금 추가 충전시 고객센터 문의 바랍니다.<br />(고객센터 1633-3614)</p>
+        <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delConfirmMd -->
+<div id="delConfirmMd" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="tx-danger  tx-semibold mg-y-20">Confirm: 문항 삭제</h4>
+        <p id="delConfirmMdCopy" class="mg-b-20 mg-x-20">작성하신 문항이 삭제됩니다. 계속 하시겠습니까?</p>
+        <input id="delVal" type="hidden" value="">
+        <div class="modal-footer justify-content-center bd-t-0">
+          <button id="findAccReqBtn" type="button" onclick="qRmvReq()" class="btn btn-danger tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium">삭제</button>
+          <button type="button" class="btn btn-light tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium" data-dismiss="modal" aria-label="Close">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ########## END: MAIN PANEL ########## -->
+
+
+<!-- js -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-ui/ui/widgets/datepicker.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="js/qvey.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/common.js"></script>
+<script src="js/question.js"></script>
+ </body>
+</html>

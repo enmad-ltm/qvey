@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Qvey Admin(draft)</title>
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body>
+
+    <div class="d-flex align-items-center justify-content-center bg-gray-200 ht-100v">
+
+      <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
+        <div class="signin-logo tx-center tx-28 tx-bold tx-inverse">Qvey <span class="tx-info">Log-in <i class="icon ion-ios-paperplane-outline"></i></span></div>
+        <div class="tx-center mg-b-60">㈜모바일이앤엠애드 큐베이푸시 관리자 페이지</div>
+
+        <div class="form-group">
+          <input id="qveyId" type="text" class="form-control" placeholder="아이디">
+        </div><!-- form-group -->
+        <div class="form-group">
+          <input id="qveyPass" type="password" class="form-control" placeholder="비밀번호" onkeyup="if(window.event.keyCode==13){signInTemp()}">
+          <div class="tx-center">
+            <a href="javascript:void(0);" onclick="findAcc('id')" class="tx-info tx-12 d-inline-block mg-t-10 mg-r-5">아이디 찾기</a>
+            <a href="javascript:void(0);" onclick="findAcc('pw')" class="tx-info tx-12 d-inline-block mg-t-10 mg-l-5">비밀번호 찾기</a>
+          </div>
+        </div><!-- form-group -->
+        <button type="submit" onclick="signInTemp()" class="btn btn-info btn-block">로그인</button>
+
+        <div class="mg-t-60 tx-center">큐베이푸시 관리자 페이지 <a href="signUp.html" class="tx-info">신규 회원 가입</a></div>
+      </div><!-- login-wrapper -->
+    </div><!-- d-flex -->
+
+    <div id="loginModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+            <h4 class="tx-danger  tx-semibold mg-b-20">Error: 항목을 처리할 수 없습니다</h4>
+            <p id="loginModalCopy" class="mg-b-20 mg-x-20">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+            <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+              Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loginModal2" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+            <h4 class="tx-success tx-semibold mg-b-20">Congratulations!</h4>
+            <p class="mg-b-20 mg-x-20">요청이 완료되었습니다.<br />관리자가 승인 후 연락드릴 예정입니다.</p>
+            <button onclick="" type="button" class="btn btn-success tx-11 tx-uppercase pd-y-15 pd-x-40 tx-mont tx-medium mg-b-20" >완료</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="findAccDiv" class="modal fade">
+      <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header pd-y-20 pd-x-25">
+            <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">계정 정보 찾기</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body pd-25">
+            <div class="tx-center">
+              <h4 class="lh-3 mg-b-10 tx-black">계정 정보를 분실하셨나요?</h4>
+              <p class="mg-b-10">아래 정보를 모두 입력 후 요청해주세요. </p>
+            </div>
+            <div id="findAccIp" value="id" class="form-layout pd-20">
+              <div id="idRow" class="row d-none">
+                <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span>ID</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                  <input id="comId" type="text" class="form-control" placeholder="찾으시려는 계정 ID를 입력해주세요">
+                </div>
+              </div><!-- row -->
+              <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span>사업자명</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                  <input id="comName" type="text" class="form-control" placeholder="업체명을 입력해 주세요">
+                </div>
+              </div>
+              <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span>담당자명</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                  <input id="mngName" type="text" class="form-control" placeholder="담당자명을 입력해 주세요">
+                </div>
+              </div>
+              <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span>담당자 연락처</label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                  <input id="mngTel" type="text" class="form-control" placeholder="담당자 연락처를 입력해 주세요">
+                </div>
+              </div>
+              <div id="passHint" class="row mg-t-20 d-none">
+                <label class="col-sm-4 form-control-label">
+                  <select class="form-control select2 select2-hidden-accessible" data-placeholder="select" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <option label="비밀번호 힌트"></option>
+                    <option value="hint01">아버지 성함은?</option>
+                    <option value="hint02">어머니 성함은?</option>
+                    <option value="hint03">배우자 이름은?</option>
+                    <option value="hint04">사장 기억에 남는 선생님 성함은?</option>
+                    <option value="hint05">어릴적 키웠던 반려동물 이름은?</option>
+                    <option value="hint06">첫차 이름은?</option>
+                    <option value="hint07">가장 친한 친구 이름은?</option>
+                    <option value="hint08">어린시절 내 별명은?</option>
+                    <option value="hint09">좋아하는 연예인 이름은?</option>
+                    <option value="hint10">좋아하는 색깔은?</option>
+                  </select>
+                </label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                  <div id="tooltip" class="popover popover-info bs-popover-top t--100">
+                    <div class="arrow mg-l--5"></div>
+                    <h3 class="popover-header tx-bold">※ 확인사항</h3>
+                    <div class="popover-body">
+                      <p>비밀번호 힌트 정답이 기억나지 않으실 경우 고객센터로 연락 바랍니다.</p>
+                    </div>
+                  </div>
+                  <input id="hintIp" type="text" class="form-control t-area" placeholder="힌트 정답을 입력해 주세요" onclick="tooltipMmt()">
+                </div>
+              </div>
+            </div>
+          </div><!-- modal-body -->
+          <div class="modal-footer justify-content-center">
+            <button id="findAccReqBtn" type="button" onclick="findAcReq()" class="btn btn-info tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium">요청</button>
+            <button type="button" class="btn btn-light tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium" data-dismiss="modal" aria-label="Close">닫기</button>
+          </div>
+        </div>
+      </div><!-- modal-dialog -->
+    </div>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/qvey.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        function signInTemp(){
+            if ($('#qveyId').val() == 'admin' && $('#qveyPass').val() == '1234qwer' ){
+                window.location = 'qvey_admin.html';
+            } else if( $('#qveyId').val() == '' || $('#qveyPass').val() == '') {
+              loginModal('아이디 혹은 비밀번호를 입력해주세요.');
+              // alert('plz enter id and password');
+            } else {
+              loginModal('잘못된 계정 정보 입니다.');
+              // alert('wrong id or password');
+            }
+        }
+    </script>
+  </body>
+</html>

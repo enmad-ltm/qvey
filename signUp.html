@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Qvey Admin(draft)</title>
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body>
+
+    <div class="signup-wrap">
+      <div class="login-wrapper pd-25 pd-xs-40 bg-white rounded shadow-base">
+        <div class="signin-logo tx-center tx-28 tx-bold tx-inverse">Qvey <span class="tx-info">Sign up</span></div>
+        <div class="tx-center mg-b-30">회원가입 후 <span class="tx-black">사업자등록증</span>을 팩스로 송부바랍니다.</div>
+        <div class="form-layout form-layout-5 pd-20 bd-0">
+          <div class="row">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span>아이디</label>
+            <div class="col-sm-5 mg-t-10 mg-sm-t-0">
+              <input type="text" id="newId" class="form-control" placeholder="아이디를 입력해주세요">
+            </div>
+            <div class="col-sm-3">
+              <button type="submit" class="btn btn-secondary tx-11 pd-y-12 tx-uppercase tx-spacing-2">중복 확인</button>
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 비밀번호</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="password" id="newPw" class="form-control" placeholder="비밀번호를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 비밀번호 확인</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="password" id="chkPw" class="form-control" placeholder="비밀번호를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label "><span class="tx-danger">*</span> 비밀번호 힌트</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <label class="form-control-label">
+                <select class="form-control select2 select2-hidden-accessible" data-placeholder="select" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                  <option label="비밀번호 힌트"></option>
+                  <option value="hint01">아버지 성함은?</option>
+                  <option value="hint02">어머니 성함은?</option>
+                  <option value="hint03">배우자 이름은?</option>
+                  <option value="hint04">가장 기억에 남는 선생님 성함은?</option>
+                  <option value="hint05">어릴적 키웠던 반려동물 이름은?</option>
+                  <option value="hint06">첫차 이름은?</option>
+                  <option value="hint07">가장 친한 친구 이름은?</option>
+                  <option value="hint08">어린시절 내 별명은?</option>
+                  <option value="hint09">좋아하는 연예인 이름은?</option>
+                  <option value="hint10">좋아하는 색깔은?</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label "></label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <div id="tooltip" class="popover popover-info bs-popover-top" style="top: -150px;">
+                <div class="arrow mg-l--5"></div>
+                <h3 class="popover-header tx-bold">※ 확인사항</h3>
+                <div class="popover-body">
+                  <p>비밀번호 힌트는 향후 비밀번호 분실 시 확인하는 값으로 꼭 기억하시기 바랍니다.</p>
+                </div>
+              </div>
+              <input type="text" id="newPwHt" class="form-control t-area" placeholder="비밀번호 힌트를 입력해주세요" onclick="tooltipMmt()">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 사업자명</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="text" id="newName" class="form-control" placeholder="담당자를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 사업자 주소</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="text" id="newAddr" class="form-control" placeholder="담당자를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 사업자등록번호</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="number" id="newComNum" class="form-control" placeholder="사업자등록번호를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 사업자 연락처</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="number" id="newComTel" class="form-control" placeholder="사업자 연락처를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 담당자명</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="text" id="newMngName" class="form-control" placeholder="담당자를 입력해주세요">
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span>담당자 연락처</label>
+            <div class="col-sm-5 mg-t-10 mg-sm-t-0">
+              <input type="text" id="newMagTel" class="form-control" placeholder="본인 인증 버튼 이용" disabled>
+            </div>
+            <div class="col-sm-3">
+              <button type="submit" class="btn btn-secondary tx-11 pd-y-12 tx-uppercase tx-spacing-2">본인 인증</button>
+            </div>
+          </div>
+          <div class="row mg-t-10">
+            <label class="col-sm-4 form-control-label"><span class="tx-danger">*</span> 이메일</label>
+            <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+              <input type="text" id="newMail" class="form-control" placeholder="이메일 주소를 입력해주세요">
+            </div>
+          </div>
+
+        </div>
+        <div class="form-layout-footer tx-center">
+          <button onclick="signInTemp()" class="btn btn-info pd-x-40-force pd-y-10-force tx-14-force">승인요청</button>
+          <button onclick="go2path('index')" class="btn btn-light pd-x-40-force pd-y-10-force tx-14-force">이전으로</button>
+        </div>
+      </div><!-- login-wrapper -->
+    </div><!-- d-flex -->
+
+    <div id="loginModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+            <h4 class="tx-danger  tx-semibold mg-b-20">Error: 요청 할 수 없습니다</h4>
+            <p id="loginModalCopy" class="mg-b-20 mg-x-20">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+            <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-15 pd-x-40 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">이전으로</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="loginModal2" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+            <h4 class="tx-success tx-semibold mg-b-20">Congratulations!</h4>
+            <p class="mg-b-20 mg-x-20">요청이 완료되었습니다.<br />관리자가 승인 후 연락드릴 예정입니다.</p>
+            <button onclick="go2path('index')" type="button" class="btn btn-success tx-11 tx-uppercase pd-y-15 pd-x-40 tx-mont tx-medium mg-b-20" >완료</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/qvey.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        function signInTemp(){
+            if ($('#newId').val()==''|| $('#newPw').val()=='' || $('#chkPw').val()=='' || $('#newPwHt').val()==''||$('#newComNum').val()==''|| $('#newComTel').val()=='' || $('#newName').val()==''|| $('#newAddr').val()=='' || $('#newTel').val()==''|| $('#newMngName').val()=='' || $('newMagTel').val()=='' || $('#newMail').val()==''){
+              // 입력안한경우
+              loginModal('항목을 모두 입력해주세요.');
+            } else {
+              var effect = $(this).attr('data-effect');
+              $('#loginModal2').addClass(effect);
+              $('#loginModal2').modal('show');
+            }
+        }
+    </script>
+  </body>
+</html>

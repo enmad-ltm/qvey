@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Qvey Admin(draft)</title>
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body>
+
+    <div id="userCert" class="d-flex align-items-center justify-content-center bg-gray-200 ht-100p">
+
+      <div class="login-wrapper wd-100p wd-xs-500 pd-x-10 pd-y-25 pd-xs-40 pd-xs-y-60 bg-white rounded shadow-base">
+        <div class="signin-logo tx-center tx-24 tx-xs-28 tx-bold tx-inverse"><span id="compName" class="tx-primary">유플러스</span>&nbsp;<span id="evtName">제세공과금 정보 입력</span></div>
+
+        <div class="card">
+            <div id="userCollapse" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                <div id="q0" class="card-block" name="short-form">
+                    <div class="col-md-12 mg-y-10">
+                        <div class="list-group pd-b-20">
+                            <div class="list-group-item">
+                                <div class="media justify-content-center align-items-center">
+                                    <div class="media-body">
+                                        <h6 class="tx-inverse mg-0"><span class="pre-ttl-num tx-primary">Q1. </span>제세공과금 처리 대상자 이름을 입력해주세요.</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div name="sfaTxt" class="list-group-item pd-y-14">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="input-group">
+                                            <input name="sf-txt4" id="" class="form-control" type="text" placeholder="답안을 입력해 주세요" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="q1" class="card-block" name="short-form">
+                    <div class="col-md-12 mg-y-10">
+                        <div class="list-group pd-b-20">
+                            <div class="list-group-item">
+                                <div class="media justify-content-center align-items-center">
+                                    <div class="media-body">
+                                        <h6 class="tx-inverse mg-0"><span class="pre-ttl-num tx-primary">Q2. </span>주민번호를 입력해주세요.</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div name="sfaJumin" class="list-group-item pd-y-14">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <div class="input-group">
+                                            <input id="" class="form-control mg-x-10" name="sf-juminFt5" maxlength="6" oninput="numMax(this);" type="number" value="" placeholder="890123"><input id="" class="form-control mg-x-10" name="sf-juminBk5" maxlength="7" oninput="numMax(this);" type="password" value="" placeholder="1234567">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="q2" class="card-block" name="multi-choice">
+                    <div class="col-md-12 mg-y-10">
+                        <div class="list-group pd-b-20">
+                            <div class="list-group-item">
+                                <div class="media justify-content-center align-items-center">
+                                    <div class="media-body">
+                                        <h6 class="tx-inverse mg-0"><span class="pre-ttl-num tx-primary">Q3.&nbsp;</span>사는 지역은 어디신가요?</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio3" value="1" type="radio"><span>서울</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio3" value="2" type="radio"><span>경기</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio3" value="3" type="radio"><span>강원</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio3" value="4" type="radio"><span>인천</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio3" value="5" type="radio"><span>기타</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="q3" class="card-block" name="multi-choice">
+                    <div class="col-md-12 mg-y-10">
+                        <div class="list-group pd-b-20">
+                            <div class="list-group-item">
+                                <div class="media justify-content-center align-items-center">
+                                    <div class="media-body">
+                                        <h6 class="tx-inverse mg-0"><span class="pre-ttl-num tx-primary">Q4.&nbsp;</span>좋아하는 계절은?</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio4" value="1" type="radio"><span>봄</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio4" value="2" type="radio"><span>여름</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio4" value="3" type="radio"><span>가을</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio4" value="4" type="radio"><span>겨울</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-group-item pd-y-6">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <label class="rdiobox">
+                                            <input name="question-radio4" value="5" type="radio"><span>없음</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" onclick="confirm()" class="btn btn-primary btn-block">완료하기</button>
+      </div>
+    </div>
+
+    <div id="finFailModal" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+            <div class="modal-body tx-center pd-y-20 pd-x-20">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                <h4 id="modalTtl" class="tx-danger  tx-semibold mg-b-20">미응답 문항이 있습니다.</h4>
+                <p id="modalCopy" class="mg-b-20 mg-x-20"></p>
+                <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">뒤로</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="finModal" class="modal fade" data-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <i class="icon ion-ios-checkmark-outline tx-100 tx-primary lh-1 mg-t-20 d-inline-block"></i>
+            <h4 class="tx-primary tx-semibold mg-b-20">응답해 주셔서 감사합니다.</h4>
+            <button onclick="go2path('user_cert')" type="button" class="btn btn-primary tx-11 tx-uppercase pd-y-15 pd-x-40 tx-mont tx-medium mg-b-20" >확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/qvey.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        function confirm(){
+            var qRst = new Array;
+            var nullVal = new Array;
+            var qLeng = $('[id^=q]').length;
+
+            for (var i=0; i<qLeng; i++){
+                var qType = $('#q'+i).attr('name');
+                var mcVal = $('#q'+i+' input:radio:checked').val();
+
+                if(qType=='multi-choice' && mcVal != undefined){
+                    qRst['q'+(i+1)] = $('#q'+i+' input:radio:checked').val();
+                } else if(qType=='multi-choice' && mcVal == undefined){
+                    nullVal['q'+i] = 'q'+(i-1);
+                } else if(qType=='short-form'){
+                    var selectedOpt = $('#q'+i+' .list-group-item.pd-y-14').attr('name');
+                    var ipVal = '';
+                    ipVal = $('#q'+i+' input').val();
+                    switch (selectedOpt){
+                        case 'sfaPhone':
+                            qRst['q'+(i+1)] = ipVal;
+                            if(ipVal=='') {
+                                nullVal['q'+i] = 'q'+(i-1);
+                            }
+                        break;
+/*
+                        case 'sfaAddr':
+
+                        break;
+*/
+                        case 'sfaJumin':
+                            var sfJuminFtVal = $('#q'+i+' input[name^=sf-juminFt]').val();
+                            var sfJuminBkVal = $('#q'+i+' input[name^=sf-juminBk]').val();
+                            qRst['q'+(i+1)] = sfJuminFtVal+'-'+sfJuminBkVal;
+                            if (sfJuminFtVal =='' || sfJuminBkVal == '') {
+                                nullVal['q'+i] = 'q'+(i-1);
+                            }
+                        break;
+
+                        case 'sfaEmail':
+                            qRst['q'+(i+1)] = ipVal;
+                            if(ipVal=='') {
+                                nullVal['q'+i] = 'q'+(i-1);
+                            }
+                        break;
+
+                        case 'sfaDate':
+                            qRst['q'+(i+1)] = ipVal;
+                            if(ipVal=='') {
+                                nullVal['q'+i] = 'q'+(i-1);
+                            }
+                        break;
+
+                        case 'sfaFile':
+                            qRst['q'+(i+1)] = ipVal;
+                            if(ipVal=='') {
+                                nullVal['q'+i] = 'q'+(i-1);
+                            }
+                        break;
+
+                        case 'sfaTxt':
+                            qRst['q'+(i+1)] = ipVal;
+                            if(ipVal=='') {
+                                nullVal['q'+i] = 'q'+(i-1);
+                            }
+                        break;
+                    }
+                }
+            }
+            
+            var nullArr = Object.keys(nullVal);
+            console.log('qRst:', qRst);
+            console.log('nVal:', nullVal);
+            console.log('nullArr:', nullArr);
+            if(nullArr.length != 0){
+                modalOpen('finFailModal');
+                
+                // console.log('nullVal:', nullVal);
+                // console.log('nullArr:', nullArr);
+                $.each(nullArr, function(idx, val){
+                    $('#'+val).css('border','2px dotted pink');
+                    
+                });
+                console.log('?');
+            } else {
+                // true
+                console.log(';;');
+                modalOpen('finModal');
+            }
+        }
+    </script>
+  </body>
+</html>

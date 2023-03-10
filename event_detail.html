@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <meta property="og:image" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:secure_url" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <title>Qvey Admin(draft)</title>
+
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+    
+  </head>
+
+  <body>
+
+<!-- ########## START: LEFT PANEL ########## -->
+<div class="br-logo"><a href="">Qvey <i>Admin</i></a></div>
+<div class="br-sideleft sideleft-scrollbar">
+  <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
+  <ul class="br-sideleft-menu kr-font">
+    <li class="br-menu-item">
+      <a href="qvey_admin.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
+        <span class="menu-item-label">발송 및 조회</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+    <li class="br-menu-item">
+      <a href="qvey_event.html" class="br-menu-link active">
+        <i class="menu-item-icon icon ion-ios-gear-outline tx-20"></i>
+        <span class="menu-item-label">이벤트 관리</span>
+      </a><!-- br-menu-link -->
+    </li>
+    <li class="br-menu-item">
+      <a href="qvey_member.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-list-outline tx-24"></i>
+        <span class="menu-item-label">회원 관리</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+    <li class="br-menu-item">
+      <a href="qvey_company.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-world-outline tx-24"></i>
+        <span class="menu-item-label">기업 관리</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+    <li class="br-menu-item">
+      <a href="qvey_log.html" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-timer-outline tx-24"></i>
+        <span class="menu-item-label">로그 관리</span>
+      </a><!-- br-menu-link -->
+    </li><!-- br-menu-item -->
+
+  </ul><!-- br-sideleft-menu -->
+</div><!-- br-sideleft -->
+<!-- ########## END: LEFT PANEL ########## -->
+
+<!-- ########## START: HEAD PANEL ########## -->
+<div class="br-header">
+  <div class="br-header-left">
+    <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+    <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+  </div><!-- br-header-left -->
+  <div class="br-header-right">
+    <nav class="nav">
+      <div class="dropdown">
+        <a href="javascript:void(0);" class="nav-link nav-link-profile" data-toggle="dropdown">
+          <span class="logged-name hidden-md-down">관리자</span>
+          <img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
+          <span class="square-10 bg-success"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-header wd-250">
+          <div class="tx-center">
+            <a href="javascript:void(0);"><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
+            <h6 class="logged-fullname">Sky. L</h6>
+            <p>admin@enmad.com</p>
+            <p>이용가능 금액 : <span class="tx-info">3,000</span>원</p>
+          </div>
+          <hr>
+          <ul class="list-unstyled user-profile-nav">
+            <li><a id="chargeInfo" href="javascript:void(0);"><i class="icon ion-ios-barcode-outline"></i> 요금 충전</a></li>
+            <li><a id="chgPass" href="javascript:void(0);"><i class="icon ion-ios-locked"></i> 비밀번호 변경</a></li>
+            <li><a href="javascript:void(0);"><i class="icon ion-ios-gear"></i> 계정 관리</a></li>
+            <li><a href="index.html"><i class="icon ion-power"></i> 로그 아웃</a></li>
+          </ul>
+        </div><!-- dropdown-menu -->
+      </div><!-- dropdown -->
+    </nav>
+  </div><!-- br-header-right -->
+</div><!-- br-header -->
+<!-- ########## END: HEAD PANEL ########## -->
+
+<!-- ########## START: MAIN PANEL ########## -->
+<div class="br-mainpanel kr-font">
+  <div class="br-pageheader">
+    <nav class="breadcrumb pd-0 mg-0 tx-12">
+      <a class="breadcrumb-item" href="">Qvey Admin</a>
+      <a class="breadcrumb-item" href="">Webpage management</a>
+      <span class="breadcrumb-item active">Unique number management</span>
+    </nav>
+  </div><!-- br-pageheader -->
+  <div class="br-pagetitle">
+    <i class="icon ion-ios-paper-outline"></i>
+    <div>
+      <h4>이벤트 세부 조회</h4>
+      <p class="mg-b-0">생성할 이벤트의 제목, 기간, 인증절차를 선택하여 이벤트 진입시 난수번호인증을 추가해주세요. 범용인증 사용시 인증번호 작성 후 업로드 가능합니다.</p>
+    </div>
+  </div><!-- d-flex -->
+  <div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="form-layout form-layout-7">
+          <h6 class="br-section-label">이벤트 옵션 설정</h6>
+          <p class="br-section-text">해당 이벤트의 이벤트명, 진행기간, 회원명, 개인 인증 여부 등을 설정할 수 있습니다.</p>
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    이벤트명
+                </div><!-- col-4 -->
+                <div class="col-7 col-sm-8">
+                    <input class="form-control" type="text" name="fullname" placeholder="입력란" value="자국리그">
+                </div><!-- col-8 -->
+            </div><!-- row -->
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    진행기간
+                </div><!-- col-4 -->
+                <div class="col-7 col-sm-8">
+                    <input class="form-control" type="text" name="firstname" placeholder="입력란" value="2022-09-26 ~ 2022-12-26">
+                </div><!-- col-8 -->
+            </div><!-- row -->
+            <div class="row no-gutters">
+                <div class="col-5 col-sm-4">
+                    회원명
+                </div><!-- col-4 -->
+                <div class="col-7 col-sm-8">
+                    <input class="form-control" type="text" name="firstname" placeholder="입력란" value="이케르">
+                </div><!-- col-8 -->
+            </div><!-- row -->
+            <div class="row no-gutters mg-b-100">
+                <div class="col-5 col-sm-4">
+                    개인 인증 여부
+                </div><!-- col-4 -->
+                <div id="relativeBox" class="col-7 col-sm-8">
+                  <div class="certi-chk">
+                    <label id="certPhone" class="ckbox d-inline-block mg-r-10"><input checked type="checkbox"><span onclick="chkChg();" id="certPhoneSpan">휴대폰 인증</span></label>
+                    <label id="certComm" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan">범용 인증</span></label>
+                    <label id="certNone" class="ckbox d-inline-block"><input type="checkbox"><span id="certNoneSpan">인증 없음</span></label>
+                  </div>
+                  <div class="certi-file">
+                    <div id="UnivsAuthUpload" onclick="go2path('')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                      <i class="icon ion-ios-upload-outline tx-16 mg-r-4"></i> <span>범용인증 업로드</span>
+                    </div>
+                    <div id="formDownload" onclick="go2path('')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                      <i class="icon ion-ios-download-outline tx-16 mg-r-4"></i> 양식 다운로드
+                    </div>
+                    <div id="certNumMngmt" onclick="openCertMngmt()" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                      <i class="icon ion-ios-folder-outline tx-16 mg-r-4"></i> 인증번호 관리
+                    </div>
+                  </div>
+                </div><!-- col-8 -->
+            </div><!-- row -->
+        </div><!-- form-layout -->
+        <div>
+          <h6 class="br-section-label">이벤트 문항 설정</h6>
+          <p class="br-section-text">해당 이벤트의 질문, 답변의 유형과 파일업로드를 통한 등록 등을 설정합니다.</p>
+          <!-- Question Label -->
+          <hr>
+          <div class="mg-b-10">
+            <h5 class="d-inline">Q</h5><span class="d-inline">uestion</span>&nbsp;<h5 class="d-inline">01</h5>
+          </div>
+          <!-- Question -->
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="d-md-flex">
+                <div id="slWrapper" class="parsley-select wd-100p">
+                  <select class="form-control select2" data-placeholder="질문유형" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" required>
+                    <option label="질문유형"></option>
+                    <option value="객관식">객관식</option>
+                    <option value="주관식">주관식</option>
+                  </select>
+                  <div id="slErrorContainer"></div>
+                </div>
+              </div><!-- d-flex -->
+            </div>
+            <div class="col-lg-9 mg-t-10 mg-lg-t-0">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <label class="ckbox wd-16 mg-b-0">
+                      <input type="checkbox"><span></span>
+                    </label>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="질문을 입력해 주세요.">
+                <button id="regBtn" type="submit" class="btn btn-outline-light mg-l-10">
+                  <i class="icon ion-ios-folder-outline tx-14 "></i>
+                </button>
+              </div>
+            </div>
+          </div><!-- row -->
+          <!-- ##############################
+            주관식
+            ############################## -->
+          <!-- Answer Label -->
+          <div class="mg-b-10 mg-t-20">
+            <h5 class="d-inline">A</h5><span class="d-inline">nswer</span>&nbsp;<h5 class="d-inline">01&nbsp;(주관식)</h5>
+          </div>
+          <!-- Answer -->
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="d-md-flex">
+                <div id="slWrapper" class="parsley-select wd-100p">
+                  <select class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper" data-parsley-errors-container="#slErrorContainer" required>
+                    <option label="응답유형"></option>
+                    <option value="객관식">연락처</option>
+                    <option value="주관식">주소</option>
+                    <option value="주관식">주민번호</option>
+                    <option value="주관식">이메일</option>
+                    <option value="주관식">날짜</option>
+                  </select>
+                  <div id="slErrorContainer"></div>
+                </div>
+              </div><!-- d-flex -->
+            </div>
+            <div class="col-lg-9 mg-t-10 mg-lg-t-0">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="">
+              </div>
+            </div>
+          </div><!-- row -->
+          <!-- ##############################
+            객관식
+            ############################## -->
+          <!-- Answer Label -->
+          <div class="mg-b-10 mg-t-20">
+            <h5 class="d-inline">A</h5><span class="d-inline">nswer</span>&nbsp;<h5 class="d-inline">01&nbsp;(객관식)</h5>
+          </div>
+          <!-- Answer -->
+          <div class="row">
+            <div class="col-lg-12 mg-t-10 mg-lg-t-0 flex-row-reverse">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>01</span>
+                </div>
+                <input type="text" class="form-control" placeholder="">
+                <button type="submit" class="btn btn-outline-light mg-l-10">
+                  <i class="icon ion-plus tx-14 "></i>
+                </button>
+              </div>
+            </div>
+          </div><!-- row -->
+          <hr class="mg-t-30 mg-b-60">
+        </div>
+
+        <div class="d-flex align-items-center justify-content-start">
+            <div class="mg-r-auto">
+                <h6 class="br-section-label">QR 코드</h6>
+                <p class="mg-b-0">이벤트 생성시 확정 URL로 자동 생성된 QR코드를 제공하며, 우측 버튼을 통해 미리보기 및 다운로드 가능합니다.</p>
+            </div>
+            <div class="d-flex align-items-center mg-t-10 mg-xs-t-0">
+                <a id="qrView" href="javascript:void(0);" onclick="openQrImg()" class="btn btn-outline-light btn-icon">
+                    <div class="tx-20"><i class="icon ion-ios-search"></i></div>
+                </a>
+                <a id="qrDown" href="img/qrimg.png" class="btn btn-outline-light btn-icon mg-l-5" download type="image">
+                    <div class="tx-20"><i class="icon ion-ios-download-outline"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="tx-right mg-t-60">
+            <a href="qvey_event.html" class="btn btn-secondary pd-x-50">목록</a>
+            <a href="javascript:void(0);" class="btn btn-info pd-x-50">수정</a>
+        </div>
+    </div><!-- br-section-wrapper -->
+  </div><!-- br-pagebody -->
+  <footer class="br-footer">
+    <div class="footer-left">
+      <div class="mg-b-2">Copyright &copy; 2023. SYSCUSS Corp. All rights reserved.</div>
+      <!-- <div>Attentively and carefully made by ThemePixels.</div> -->
+    </div>
+  </footer>
+</div><!-- br-mainpanel -->
+<!-- ########## END: MAIN PANEL ########## -->
+
+
+<!-- ########## START: MODAL ########## -->
+<div id="passModal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="pd-x-30 pd-y-10">
+          <h3 class="tx-inverse  mg-b-5 tx-bold">비밀번호 변경</h3>
+          <p>현재 사용중인 비밀번호와 새 비밀번호를 입력하세요.</p>
+          <br>
+          <div class="form-group">
+            <input type="password" name="crnt-password" class="form-control pd-y-12" placeholder="현재 비밀번호">
+          </div>
+          <div class="form-group">
+            <input type="password" name="new-password" class="form-control pd-y-12" placeholder="새 비밀번호">
+            <!-- <a href="" class="tx-12 d-block mg-t-10">Forgot password?</a> -->
+          </div>
+          <div class="form-group mg-b-20">
+            <input type="password" name="chk-new-password" class="form-control pd-y-12" placeholder="새 비밀번호 확인">
+            <!-- <a href="" class="tx-12 d-block mg-t-10">Forgot password?</a> -->
+          </div>
+
+          <button onclick="passChk()" class="btn btn-info pd-y-12 btn-block">저장</button>
+
+          <div class="mg-t-30 mg-b-20 tx-12"><a class="text-info" href="javascript:void(0);">비밀번호 분실 문의</a></div>
+        </div>
+
+      </div><!-- modal-body -->
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
+<!-- ########## END: MAIN PANEL ########## -->
+
+<!-- ########## START: ALERT ########## -->
+<!-- success -->
+<div id="sucAlert" class="op-0 alert alert-info pos-fixed col-lg-5 col-12 z-index-100" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="d-flex align-items-center justify-content-start">
+    <i class="icon ion-ios-checkmark alert-icon tx-32 mg-t-5 mg-xs-t-0"></i>
+    <span><strong>완료</strong> : 비밀번호가 정상적으로 변경되었습니다.</span>
+  </div><!-- d-flex -->
+</div><!-- alert -->
+<!-- ########## END: ALERT ########## -->
+
+<!-- modal -->
+<div id="authUpload" class="modal fade show" style="padding-right: 17px;">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content bd-0 tx-14">
+      <div class="modal-header pd-x-20">
+        <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">범용인증 업로드</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body pd-20">
+        <p class="mg-b-5">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile"></label>
+          </div>
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium">등록</button>
+        <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div><!-- modal-dialog -->
+</div>
+
+<div id="registQ" class="modal fade show" style="padding-right: 17px;">
+  <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+    <div class="modal-content bd-0 tx-14">
+      <div class="modal-header pd-x-20">
+        <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">문항 등록</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body pd-20">
+        <p class="mg-b-5">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile"></label>
+          </div>
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium">등록</button>
+        <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-medium" data-dismiss="modal">취소</button>
+      </div>
+    </div>
+  </div><!-- modal-dialog -->
+</div>
+
+<!-- charge info -->
+<div id="chargeModal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="tx-danger mg-t-20 tx-semibold mg-b-20">충전 안내</h4>
+        <p id="loginModalCopy" class="mg-b-20 mg-x-20">카드 또는 현금 추가 충전시 고객센터 문의 바랍니다.<br />(고객센터 1633-3614)</p>
+        <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">확인</button>
+      </div>
+    </div>
+  </div>
+</div><!-- modal -->
+<!-- ########## END: MAIN PANEL ########## -->
+<!-- modal -->
+
+<!-- js -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-ui/ui/widgets/datepicker.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="js/qvey.js"></script>
+<script src="js/modal.js"></script>
+<script>
+  function chkChg (){
+    console.log("this: ", this);
+  }
+/*
+  $(document).ready(function(){
+    $('#qrDown').on('click', function(){
+      var qrDownLoad = document.getElementById('qrDown').value;
+      var fileNameA = 'qrimg.png';
+      download(fileNameA, qrDownLoad);
+    });
+  });
+*/
+</script>
+
+  </body>
+</html>

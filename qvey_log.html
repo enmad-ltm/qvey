@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <meta property="og:image" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:secure_url" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+    <title>Qvey Admin(draft)</title>
+
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body>
+
+    <!-- ########## START: LEFT PANEL ########## -->
+    <div class="br-logo"><a href="">Qvey <i>Admin</i> <i class="icon ion-ios-paperplane-outline"></i></a></div>
+    <div class="br-sideleft sideleft-scrollbar">
+      <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
+      <ul class="br-sideleft-menu kr-font">
+        <li class="br-menu-item">
+          <a href="qvey_admin.html" class="br-menu-link">
+            <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
+            <span class="menu-item-label">발송 및 조회</span>
+          </a><!-- br-menu-link -->
+        </li><!-- br-menu-item -->
+        <li class="br-menu-item">
+          <a href="qvey_event.html" class="br-menu-link">
+            <i class="menu-item-icon icon ion-ios-gear-outline tx-20"></i>
+            <span class="menu-item-label">이벤트 관리</span>
+          </a><!-- br-menu-link -->
+        </li>
+        <li class="br-menu-item">
+          <a href="qvey_member.html" class="br-menu-link">
+            <i class="menu-item-icon icon ion-ios-list-outline tx-24"></i>
+            <span class="menu-item-label">회원 관리</span>
+          </a><!-- br-menu-link -->
+        </li><!-- br-menu-item -->
+        <li class="br-menu-item">
+          <a href="qvey_company.html" class="br-menu-link">
+            <i class="menu-item-icon icon ion-ios-world-outline tx-24"></i>
+            <span class="menu-item-label">기업 관리</span>
+          </a><!-- br-menu-link -->
+        </li><!-- br-menu-item -->
+        <li class="br-menu-item">
+          <a href="qvey_log.html" class="br-menu-link active">
+            <i class="menu-item-icon icon ion-ios-timer-outline tx-24"></i>
+            <span class="menu-item-label">로그 관리</span>
+          </a><!-- br-menu-link -->
+        </li><!-- br-menu-item -->
+
+      </ul><!-- br-sideleft-menu -->
+    </div><!-- br-sideleft -->
+    <!-- ########## END: LEFT PANEL ########## -->
+
+<!-- ########## START: HEAD PANEL ########## -->
+<div class="br-header">
+  <div class="br-header-left">
+    <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href=""><i class="icon ion-navicon-round"></i></a></div>
+    <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+  </div><!-- br-header-left -->
+  <div class="br-header-right">
+    <nav class="nav">
+      <div class="dropdown">
+        <a href="javascript:void(0);" class="nav-link nav-link-profile" data-toggle="dropdown">
+          <span class="logged-name hidden-md-down">관리자</span>
+          <img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
+          <span class="square-10 bg-success"></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-header wd-250">
+          <div class="tx-center">
+            <a href="javascript:void(0);"><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
+            <h6 class="logged-fullname">Sky. L</h6>
+            <p>admin@enmad.com</p>
+            <p>이용가능 금액 : <span class="tx-info">3,000</span>원</p>
+          </div>
+          <hr>
+          <ul class="list-unstyled user-profile-nav">
+            <li><a id="chargeInfo" href="javascript:void(0);"><i class="icon ion-ios-barcode-outline"></i> 요금 충전</a></li>
+            <li><a id="chgPass" href="javascript:void(0);"><i class="icon ion-ios-locked"></i> 비밀번호 변경</a></li>
+            <li><a href="javascript:void(0);"><i class="icon ion-ios-gear"></i> 계정 관리</a></li>
+            <li><a href="index.html"><i class="icon ion-power"></i> 로그 아웃</a></li>
+          </ul>
+        </div><!-- dropdown-menu -->
+      </div><!-- dropdown -->
+    </nav>
+  </div><!-- br-header-right -->
+</div><!-- br-header -->
+<!-- ########## END: HEAD PANEL ########## -->
+
+    <!-- ########## START: MAIN PANEL ########## -->
+    <div class="br-mainpanel kr-font">
+      <div class="br-pageheader">
+        <nav class="breadcrumb pd-0 mg-0 tx-12">
+          <a class="breadcrumb-item" href="">Qvey Admin</a>
+          <span class="breadcrumb-item active">Log data management</span>
+        </nav>
+      </div><!-- br-pageheader -->
+      <div class="br-pagetitle">
+        <i class="icon ion-ios-timer-outline"></i>
+        <div>
+          <h4>로그 관리</h4>
+          <p class="mg-b-0">전체 데이터 또는 입력한 조건에 맞는 검색 결과를 다운로드할 수 있습니다. 엑셀 업로드 또는 직접 입력을 통해 신청자 정보를 등록 하며, 체크한 데이터를 삭제할 수 있습니다.</p>
+        </div>
+      </div><!-- d-flex -->
+      <div class="br-pagebody">
+        <div class=" bg-white">
+          <div class="br-section-wrapper">
+            <div class="row pos-relative">
+              <div class="col-lg-2 col-md-6 col-sm-6 pd-r-0">
+                <div class="form-group">
+                  <label class="form-control-label">등록일시</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+                      </div>
+                    </div>
+                    <input id="logDateFt" type="text" class="form-control fc-datepicker" placeholder="YYYY/MM/DD"><p class="dateTilde">~</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-6 col-sm-6">
+                <div class="form-group">
+                  <label class="form-control-label">&nbsp;</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="icon ion-calendar tx-16 lh-0 op-6"></i>
+                      </div>
+                    </div>
+                    <input id="logDateBk" type="text" class="form-control fc-datepicker" placeholder="YYYY/MM/DD">
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-5 col-sm-5">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">검색조건</label>
+                  <select class="form-control select2 select2-hidden-accessible" data-placeholder="select" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <option label="Select"></option>
+                    <option value="logNum">번호</option>
+                    <option value="logId">아이디</option>
+                    <option value="logName">이름</option>
+                    <option value="logAct">활동명</option>
+                    <option value="logMenu">메뉴명</option>
+                    <option value="logCode">코드명</option>
+                    <option value="logRst">결과</option>
+                  </select>
+                  <span class="select2 select2-container select2-container--default select2-container--below" dir="ltr" data-select2-id="2" style="width: 351.984px;">
+                    <span class="selection">
+                      <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-42re-container">
+                        <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                      </span>
+                    </span>
+                    <span class="dropdown-wrapper" aria-hidden="true"></span>
+                  </span>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-5 col-sm-5">
+                <div class="form-group">
+                  <label class="form-control-label">검색어</label>
+                  <input class="form-control" type="text" value="" placeholder="Search">
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="form-group">
+                  <label class="form-control-label">&nbsp;</label>
+                  <button class="btn btn-info wd-100p ">검색</button>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between wd-100p mg-b-10">
+                <div class="d-flex cnt mg-y-20">총 <span class="text-info">123</span>건이 있습니다.</div>
+                <div class="d-flex btn btn-outline-light"><i class="icon ion-ios-download-outline tx-16 mg-r-4"></i>&nbsp;엑셀 내려받기</div>
+              </div>
+              <!-- ######################################################## TABELE ######################################################## -->
+              <div class="bd bd-gray-300 rounded table-responsive applicant-tbl-wrap">
+                <table id="logTbl" class="table table-hover mg-b-0 applicant-tbl">
+                  <thead>
+                    <tr>
+                      <!-- <th><input type="checkbox"></th> -->
+                      <th>번호</th>
+                      <th>아이디</th>
+                      <th>이름</th>
+                      <th>활동명</th>
+                      <th>메뉴명</th>
+                      <th>코드</th>
+                      <th>결과</th>
+                      <th>등록일시</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>1</td><td>travel</td><td>기업관리자</td><td>테스트 이벤트</td><td>발송 및 조회</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>2</td><td>crow</td><td>운영관리자</td><td>테스트 이벤트</td><td>이벤트 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>3</td><td>win97</td><td>운영관리자</td><td>테스트 이벤트</td><td>회원 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>4</td><td>driving24</td><td>기업관리자</td><td>테스트 이벤트</td><td>이벤트 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>5</td><td>star7</td><td>운영관리자</td><td>테스트 이벤트</td><td>기업 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>6</td><td>kbnaldo</td><td>기업관리자</td><td>테스트 이벤트</td><td>로그 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>7</td><td>epl5432</td><td>운영관리자</td><td>테스트 이벤트</td><td>발송 및 조회</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>8</td><td>fconline</td><td>최고관리자</td><td>테스트 이벤트</td><td>이벤트 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>9</td><td>crush</td><td>운영관리자</td><td>테스트 이벤트</td><td>이벤트 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                    <tr><td>10</td><td>enmad</td><td>최고관리자</td><td>테스트 이벤트</td><td>이벤트 관리</td><td>1</td><td>성공</td><td>2022-12-29 11:20:00</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- ######################################################## END ######################################################## -->
+            </div>
+            <div class="ht-80 d-flex align-items-center justify-content-center">
+              <ul class="pagination pagination-circle mg-b-0">
+                <li class="page-item hidden-xs-down">
+                  <a class="page-link" href="#" aria-label="First"><i class="fa fa-angle-double-left"></i></a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous"><i class="fa fa-angle-left"></i></a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item hidden-xs-down"><a class="page-link" href="#">3</a></li>
+                <li class="page-item hidden-xs-down"><a class="page-link" href="#">4</a></li>
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+                <li class="page-item"><a class="page-link" href="#">10</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a>
+                </li>
+                <li class="page-item hidden-xs-down">
+                  <a class="page-link" href="#" aria-label="Last"><i class="fa fa-angle-double-right"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div><!-- br-section-wrapper -->
+        </div>
+      </div>
+
+        
+      <footer class="br-footer">
+        <div class="footer-left">
+          <div class="mg-b-2">Copyright &copy; 2023. SYSCUSS Corp. All rights reserved.</div>
+          <!-- <div>Attentively and carefully made by ThemePixels.</div> -->
+        </div>
+      </footer>
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+    <!-- ########## START: MODAL ########## -->
+    <div id="passModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="pd-x-30 pd-y-10">
+              <h3 class="tx-inverse  mg-b-5 tx-bold">비밀번호 변경</h3>
+              <p>현재 사용중인 비밀번호와 새 비밀번호를 입력하세요.</p>
+              <br>
+              <div class="form-group">
+                <input type="password" name="crnt-password" class="form-control pd-y-12" placeholder="현재 비밀번호">
+              </div>
+              <div class="form-group">
+                <input type="password" name="new-password" class="form-control pd-y-12" placeholder="새 비밀번호">
+                <!-- <a href="" class="tx-12 d-block mg-t-10">Forgot password?</a> -->
+              </div>
+              <div class="form-group mg-b-20">
+                <input type="password" name="chk-new-password" class="form-control pd-y-12" placeholder="새 비밀번호 확인">
+                <!-- <a href="" class="tx-12 d-block mg-t-10">Forgot password?</a> -->
+              </div>
+              <button onclick="passChk()" class="btn btn-info pd-y-12 btn-block">저장</button>
+              <div class="mg-t-30 mg-b-20 tx-12"><a class="text-info" href="javascript:void(0);">비밀번호 분실 문의</a></div>
+            </div>
+          </div><!-- modal-body -->
+        </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- charge info -->
+    <div id="chargeModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="tx-danger mg-t-20 tx-semibold mg-b-20">충전 안내</h4>
+            <p id="loginModalCopy" class="mg-b-20 mg-x-20">카드 또는 현금 추가 충전시 고객센터 문의 바랍니다.<br />(고객센터 1633-3614)</p>
+            <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">확인</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- modal -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/jquery-ui/ui/widgets/datepicker.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/perfect-scrollbar/perfect-scrollbar.min.js"></script> 
+    <script src="js/qvey.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $('#logDateBk, #logDateFt').datepicker({
+          showOtherMonths: true
+        });
+    </script>
+  </body>
+</html>
