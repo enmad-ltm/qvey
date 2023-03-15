@@ -44,7 +44,6 @@ function checkedCheck (e){
             break;
 
         case 'privacyDownAll' :
-            console.log('웨안나와');
             if(confirm('전체 자료 다 받을거에요?')){
                 alert('다받으려면좀걸려요')
                 //받는코드
@@ -52,6 +51,17 @@ function checkedCheck (e){
                 alert('취소됐습니다.');
             }
             break;
+        case 'privacyCkDel' :
+            if(privacyRow) {
+                if(confirm('선택 항목이 삭제됩니다. 계속 하시겠습니까?')){
+                    alert('해당 항목이 삭제 되었습니다(test)');
+                } else {
+                    alert('취소됐습니다.');
+                }
+            } else if(!privacyRow){
+                alert('다운로드할 항목을 체크해주세요');
+            }
+
     }
 }
 
