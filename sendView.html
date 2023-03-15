@@ -274,7 +274,10 @@
   });
   
   // Time Picker
-  $('#reqTime').timepicker();
+  $('#reqTime').timepicker({
+    step: 10,
+    timeFormat: "H:i"
+  });
 </script>
 </body>
 </html>

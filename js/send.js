@@ -18,7 +18,29 @@ $('#linkIn').on('click', function(){
 $('#sendNow, #sendRsv').on('click', function(){
     $('#sendNow').toggleClass("active");
     $('#sendRsv').toggleClass("active");
+
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth()+1;
+    var date = now.getDate();
+    var hr=now.getHours();//시간
+    var min=now.getMinutes();
+
+    var today = String(year)+'-'+String(month)+'-'+String(date);
+
+    var sDate = $('#datepickerNoOfMonths');
+    var sTime = $('#reqTime');
+
+    if($('#sendNow').hasClass('active')){
+        sDate.val(today);
+        sTime.val(String(hr)+":"+String(min));
+    } else if ($('#sendRsv').hasClass('active')){
+        sDate.val('');
+        sTime.val('');
+        sDate.focus();
+    }
 });
+
 
 
 // string length calculation
