@@ -155,9 +155,14 @@ $('#gotoListBtn').on('click', function(){
     totRst['reqNum'] = $('#reqNum').val();
     totRst['reqType'] = $('#sendBtn button.active').val();
 
-    var contTemp = $('#sendCont').val();
-    console.log('contTemp: ',contTemp);
+    
+    if($('#delDuplicateNum').is(':checked')) {
+        totRst['delDuplicateNum'] = 'checked';
+    } else {
+        totRst['delDuplicateNum'] = '';
+    }
 
+    var contTemp = $('#sendCont').val();
     for(var i=0; i<$('#sendTbl input[name="recPhone"').length; i++){
         if($('#sendTbl input[name="recPhone"').eq(i).val() !== '') {
             sendTbls[i] = new Object();
