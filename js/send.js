@@ -75,6 +75,7 @@ function byteCheck(el){
 
 
 // excel copy and paste to view table
+/*
 $(document).ready(function () {
     $('td input').on('paste', null, function(e){
         $txt = $(this);
@@ -109,7 +110,7 @@ $(document).ready(function () {
         });
     });
 });
-
+*/
 
 // replace Charactor
 $('#repCharWrap select[name="repCharOp"]').on("change", function(){
@@ -120,3 +121,43 @@ $('#repCharWrap select[name="repCharOp"]').on("change", function(){
     previewTa.val(crntTaVal+aplyVal);
 });
 
+// submit
+var totRst = new Object();
+var sendTbls = new Object();
+$('#gotoListBtn').on('click', function(){  
+    // console.log('sendViewRst', Object.keys(sendViewRst));
+
+    totRst['sendTtl'] = $('#sendTtl').val();
+    totRst['sendCont'] = new Object();
+    totRst['reqDate'] = $('#datepickerNoOfMonths').val()+' '+$('#reqTime').val();
+    totRst['reqNum'] = $('#reqNum').val();
+    totRst['reqType'] = $('#sendBtn button.active').val();
+
+    var contTemp = $('#sendCont').val();
+    console.log('contTemp: ',contTemp);
+
+    for(var i=0; i<$('#sendTbl input[name="recPhone"').length; i++){
+        if($('#sendTbl input[name="recPhone"').eq(i).val() !== '') {
+            sendTbls[i] = new Object();
+            sendTbls[i]['recPhone'] = $('#sendTbl tbody tr').eq(i).children('td').eq(0).children('input').val();
+            sendTbls[i]['repChar01'] = $('#sendTbl tbody tr').eq(i).children('td').eq(1).children('input').val();
+            sendTbls[i]['repChar02'] = $('#sendTbl tbody tr').eq(i).children('td').eq(2).children('input').val();
+            sendTbls[i]['repChar03'] = $('#sendTbl tbody tr').eq(i).children('td').eq(3).children('input').val();
+            sendTbls[i]['contTxt'] = contTemp.replace(/({대치문자1}|{대치문자2}|{대치문자3})/g, function(word){
+                switch(word){
+                    case "{대치문자1}" : return sendTbls[i]['repChar01'];
+                    case "{대치문자2}" : return sendTbls[i]['repChar02'];
+                    case "{대치문자3}" : return sendTbls[i]['repChar03'];
+                }
+            });
+            
+        }
+    }
+    totRst['sendCont'] = sendTbls;
+    console.log('totRst : ', totRst);
+
+    if (Object.keys(sendTbls) == ''){
+        alert('적용된 항목이 없습니다.');
+        return false;
+    }
+});
