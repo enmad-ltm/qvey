@@ -162,25 +162,25 @@
                   <div class="certi-chk">
                     <div class="col-lg-6 d-inline-block">
                       <label class="rdiobox">
-                        <input name="certi-chk" value="realName" type="radio" checked>
+                        <input name="certi-chk" value="realName" type="radio">
                         <span>실명 인증</span>
                       </label>
                     </div>
                     <div class="col-lg-6 d-inline-block mg-t-10">
                       <label class="rdiobox">
-                        <input name="certi-chk" value="phoneName" type="radio" checked>
+                        <input name="certi-chk" value="phoneName" type="radio">
                         <span>휴대폰 인증</span>
                       </label>
                     </div>
                     <div class="col-lg-6 d-inline-block mg-t-10">
                       <label class="rdiobox">
-                        <input name="certi-chk" value="univCert" type="radio" checked>
+                        <input name="certi-chk" value="pUnivCert" type="radio">
                         <span>범용 인증</span>
                       </label>
                     </div>
                     <div class="col-lg-6 d-inline-block mg-t-10">
                       <label class="rdiobox">
-                        <input name="certi-chk" value="noCert" type="radio" checked>
+                        <input name="certi-chk" value="noCert" type="radio">
                         <span>인증 없음</span>
                       </label>
                     </div>
@@ -190,7 +190,7 @@
                     <label id="certNone" class="ckbox d-inline-block"><input type="checkbox"><span id="certNoneSpan">인증 없음</span></label> -->
                   </div>
                   <div class="certi-file">
-                    <div id="UnivsAuthUpload" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                    <div onclick="modalOpen('authUpload')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
                       <i class="icon ion-ios-upload-outline tx-16 mg-r-4"></i> <span>범용인증 업로드</span>
                     </div>
                     <div id="formDownload" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
@@ -374,17 +374,37 @@
                       </div><!-- col-4 -->
                       <div id="relativeBox2" class="col-7 col-sm-8">
                         <div class="certi-chk">
-                          <label id="certReal2" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan2" title="개인정보 취합시 문자 발송 인원만 응답 허용, 휴대폰 번호 실명 인증">실명 인증</span></label>
-                    <label id="certPhone2" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span onclick="chkChg();" id="certPhoneSpan2" title="발송 휴대폰 번호로 인증 (휴대폰 실명 인증 아님)">휴대폰 인증</span></label>
-                    <label id="certComm2" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan2" title="수동으로 인증번호 입력">범용 인증</span></label>
-                          <label id="certNone2" class="ckbox d-inline-block"><input type="checkbox"><span id="certNoneSpan2">인증 없음</span></label>
-                        </div>
-                        <div class="certi-file">
-                          <div id="UnivsAuthUpload2" onclick="go2path('newEvent')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
-                            <i class="icon ion-ios-upload-outline tx-16 mg-r-4"></i> <span>범용인증 업로드</span>
+                          <div class="col-lg-6 d-inline-block">
+                            <label class="rdiobox">
+                              <input name="certi-chk" value="realName" type="radio">
+                              <span>실명 인증</span>
+                            </label>
                           </div>
-                          <div id="formDownload2" onclick="go2path('newEvent')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
-                            <i class="icon ion-ios-download-outline tx-16 mg-r-4"></i> 양식 다운로드
+                          <div class="col-lg-6 d-inline-block mg-t-10">
+                            <label class="rdiobox">
+                              <input name="certi-chk" value="phoneName" type="radio">
+                              <span>휴대폰 인증</span>
+                            </label>
+                          </div>
+                          <div class="col-lg-6 d-inline-block mg-t-10">
+                            <label class="rdiobox">
+                              <input name="certi-chk" value="sUnivCert" type="radio">
+                              <span>범용 인증</span>
+                            </label>
+                          </div>
+                          <div class="col-lg-6 d-inline-block mg-t-10">
+                            <label class="rdiobox">
+                              <input name="certi-chk" value="noCert" type="radio">
+                              <span>인증 없음</span>
+                            </label>
+                          </div>
+                          <div class="certi-file">
+                            <div onclick="modalOpen('authUpload')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                              <i class="icon ion-ios-upload-outline tx-16 mg-r-4"></i> <span>범용인증 업로드</span>
+                            </div>
+                            <div id="formDownload" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
+                              <i class="icon ion-ios-download-outline tx-16 mg-r-4"></i> 양식 다운로드
+                            </div>
                           </div>
                         </div>
                       </div><!-- col-8 -->

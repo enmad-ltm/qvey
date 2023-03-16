@@ -117,10 +117,6 @@ $('#chargeInfo').on('click', function(){
     $('#chargeModal').modal('show');
 });
 
-$('#UnivsAuthUpload').on('click', function(){
-    $('#authUpload').modal('show');
-});
-
 $('#privacyExcelUp, #surveyExcelUp').on('click', function(){
     $('#excelUpload').modal('show');
 });

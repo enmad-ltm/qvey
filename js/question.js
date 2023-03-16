@@ -58,12 +58,27 @@ $('button[name=regBtn]').on('click', function(){
   }
   ++delCnt;
 });
-$('input[name=certi-chk]').change(function(){
+
+$('input[name^=certi-chk]').change(function(){
+  console.log('qwer');
+  var keyVal = $(this).val();
+  switch(keyVal){
+    case 'pUnivCert':
+      $('#relativeBox .certi-file').addClass('d-block');
+      break;
+    case 'sUnivCert':
+      $('#relativeBox2 .certi-file').addClass('d-block');
+      break;
+    default:
+      $('.certi-file').removeClass('d-block');
+  }
+  /*
   if($(this).val()=='univCert'){
     $('#relativeBox .certi-file').addClass('d-block');
   } else {
     $('#relativeBox .certi-file').removeClass('d-block');
   }
+  */
 });
 
 $('select[name=sfaSelect]').change(function(){
