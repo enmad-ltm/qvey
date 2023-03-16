@@ -24,6 +24,7 @@ function checkedCheck (e){
     // console.log($(e).attr('id'));
     var eID = $(e).attr('id');
     var privacyRow = $('#privacyTbl tbody input:checked').length;
+    var surveyRow = $('#surveyTbl tbody input:checked').length;
     
     console.log('eID: ', eID);
 
@@ -32,6 +33,7 @@ function checkedCheck (e){
             console.log('no id');
             alert('unknown error');
         return false;
+
         case 'privacyCkDown' :
 
             if(privacyRow) {
@@ -43,15 +45,37 @@ function checkedCheck (e){
 
             break;
 
+        case 'surveyCkDown' :
+            if(surveyRow) {
+                // load this data to download
+                alert('다운로드 되었습니다(test)');
+            } else if(!surveyRow){
+                alert('다운로드할 항목을 체크해주세요');
+            }
+
+            break;
+
         case 'privacyDownAll' :
-            if(confirm('전체 자료 다 받을거에요?')){
-                alert('다받으려면좀걸려요')
+
+            if(confirm('전체 자료를 다운 받으시겠습니까?')){
+                alert('전체 자료를 받았습니다(test)')
                 //받는코드
             } else {
                 alert('취소됐습니다.');
             }
             break;
-        case 'privacyCkDel' :
+
+        case 'surveyDownAll' :
+
+            if(confirm('전체 자료를 다운 받으시겠습니까?')){
+                alert('전체 자료를 받았습니다(test)')
+                //받는코드
+            } else {
+                alert('취소됐습니다.');
+            }
+            break;
+
+        case 'privacyCkDel' :        
             if(privacyRow) {
                 if(confirm('선택 항목이 삭제됩니다. 계속 하시겠습니까?')){
                     alert('해당 항목이 삭제 되었습니다(test)');
@@ -62,6 +86,16 @@ function checkedCheck (e){
                 alert('다운로드할 항목을 체크해주세요');
             }
 
+        case 'surveyCkDel' :
+            if(surveyRow) {
+                if(confirm('선택 항목이 삭제됩니다. 계속 하시겠습니까?')){
+                    alert('해당 항목이 삭제 되었습니다(test)');
+                } else {
+                    alert('취소됐습니다.');
+                }
+            } else if(!surveyRow){
+                alert('다운로드할 항목을 체크해주세요');
+            }
     }
 }
 
