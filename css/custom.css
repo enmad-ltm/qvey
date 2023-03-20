@@ -278,6 +278,10 @@ label.rdiobox { margin: 0; }
     background-color: #fafafa;
 }
 
+.tab-pane .br-section-wrapper .form-layout.form-layout-7 textarea {
+    height: 50px;
+}
+
 /* preview card */
 #preview {
     display: none;
