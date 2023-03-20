@@ -123,10 +123,10 @@
     <div class="bg-white show">
       <ul class="nav nav-tabs nav-tabs-style-1 nav-justified tx-13" role="tablist">
         <li class="nav-item">
-          <a class="nav-link pd-y-15 tx-16 active" data-toggle="tab" href="#tabPrivacy" role="tab">개인정보취합</a>
+          <a class="nav-link pd-y-15 tx-16 active" data-toggle="tab" href="#tabPrivacy" role="tab" onclick="resetEvt(this)">개인정보취합</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pd-y-15 tx-16" data-toggle="tab" href="#tabSurvey" role="tab">설문조사</a>
+          <a class="nav-link pd-y-15 tx-16" data-toggle="tab" href="#tabSurvey" role="tab" onclick="resetEvt(this)">설문조사</a>
         </li>
       </ul>
       <div class="tab-content">
@@ -241,8 +241,10 @@
                         <option label="질문유형"></option>
                         <option value="multi-choice">객관식</option>
                         <option value="short-form">주관식</option>
+                        <!--                         
                         <option value="multi-multi-choice">객관식 (Multi-choice Test)</option>
                         <option value="short-form-auto">주관식 (Automation Test)</option>
+                         -->
                       </select>
                       <div id="slErrorContainer"></div>
                     </div>
@@ -300,7 +302,7 @@
                     <div class="input-group" id="groupRelative">
                       <div id="addNum0" class="input-group">
                         <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>No</span>
+                          <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>1</span>
                         </div>
                         <input id="mcIp0" type="text" class="form-control" placeholder="선택 답안을 입력해 주세요.">
                         <button name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="privacy">
@@ -337,10 +339,8 @@
               </div>
             </div>
             <div class="tx-center mg-t-60">
-              <a id="go2List" href="javascript:void(0);" class="btn btn-secondary pd-x-50">목록으로</a>
-              <a id="saveEvt" href="javascript:void(0);" class="btn btn-info pd-x-50">이벤트 저장</a>
-              <!-- <a href="qvey_event.html" class="btn btn-secondary pd-x-50">목록으로</a>
-              <a href="javascript:saveEvt();" class="btn btn-info pd-x-50">이벤트 저장</a> -->
+              <a onclick="modalOpen('go2ListMd')" href="javascript:void(0);" class="btn btn-secondary pd-x-50">목록으로</a>
+              <a id="saveEvt" onclick="modalOpen('saveEvtMd')" href="javascript:void(0);" class="btn btn-info pd-x-50">이벤트 저장</a>
             </div>
           </div>
         </div>
@@ -416,7 +416,7 @@
                     <!-- Question Label -->
                     <hr>
                     <div class="mg-b-10">
-                      <h5 class="d-inline">Q</h5><span class="d-inline">uestion</span>&nbsp;<h5 class="d-inline">01</h5>
+                      <h5>질문</h5>
                     </div>
                     <!-- Question -->
                     <div class="row">
@@ -425,25 +425,17 @@
                           <div id="slWrapper3" class="parsley-select wd-100p">
                             <select name="slWrapperSelect" class="form-control select2" data-placeholder="질문유형" data-parsley-class-handler="#slWrapper3" data-parsley-errors-container="#slErrorContainer" required>
                               <option label="질문유형"></option>
-                              <option value="객관식">객관식</option>
-                              <option value="주관식">주관식</option>
+                              <option value="s-multi-choice">객관식</option>
+                              <option value="s-short-form">주관식</option>
                             </select>
-                            <div id="slErrorContainer"></div>
                           </div>
                         </div><!-- d-flex -->
                       </div>
                       <div class="col-lg-9 mg-t-10 mg-lg-t-0">
                         <div class="input-group">
-                          <div class="input-group-prepend">
-                            <div class="input-group-text">
-                              <label class="ckbox wd-16 mg-b-0">
-                                <input type="checkbox"><span></span>
-                              </label>
-                            </div>
-                          </div>
-                          <input type="text" class="form-control" placeholder="질문을 입력해 주세요.">
-                          <button id="regBtn" name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="survey">
-                            <i class="icon ion-ios-folder-outline tx-14 "></i>
+                          <input id="qIpS" type="text" class="form-control" placeholder="질문을 입력해 주세요.">
+                          <button id="suReqBtn" name="regBtn" type="submit" class="btn btn-outline-info mg-l-10">
+                            <i class="icon ion-ios-checkmark-empty tx-24 "></i>
                           </button>
                         </div>
                       </div>
@@ -452,64 +444,63 @@
                       주관식
                       ############################## -->
                     <!-- Answer Label -->
-                    <div class="mg-b-10 mg-t-20">
-                      <h5 class="d-inline">A</h5><span class="d-inline">nswer</span>&nbsp;<h5 class="d-inline">01&nbsp;(주관식)</h5>
-                    </div>
-                    <!-- Answer -->
-                    <div class="row">
-                      <div class="col-lg-3">
-                        <div class="d-md-flex">
-                          <div id="slWrapper4" class="parsley-select wd-100p">
-                            <select class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper4" data-parsley-errors-container="#slErrorContainer" required>
-                              <option label="응답유형"></option>
-                              <option value="객관식">연락처</option>
-                              <option value="주관식">주소</option>
-                              <option value="주관식">주민번호</option>
-                              <option value="주관식">이메일</option>
-                              <option value="주관식">날짜</option>
-                            </select>
-                            <div id="slErrorContainer"></div>
-                          </div>
-                        </div><!-- d-flex -->
+                    <div id="surveySFA"><!-- ShortForm Answer -->
+                      <div class="mg-b-10 mg-t-20">
+                        <h5>주관식 답안</h5>
                       </div>
-                      <div class="col-lg-9 mg-t-10 mg-lg-t-0">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="">
+                      <!-- Answer -->
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <div class="d-md-flex">
+                            <div id="slWrapper4" class="parsley-select wd-100p">
+                              <select name="sfaSelect" class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper4" data-parsley-errors-container="#slErrorContainer" required>
+                                <option label="응답유형"></option>
+                                <option value="sfaPhone">연락처</option>
+                                <option value="sfaAddr">주소</option>
+                                <option value="sfaJumin">주민번호</option>
+                                <option value="sfaEmail">이메일</option>
+                                <option value="sfaDate">날짜</option>
+                                <option value="sfaFile">파일</option>
+                                <option value="sfaTxt">텍스트</option>
+                              </select>
+                            </div>
+                          </div><!-- d-flex -->
                         </div>
+                      </div><!-- row -->
+                    </div><!-- ShortForm Answer -->
+                      <!-- ##############################
+                        객관식
+                        ############################## -->
+                      <!-- Answer Label -->
+                    <div id="surveyMCA"><!-- Answer -->
+                      <div class="mg-b-10 mg-t-20">
+                        <h5>객관식 답안</h5>
                       </div>
-                    </div><!-- row -->
-                    <!-- ##############################
-                      객관식
-                      ############################## -->
-                    <!-- Answer Label -->
-                    <div class="mg-b-10 mg-t-20">
-                      <h5 class="d-inline">A</h5><span class="d-inline">nswer</span>&nbsp;<h5 class="d-inline">01&nbsp;(객관식)</h5>
-                    </div>
-                    <!-- Answer -->
-                    <div class="row">
-                      <div class="col-lg-12 mg-t-10 mg-lg-t-0 flex-row-reverse">
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>01</span>
+                      <!-- Answer -->
+                      <div class="row">
+                        <div class="col-lg-12 mg-t-10 mg-lg-t-0 flex-row-reverse">
+                          <div class="input-group" id="s-groupRelative">
+                            <div id="addNum0"></div>
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>1</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="">
+                            <button name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="survey">
+                              <i class="icon ion-plus tx-14 "></i>
+                            </button>
                           </div>
-                          <input type="text" class="form-control" placeholder="">
-                          <button type="submit" class="btn btn-outline-light mg-l-10">
-                            <i class="icon ion-plus tx-14 "></i>
-                          </button>
                         </div>
-                      </div>
-                    </div><!-- row -->
-                    <hr class="mg-t-30">
-                  </div>
-                  <div class="tx-center mg-t-60">
-                    <a href="qvey_event.html" class="btn btn-secondary pd-x-50">목록으로</a>
-                    <a href="javascript:saveEvt();" class="btn btn-info pd-x-50">이벤트 저장</a>
+                      </div><!-- row -->
+                    </div>
+                    <div class="tx-center mg-t-60">
+                      <a onclick="modalOpen('go2ListMd')" href="javascript:void(0);" class="btn btn-secondary pd-x-50">목록으로</a>
+                      <a onclick="modalOpen('saveEvtMd')" href="javascript:void(0);" class="btn btn-info pd-x-50">이벤트 저장</a>
+                    </div>
                   </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-  </div>
+          </div>
 
 
 

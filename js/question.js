@@ -3,29 +3,21 @@ function chkChg (){
 }
 var qType = '';
 //var sfaType = '';
-$('select[name=slWrapperSelect]').change(function testASDF(){
-  qType = $('select[name=slWrapperSelect]').val();
+$('select[name=slWrapperSelect]').change(function (){
+  qType = $(this).val();
   console.log('qType:', qType);
   if (qType == 'multi-choice') {
-    $('#qIp').removeClass('d-none');
     $('#privacyMCA').addClass('d-block');
     $('#prReqBtn').addClass('d-block');
     $('#privacySFA').removeClass('d-block');
     $('#prReqBtn').addClass('mg-l-10');
   } else if (qType == 'short-form') {
-    $('#qIp').removeClass('d-none');
     $('#privacyMCA').removeClass('d-block');
     $('#privacySFA').addClass('d-block');
     $('#prReqBtn').addClass('d-block');
     $('#prReqBtn').addClass('mg-l-10');
     $('#privacyMCA .input-group.mg-t-10').remove();
     $('#slWrapper2 option:eq(0)').prop("selected", true);
-  } else if (qType == '') {
-    $('#qIp').removeClass('d-none');
-    $('#privacyMCA').removeClass('d-block');
-    $('#privacySFA').removeClass('d-block');
-    $('#prReqBtn').removeClass('d-block');
-    $('#privacyMCA .input-group.mg-t-10').remove();
   } else if (qType == 'short-form-auto') {
     $('#privacyMCA').removeClass('d-block');
     $('#privacySFA').addClass('d-block');
@@ -33,6 +25,28 @@ $('select[name=slWrapperSelect]').change(function testASDF(){
     $('#qIp').addClass('d-none');
     $('#prReqBtn').removeClass('mg-l-10');
     $('#slWrapper2 option:eq(0)').prop("selected", true);
+  } else if (qType == 's-multi-choice') {
+    $('#surveyMCA').addClass('d-block');
+    $('#suReqBtn').addClass('d-block');
+    $('#surveySFA').removeClass('d-block');
+    $('#suReqBtn').addClass('mg-l-10');
+  } else if (qType == 's-short-form') {
+    $('#surveyMCA').removeClass('d-block');
+    $('#surveySFA').addClass('d-block');
+    $('#suReqBtn').addClass('d-block');
+    $('#suReqBtn').addClass('mg-l-10');
+    $('#surveyMCA .input-group.mg-t-10').remove();
+    $('#slWrapper4 option:eq(0)').prop("selected", true);
+  }
+   else if (qType == '') {
+    $('#privacyMCA').removeClass('d-block');
+    $('#privacySFA').removeClass('d-block');
+    $('#prReqBtn').removeClass('d-block');
+    $('#privacyMCA .input-group.mg-t-10').remove();
+    $('#surveyMCA').removeClass('d-block');
+    $('#surveySFA').removeClass('d-block');
+    $('#suReqBtn').removeClass('d-block');
+    $('#surveyMCA .input-group.mg-t-10').remove();
   }
   $('#prReqBtn').val(qType);
 });
@@ -45,9 +59,9 @@ $('select[name=slWrapperSelect]').change(function testASDF(){
 var delCnt = 1;
 $('button[name=regBtn]').on('click', function(){
   var crtTab = $(this).val();
-  var pushId = ['#privacyMCA', ''];
+  var pushId = ['#privacyMCA', '#surveyMCA'];
   delCnt = $('#groupRelative>div').length;
-  var addHtml = '<div id=addNum'+delCnt+' class="input-group mg-t-10 reset"><div class="input-group-prepend"><span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>No</span></div><input id="mcIp'+delCnt+'" type="text" class="form-control" placeholder="선택 답안을 입력해 주세요."><button onclick="rmvThis(this)" name="minusIp" type="submit" class="btn btn-outline-light mg-l-10"><i class="icon ion-minus tx-14 "></i></button></div>';
+  var addHtml = '<div id=addNum'+delCnt+' class="input-group mg-t-10 reset"><div class="input-group-prepend"><span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>'+(delCnt+1)+'</span></div><input id="mcIp'+delCnt+'" type="text" class="form-control" placeholder="선택 답안을 입력해 주세요."><button onclick="rmvThis(this)" name="minusIp" type="submit" class="btn btn-outline-light mg-l-10"><i class="icon ion-minus tx-14 "></i></button></div>';
 
   console.log('crtTab:',crtTab);
   if(crtTab == 'privacy') {
@@ -55,6 +69,7 @@ $('button[name=regBtn]').on('click', function(){
     $(pushId[0]+' #groupRelative').append(addHtml);
   } else if (crtTab == 'survey'){
     console.log('test survey');
+    $(pushId[1]+' #s-groupRelative').append(addHtml)
   }
   ++delCnt;
 });
@@ -94,14 +109,23 @@ $('select[name=sfaSelect]').change(function(){
 });
 
 function rmvThis (req){
+  var delElId = req.parentNode.id;
+  var primStr = delElId.replace(/[0-9]/g,"");
+  var startNum = delElId.replace(/[^0-9]/g,"");
+  var reLeng = $('#groupRelative>div').length;
+
   req.parentNode.remove();
+
+  // mc-num reset
+  for(var j=startNum; j<reLeng; j++ ){
+    $('#'+primStr+j+' .input-group-text').text(j);
+  }  
 
   // id reset
   $('[id^=addNum]').attr('id','');
   $('[id^=mcIp]').attr('id','');
-
-  console.log('groupRelative>div length: ', $('#groupRelative>div').length);
-  var reLeng = $('#groupRelative>div').length;
+  $('[id^=addNum] .input-group-text').text(' ');
+  
   for( var i=0; i<reLeng; i++ ){
     console.log('i=',i)
     $('#groupRelative>div:nth-child('+(i+1)+')').attr('id','addNum'+i);
@@ -316,13 +340,17 @@ function qRmvReqDel() {
   --reqCnt;
 }
 
-$('#go2List').on('click', function(){
-  $('#go2ListMd').modal('show');
-});
-
-$('#saveEvt').on('click', function(){
-  $('#saveEvtMd').modal('show');
-});
-
-
+// reset question case change tab
+function resetEvt(e) {
+  console.log('this class: ', $(e).attr('class'));
+  if(!$(e).hasClass('active')){
+    $('#preview').css('display','none');
+    $('#collapseOne div').remove();
+    $('#privacySFA').removeClass('d-block');
+    $('#privacyMCA').removeClass('d-block');
+    $('select[name=slWrapperSelect]').val('');
+    $('#qIp').val('');
+    $('#qIpS').val('');
+  }
+}
 

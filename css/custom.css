@@ -249,17 +249,15 @@ ul.nav-tabs-style-1 {
     width: 100px;
     margin-right: 5px;
 }
-#privacyTbl td input[type='text']+button {
 
-}
-#prReqBtn{
+#prReqBtn, #suReqBtn{
     display: none;
 }
-#privacySFA button, #privacyMCA button, #prReqBtn {
+#privacySFA button, #privacyMCA button, #prReqBtn, #suReqBtn {
     padding: 0.15rem 0.75rem;
 }
 
-#privacySFA, #privacyMCA {
+#privacySFA, #privacyMCA, #surveySFA, #surveyMCA {
     display: none;
 }
 
