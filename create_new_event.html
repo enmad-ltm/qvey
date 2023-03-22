@@ -123,10 +123,10 @@
     <div class="bg-white show">
       <ul class="nav nav-tabs nav-tabs-style-1 nav-justified tx-13" role="tablist">
         <li class="nav-item">
-          <a class="nav-link pd-y-15 tx-16 active" data-toggle="tab" href="#tabPrivacy" role="tab" onclick="resetEvt(this)">개인정보취합</a>
+          <a class="nav-link pd-y-15 tx-16 active" data-toggle="tab" href="#tabPrivacy" value="privacy" role="tab" onclick="resetEvt(this)">개인정보취합</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link pd-y-15 tx-16" data-toggle="tab" href="#tabSurvey" role="tab" onclick="resetEvt(this)">설문조사</a>
+          <a class="nav-link pd-y-15 tx-16" data-toggle="tab" href="#tabSurvey" value="survey" role="tab" onclick="resetEvt(this)">설문조사</a>
         </li>
       </ul>
       <div class="tab-content">
@@ -363,12 +363,16 @@
                     <div class="row no-gutters">
                       <div class="col-5 col-sm-4">
                         이벤트명
-                      </div><!-- col-4 -->
+                      </div>
                       <div class="col-7 col-sm-8">
                         <input class="form-control" type="text" name="eventName" placeholder="입력란">
-                      </div><!-- col-8 -->
+                      </div>
                     </div><!-- row -->
                     <div class="row no-gutters">
+                      <!-- 
+                        관리자가 이벤트 생성시 user_index.html의 설명 문구 변경 가능하도록 입력항목 생성
+                        user_index.html => #evtInfo.text()
+                      -->
                       <div class="col-5 col-sm-4">
                         이벤트 설명
                       </div>
@@ -379,10 +383,10 @@
                     <div class="row no-gutters">
                       <div class="col-5 col-sm-4">
                         진행기간
-                      </div><!-- col-4 -->
+                      </div>
                       <div class="col-7 col-sm-8">
                         <input class="form-control" type="text" name="eventDate" placeholder="입력란">
-                      </div><!-- col-8 -->
+                      </div>
                     </div><!-- row -->
                     <div class="row no-gutters mg-b-100">
                       <div class="col-5 col-sm-4">
@@ -450,7 +454,7 @@
                       <div class="col-lg-9 mg-t-10 mg-lg-t-0">
                         <div class="input-group">
                           <input id="qIpS" type="text" class="form-control" placeholder="질문을 입력해 주세요.">
-                          <button id="suReqBtn" name="regBtn" type="submit" class="btn btn-outline-info mg-l-10">
+                          <button id="suReqBtn" value="" onclick="reqAdd(this)" type="submit" class="btn btn-outline-info mg-l-10">
                             <i class="icon ion-ios-checkmark-empty tx-24 "></i>
                           </button>
                         </div>
@@ -469,7 +473,7 @@
                         <div class="col-lg-12">
                           <div class="d-md-flex">
                             <div id="slWrapper4" class="parsley-select wd-100p">
-                              <select name="sfaSelect" class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper4" data-parsley-errors-container="#slErrorContainer" required>
+                              <select name="sfaSelectS" class="form-control select2" data-placeholder="응답유형" data-parsley-class-handler="#slWrapper4" data-parsley-errors-container="#slErrorContainer" required>
                                 <option label="응답유형"></option>
                                 <option value="sfaPhone">연락처</option>
                                 <option value="sfaAddr">주소</option>
@@ -495,18 +499,42 @@
                       <!-- Answer -->
                       <div class="row">
                         <div class="col-lg-12 mg-t-10 mg-lg-t-0 flex-row-reverse">
-                          <div class="input-group" id="s-groupRelative">
-                            <div id="addNum0"></div>
-                            <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>1</span>
+                          <div class="input-group" id="groupRelativeS">
+                            <div id="addNumS0" class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="icon tx-16 lh-0 op-6"></i>1</span>
+                              </div>
+                              <input id="mcIpS0" type="text" class="form-control" placeholder="선택 답안을 입력해 주세요.">
+                              <button name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="survey">
+                                <i class="icon ion-plus tx-14 "></i>
+                              </button>
                             </div>
-                            <input type="text" class="form-control" placeholder="">
-                            <button name="regBtn" type="submit" class="btn btn-outline-light mg-l-10" value="survey">
-                              <i class="icon ion-plus tx-14 "></i>
-                            </button>
                           </div>
                         </div>
                       </div><!-- row -->
+                    </div>
+                    <div id="previewS" class="bg-light mg-t-50 pd-y-50 pd-x-30">
+                      <div id="accordionS" class="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="card">
+                          <div class="card-header" role="tab" id="headingOne">
+                            <h6 class="mg-b-0">
+                              <a onclick="chgIconArrow()" data-toggle="collapse" data-parent="#accordionS" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="tx-gray-800 transition d-flex align-items-center justify-content-center">
+                                <p class="flex-1 mg-0">이벤트 문항 미리보기</p>
+                                <i id="chgIconArrow" class="icon ion-ios-arrow-down lh-0"></i>
+                              </a>
+                            </h6>
+                          </div><!-- card-header -->
+                          <div id="collapseOneS" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                            <!-- test -->
+                            <!-- test -->
+                            <!--
+      
+                            -->
+                            <!-- test -->
+                            <!-- test -->
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="tx-center mg-t-60">
                       <a onclick="modalOpen('go2ListMd')" href="javascript:void(0);" class="btn btn-secondary pd-x-50">목록으로</a>

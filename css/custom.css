@@ -265,7 +265,7 @@ ul.nav-tabs-style-1 {
 
 label.rdiobox { margin: 0; }
 
-#collapseOne .list-group-item, #userCollapse .list-group-item {
+#collapseOne .list-group-item, #userCollapse .list-group-item, #collapseOneS .list-group-item {
     border: 0;
 }
 .accordion .card-header a {
@@ -283,10 +283,10 @@ label.rdiobox { margin: 0; }
 }
 
 /* preview card */
-#preview {
+#preview, #previewS {
     display: none;
 }
-#collapseOne, #userCollapse {
+#collapseOne, #userCollapse, #collapseOneS {
     padding: 20px 0;
 }
 
