@@ -163,8 +163,8 @@ $('#gotoListBtn').on('click', function(){
     }
 
     var contTemp = $('#sendCont').val();
-    for(var i=0; i<$('#sendTbl input[name="recPhone"').length; i++){
-        if($('#sendTbl input[name="recPhone"').eq(i).val() !== '') {
+    for(var i=0; i<$('#sendTbl input[name="recPhone"]').length; i++){
+        if($('#sendTbl input[name="recPhone"]').eq(i).val() !== '') {
             sendTbls[i] = new Object();
             sendTbls[i]['recPhone'] = $('#sendTbl tbody tr').eq(i).children('td').eq(0).children('input').val();
             sendTbls[i]['repChar01'] = $('#sendTbl tbody tr').eq(i).children('td').eq(1).children('input').val();
