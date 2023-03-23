@@ -208,7 +208,7 @@
                   </div>
                 </div>
               </div><!-- row -->
-              <div class="row no-gutters mg-b-100">
+              <div class="row no-gutters">
                 <div class="col-5 col-sm-4">QR 간편인증 사용 여부</div>
                 <div class="col-7 col-sm-8">
                   <div class="col-lg-2 d-inline-block">
@@ -222,6 +222,39 @@
                       <input name="qrUse" type="radio" value="unuse" checked>
                       <span>무</span>
                     </label>
+                  </div>
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters mg-b-100">
+                <div class="col-5 col-sm-4">
+                  이벤트 진행상태
+                </div><!-- col-4 -->
+                <div class="col-7 col-sm-8">
+                  <div class="evt-stat">
+                    <div class="col-lg-6 d-inline-block">
+                      <label class="rdiobox">
+                        <input name="evt-stat" value="A" type="radio" checked>
+                        <span>대기</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 d-inline-block mg-t-10">
+                      <label class="rdiobox">
+                        <input name="evt-stat" value="S" type="radio">
+                        <span>중지</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 d-inline-block mg-t-10">
+                      <label class="rdiobox">
+                        <input name="evt-stat" value="P" type="radio">
+                        <span>진행</span>
+                      </label>
+                    </div>
+                    <div class="col-lg-6 d-inline-block mg-t-10">
+                      <label class="rdiobox">
+                        <input name="evt-stat" value="F" type="radio">
+                        <span>완료</span>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div><!-- row -->
@@ -383,7 +416,7 @@
                         <input class="form-control fc-datepicker" type="text" name="eventDateEd" placeholder="종료일 YYYY-MM-DD">
                       </div>
                     </div><!-- row -->
-                    <div class="row no-gutters mg-b-100">
+                    <div class="row no-gutters">
                       <div class="col-5 col-sm-4">
                         개인 인증 여부
                       </div><!-- col-4 -->
@@ -423,6 +456,56 @@
                           </div>
                         </div>
                       </div><!-- col-8 -->
+                    </div><!-- row -->
+                    <div class="row no-gutters">
+                      <div class="col-5 col-sm-4">QR 간편인증 사용 여부</div>
+                      <div class="col-7 col-sm-8">
+                        <div class="col-lg-2 d-inline-block">
+                          <label class="rdiobox">
+                            <input name="qrUseS" type="radio" value="use">
+                            <span>유</span>
+                          </label>
+                        </div>
+                        <div class="col-lg-2 d-inline-block">
+                          <label class="rdiobox">
+                            <input name="qrUseS" type="radio" value="unuse" checked>
+                            <span>무</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row no-gutters mg-b-100">
+                      <div class="col-5 col-sm-4">
+                        이벤트 진행상태
+                      </div><!-- col-4 -->
+                      <div class="col-7 col-sm-8">
+                        <div class="evt-stat-s">
+                          <div class="col-lg-6 d-inline-block">
+                            <label class="rdiobox">
+                              <input name="evt-stat-s" value="A" type="radio" checked>
+                              <span>대기</span>
+                            </label>
+                          </div>
+                          <div class="col-lg-6 d-inline-block mg-t-10">
+                            <label class="rdiobox">
+                              <input name="evt-stat-s" value="S" type="radio">
+                              <span>중지</span>
+                            </label>
+                          </div>
+                          <div class="col-lg-6 d-inline-block mg-t-10">
+                            <label class="rdiobox">
+                              <input name="evt-stat-s" value="P" type="radio">
+                              <span>진행</span>
+                            </label>
+                          </div>
+                          <div class="col-lg-6 d-inline-block mg-t-10">
+                            <label class="rdiobox">
+                              <input name="evt-stat-s" value="F" type="radio">
+                              <span>완료</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
                     </div><!-- row -->
                   </div><!-- form-layout -->
                   <div>
