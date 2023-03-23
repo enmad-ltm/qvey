@@ -159,7 +159,8 @@
                   진행기간
                 </div>
                 <div class="col-7 col-sm-8">
-                  <input class="form-control" type="text" name="eventDate" placeholder="입력란">
+                  <input class="form-control fc-datepicker" type="text" name="eventDateSt" placeholder="시작일 YYYY-MM-DD">
+                  <input class="form-control fc-datepicker" type="text" name="eventDateEd" placeholder="종료일 YYYY-MM-DD">
                 </div>
               </div><!-- row -->
               <div class="row no-gutters">
@@ -210,7 +211,7 @@
               <div class="row no-gutters">
                 <div class="col-5 col-sm-4">이벤트 난수생성</div>
                 <div class="col-7 col-sm-8">
-                  <input class="form-control d-inline-block w-auto" type="number" name="" placeholder="난수 생성 개수">
+                  <input class="form-control d-inline-block w-auto" type="number" name="randomNum" placeholder="난수 생성 개수">
                   <div class="btn btn-outline-light pd-y-10 pd-x-20 mg-md-l-10 mg-t-10 mg-md-t-0 tx-uppercase tx-spacing-2 d-inline-block">생성</div>
                 </div>
               </div><!-- row -->
@@ -219,13 +220,13 @@
                 <div class="col-7 col-sm-8">
                   <div class="col-lg-2 d-inline-block">
                     <label class="rdiobox">
-                      <input name="rdio" type="radio">
+                      <input name="qrUse" type="radio" value="use">
                       <span>유</span>
                     </label>
                   </div>
                   <div class="col-lg-2 d-inline-block">
                     <label class="rdiobox">
-                      <input name="rdio" type="radio" checked>
+                      <input name="qrUse" type="radio" value="unuse" checked>
                       <span>무</span>
                     </label>
                   </div>
@@ -385,7 +386,8 @@
                         진행기간
                       </div>
                       <div class="col-7 col-sm-8">
-                        <input class="form-control" type="text" name="eventDate" placeholder="입력란">
+                        <input class="form-control fc-datepicker" type="text" name="eventDateSt" placeholder="시작일 YYYY-MM-DD">
+                        <input class="form-control fc-datepicker" type="text" name="eventDateEd" placeholder="종료일 YYYY-MM-DD">
                       </div>
                     </div><!-- row -->
                     <div class="row no-gutters mg-b-100">
@@ -518,7 +520,7 @@
                         <div class="card">
                           <div class="card-header" role="tab" id="headingOne">
                             <h6 class="mg-b-0">
-                              <a onclick="chgIconArrow()" data-toggle="collapse" data-parent="#accordionS" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="tx-gray-800 transition d-flex align-items-center justify-content-center">
+                              <a onclick="chgIconArrow()" data-toggle="collapse" data-parent="#accordionS" href="#collapseOneS" aria-expanded="true" aria-controls="collapseOneS" class="tx-gray-800 transition d-flex align-items-center justify-content-center">
                                 <p class="flex-1 mg-0">이벤트 문항 미리보기</p>
                                 <i id="chgIconArrow" class="icon ion-ios-arrow-down lh-0"></i>
                               </a>
@@ -750,5 +752,10 @@
 <script src="js/modal.js"></script>
 <script src="js/common.js"></script>
 <script src="js/question.js"></script>
+<script>
+  $('input[name=eventDateSt], input[name=eventDateEd]').datepicker({
+    showOtherMonths: true,
+  });
+</script>
 </body>
 </html>

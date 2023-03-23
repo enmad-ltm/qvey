@@ -79,7 +79,6 @@ $('button[name=regBtn]').on('click', function(){
 
 
 $('input[name^=certi-chk]').change(function(){
-  console.log('qwer');
   var keyVal = $(this).val();
   switch(keyVal){
     case 'pUnivCert':
@@ -91,17 +90,9 @@ $('input[name^=certi-chk]').change(function(){
     default:
       $('.certi-file').removeClass('d-block');
   }
-  /*
-  if($(this).val()=='univCert'){
-    $('#relativeBox .certi-file').addClass('d-block');
-  } else {
-    $('#relativeBox .certi-file').removeClass('d-block');
-  }
-  */
 });
 
 $('select[name=sfaSelect]').change(function(){
-  // console.log('value: ',$(this).val());
   var crtVal = $('#prReqBtn').val();
   var reqAddVal = new Array();
   
@@ -235,7 +226,7 @@ function reqAdd(req) {
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-phone tx-16 lh-0 op-6"></i></div></div><input name="sf-phone'+(reqCnt+1)+'" id="phoneMask" type="text" class="form-control" placeholder="010-1234-1234" value=""></div></div></div></div>';
         break;
       case 'sfaAddr':
-        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input name="sf-txt'+(reqCnt+1)+'" id="" class="form-control" type="text" placeholder="주소를 입력해 주세요" value=""></div></div></div></div>';
+        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input name="sf-addr'+(reqCnt+1)+'" id="" class="form-control" type="text" placeholder="주소를 입력해 주세요" value=""></div></div></div></div>';
         break;
       case 'sfaJumin':
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input id="" class="form-control mg-x-10" name="sf-juminFt'+(reqCnt+1)+'" maxlength="6" oninput="numMax(this);" type="number" value="" placeholder="890123"><input id="" class="form-control mg-x-10" name="sf-juminBk'+(reqCnt+1)+'" maxlength="7" oninput="numMax(this);" type="password" value="" placeholder="1234567"></div></div></div></div>';
@@ -244,7 +235,7 @@ function reqAdd(req) {
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input name="sf-email'+(reqCnt+1)+'" id="" class="form-control" type="text" placeholder="development@enmad.com" value=""></div></div></div></div>';
         break;
       case 'sfaDate':
-        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-calendar tx-16 lh-0 op-6"></i></div></div><input name="sf-email'+(reqCnt+1)+'" id="dateMask" type="text" class="form-control" placeholder="YYYY/MM/DD"></div></div></div></div>';
+        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-calendar tx-16 lh-0 op-6"></i></div></div><input name="sf-date'+(reqCnt+1)+'" id="dateMask" type="text" class="form-control" placeholder="YYYY/MM/DD"></div></div></div></div>';
         break;
       case 'sfaFile':
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group wd-md-50p mg-0-auto"><div class="custom-file"><input type="file"  id="sfaFile" name="sf-file'+(reqCnt+1)+'" class="custom-file-input"><label class="custom-file-label">파일을 선택해주세요.</label></div></div></div></div></div>';
@@ -338,7 +329,7 @@ function chgIconArrow(){
 
 
 function saveEvt() {
-  
+  // null valid
   if ( (qType == '' || qType == 'multi-choice' || qType == 'short-form') && $('#collapseOne .card-block').length == 0){
     alert('적용된 문항이 없습니다.');
     return false;
@@ -347,15 +338,75 @@ function saveEvt() {
     return false;
   }
   
-
+  // modal
   $('body').prepend('<div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div>');
   $('body').append('<div class="modal-backdrop fade show"></div>');
   $('#saveEvtMd').removeClass('show');
 
+  // result
+  var evtRst = new Object();
+  var evtType = $('#createNewEvt>div>ul a.active').attr('href');
+  var qLeng = $(evtType+' div[id^=q]').length;
+
+  evtRst['crtTab'] = crtTab;
+  evtRst['eventName'] = $(evtType+' input[name="eventName"]').val();
+  evtRst['eventDescript'] = $(evtType+' textarea[name="eventDescript"]').val();
+  evtRst['eventDateSt'] = $(evtType+' input[name="eventDateSt"]').val();
+  evtRst['eventDateEd'] = $(evtType+' input[name="eventDateEd"]').val();
+  evtRst['eventCert'] = $(evtType+' input[name="certi-chk"]:checked').val();
+  evtRst['randomNum'] = $(evtType+' input[name="randomNum"]').val();
+  evtRst['qrUse'] = $(evtType+' input[name="qrUse"]:checked').val();
+  evtRst['questionInfo'] = {};
+  
+  console.log('evtRst: ', evtRst);
+
+  for(var i=0; i<qLeng; i++){
+    var ipName = $('#q'+i+' input').attr('name');
+    var divisKey = ipName.replace(/[0-9]/g,"");
+    var rLeng = $(evtType+' #q'+i+' input[name='+ipName+']').length;
+    evtRst['questionInfo']['q'+i] = {};
+    evtRst['questionInfo']['q'+i]['type'] = divisKey;
+    evtRst['questionInfo']['q'+i][divisKey+'-ttl'] = $(evtType+' #q'+i+' h6').text();
+    switch (divisKey) {
+      case 'question-radio':
+        for(var j=0; j<rLeng; j++){
+          evtRst['questionInfo']['q'+i][divisKey+'-list-'+(j+1)] = $(evtType+' #q'+i+' .rdiobox').eq(j).text();
+        }
+        break;
+      case 'sf-phone':
+        evtRst['questionInfo']['q'+i][divisKey+'-num'] = $(evtType+' #q'+i+' .rdiobox').eq(j).text();
+        break;
+      /*
+      case 'sf-phone':
+        case 'sf-addr':
+          case 'sf-txt':
+            case 'sf-email':
+              case 'sf-date':
+        evtRst['questionInfo']['q'+i] = $(evtType+' #q'+i+' input[name^="'+divisKey+'"]').val();
+        break;
+      
+      case 'sf-juminFt':
+        evtRst['questionInfo']['q'+i] = $(evtType+' #q'+i+' input[name^="sf-juminFt"]').val();
+        evtRst['questionInfo']['q'+i] += '-';
+        evtRst['questionInfo']['q'+i] += $(evtType+' #q'+i+' input[name^="sf-juminBk"]').val();
+        break;
+      
+      case 'sf-file':
+        evtRst['questionInfo']['q'+i] = 'file'; // get file path on
+        break;
+        */
+    }
+  }
+
+  console.log('evtRst: ', evtRst);
+
+  //fin
+  
   setTimeout(function(){
     alert('saved!');
     location.href='qvey_event.html';
   },1000);
+  
 }
 
 
