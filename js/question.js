@@ -354,7 +354,7 @@ function saveEvt() {
   evtRst['eventDateSt'] = $(evtType+' input[name="eventDateSt"]').val();
   evtRst['eventDateEd'] = $(evtType+' input[name="eventDateEd"]').val();
   evtRst['eventCert'] = $(evtType+' input[name="certi-chk"]:checked').val();
-  evtRst['randomNum'] = $(evtType+' input[name="randomNum"]').val();
+  evtRst['eventStatus'] = $(evtType+' input[name="evt-stat"]:checked').val();
   evtRst['qrUse'] = $(evtType+' input[name="qrUse"]:checked').val();
   evtRst['questionInfo'] = {};
   
@@ -365,16 +365,42 @@ function saveEvt() {
     var divisKey = ipName.replace(/[0-9]/g,"");
     var rLeng = $(evtType+' #q'+i+' input[name='+ipName+']').length;
     evtRst['questionInfo']['q'+i] = {};
-    evtRst['questionInfo']['q'+i]['type'] = divisKey;
-    evtRst['questionInfo']['q'+i][divisKey+'-ttl'] = $(evtType+' #q'+i+' h6').text();
+    // evtRst['questionInfo']['q'+i]['type'] = divisKey;
+    evtRst['questionInfo']['q'+i]['qTtl'] = $(evtType+' #q'+i+' h6').text();
     switch (divisKey) {
       case 'question-radio':
+        evtRst['questionInfo']['q'+i]['qType'] = 'MC';
         for(var j=0; j<rLeng; j++){
-          evtRst['questionInfo']['q'+i][divisKey+'-list-'+(j+1)] = $(evtType+' #q'+i+' .rdiobox').eq(j).text();
+          evtRst['questionInfo']['q'+i]['aList'+(j+1)] = $(evtType+' #q'+i+' .rdiobox').eq(j).text();
         }
         break;
       case 'sf-phone':
-        evtRst['questionInfo']['q'+i][divisKey+'-num'] = $(evtType+' #q'+i+' .rdiobox').eq(j).text();
+        evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'CU';
+        break;
+      case 'sf-addr':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'AD';
+        break;
+      case 'sf-txt':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'GE';
+        break;
+      case 'sf-email':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'EM';
+        break;
+      case 'sf-date':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'DE';
+        break;
+      case 'sf-juminFt':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'SO';
+        break;
+      case 'sf-file':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'FE';
         break;
       /*
       case 'sf-phone':
@@ -401,12 +427,12 @@ function saveEvt() {
   console.log('evtRst: ', evtRst);
 
   //fin
-  
+  /*
   setTimeout(function(){
     alert('saved!');
     location.href='qvey_event.html';
   },1000);
-  
+  */
 }
 
 
@@ -457,7 +483,8 @@ function resetEvt(e) {
     $('#preview, #previewS').css('display','none');
     $('#collapseOne div, #collapseOneS div, #groupRelative .reset, #groupRelativeS .reset, #groupRelativeS .reset').remove();
     $('#privacySFA, #surveySFA, #privacyMCA, #surveyMCA').removeClass('d-block');
-    $('select[name=slWrapperSelect], select[name=sfaSelect], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
+    $('select[name=slWrapperSelect], select[name=sfaSelect], input[name=eventName], textarea[name=eventDescript], input[name=eventDateSt], input[name=eventDateEd], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
+    $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked').prop('checked','');
   }
 }
 
