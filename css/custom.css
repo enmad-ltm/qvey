@@ -70,7 +70,7 @@ table#privacyTbl {
     min-width: 1526px;
 }
 table#eventTbl {
-    min-width: 830px;
+    min-width: 1000px;
 }
 table#logTbl {
     min-width: 960px;
@@ -101,6 +101,21 @@ table#logTbl {
     padding: 0.4rem 1rem;
 }
 
+/* send-btn */
+
+.send-btn {
+    cursor: pointer;
+    color: #adb5bd;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #adb5bd;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
 
 /* alert */
 #sucAlert {
