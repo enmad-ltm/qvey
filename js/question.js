@@ -327,7 +327,6 @@ function chgIconArrow(){
   
 }
 
-
 function saveEvt() {
   // null valid
   if ( (qType == '' || qType == 'multi-choice' || qType == 'short-form') && $('#collapseOne .card-block').length == 0){
@@ -338,10 +337,7 @@ function saveEvt() {
     return false;
   }
   
-  // modal
-  $('body').prepend('<div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div>');
-  $('body').append('<div class="modal-backdrop fade show"></div>');
-  $('#saveEvtMd').removeClass('show');
+  spinerModal();
 
   // result
   var evtRst = new Object();

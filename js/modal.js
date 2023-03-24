@@ -127,6 +127,17 @@ function modalOpen (modalId, modTtl, modCopy){
     $('#modalCopy').text(modCopy);
 }
 
+function spinerModal (delId){
+    $('body').prepend('<div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div>');
+    $('body').append('<div class="modal-backdrop fade show"></div>');
+    $('#saveEvtMd').removeClass('show');
+    $('#'+delId).remove();
+    setTimeout(function(){
+        alert('complete!');
+        location.reload();
+    },1000);
+}
+
 //  일시 보류
 // $('#regBtn').on('click', function(){
 //     $('#registQ').modal('show');
