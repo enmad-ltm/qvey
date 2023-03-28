@@ -185,50 +185,161 @@
                 <button class="btn btn-info wd-100p ">검색</button>
               </div>
             </div>
-            <label class="ckbox">
-              <input type="checkbox"><span>정보 미제출자 포함</span>
-            </label>
             <div class="cnt mg-y-20">총 <span class="text-info">123</span>건이 있습니다.</div>
             <!-- ######################################################## TABELE ######################################################## -->
             <div class="bd bd-gray-300 rounded table-responsive applicant-tbl-wrap">
-              <table class="table table-hover mg-b-0 applicant-tbl">
+              <table id="compMem" class="table table-hover mg-b-0 applicant-tbl">
                 <thead>
                   <tr>
                     <th><input type="checkbox"></th>
-                    <th>No</th>
-                    <th>고유번호</th>
-                    <th>당첨자명</th>
+                    <th>번호</th>
+                    <th>아이디</th>
+                    <th>고객사명</th>
+                    <th>담당자명</th>
+                    <th>사업자등록번호</th>
                     <th>전화번호</th>
-                    <th>세금신고자</th>
-                    <th>입금자</th>
-                    <th>주민번호</th>
-                    <th>이메일주소</th>
                     <th>주소</th>
-                    <th>추가1</th>
-                    <th>추가2</th>
-                    <th>등록일</th>
-                    <th>제출일</th>
+                    <th>가입일</th>
+                    <th>회원상태</th>
+                    <th>탈퇴일</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><th scope="row"><input type="checkbox"></th><td>1</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>2</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>3</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>4</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>5</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>6</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>7</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>8</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>9</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
-                  <tr><th scope="row"><input type="checkbox"></th><td>10</td><td>2022092601</td><td>스페인</td><td>01000000001</td><td>이케르</td><td>카시야스</td><td>8906231234567</td><td>asdf@gmail.com</td><td>spain, real madrid</td><td></td><td></td><td>2022-09-26</td><td>2022-09-26</td></tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>1</td>
+                    <td>asdf</td>
+                    <td>real.madrid</td>
+                    <td>카시야스</td>
+                    <td>012345</td>
+                    <td>01000000001</td>
+                    <td>경기도 광명시</td>
+                    <td>2022-09-26</td>
+                    <td>미승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>2</td>
+                    <td>qwer</td>
+                    <td>manutd</td>
+                    <td>데헤아</td>
+                    <td>012345</td>
+                    <td>01000000002</td>
+                    <td>경기도 구리시</td>
+                    <td>2023-01-26</td>
+                    <td>승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>3</td>
+                    <td>zodiac</td>
+                    <td>㈜아이코스</td>
+                    <td>배예린</td>
+                    <td>012345</td>
+                    <td>01000000003</td>
+                    <td>수원특례시</td>
+                    <td>2021-02-21</td>
+                    <td>미승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>4</td>
+                    <td>un1234</td>
+                    <td>용인보건소</td>
+                    <td>하그리브스</td>
+                    <td>012345</td>
+                    <td>01000000004</td>
+                    <td>경기도 용인시</td>
+                    <td>2022-05-23</td>
+                    <td>미승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>5</td>
+                    <td>asroma</td>
+                    <td>㈜바이아웃</td>
+                    <td>오스마르</td>
+                    <td>012345</td>
+                    <td>01000000005</td>
+                    <td>서울시 관악구</td>
+                    <td>2023-02-02</td>
+                    <td>승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>6</td>
+                    <td>pogba</td>
+                    <td>유벤투스</td>
+                    <td>보급병</td>
+                    <td>012345</td>
+                    <td>01000000006</td>
+                    <td>경기도 안양시</td>
+                    <td>2021-09-16</td>
+                    <td>승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>7</td>
+                    <td>david07</td>
+                    <td>zzin.real</td>
+                    <td>배컴</td>
+                    <td>012345</td>
+                    <td>01000000007</td>
+                    <td>경남 마산시</td>
+                    <td>2023-02-26</td>
+                    <td>승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>8</td>
+                    <td>hoomba8</td>
+                    <td>kopp</td>
+                    <td>스티븐</td>
+                    <td>012345</td>
+                    <td>01000000008</td>
+                    <td>경기도 시흥시</td>
+                    <td>2023-02-12</td>
+                    <td>승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>9</td>
+                    <td>toganzi</td>
+                    <td>㈜백마</td>
+                    <td>도래스</td>
+                    <td>012345</td>
+                    <td>01000000009</td>
+                    <td>서울시 강남구</td>
+                    <td>2021-12-26</td>
+                    <td>미승인</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><input type="checkbox"></th>
+                    <td>10</td>
+                    <td>sunny10</td>
+                    <td>㈜레알크크</td>
+                    <td>이재마</td>
+                    <td>012345</td>
+                    <td>01000000010</td>
+                    <td>경기도 광명시</td>
+                    <td>2023-03-26</td>
+                    <td>승인</td>
+                    <td></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
             <!-- ######################################################## END ######################################################## -->
           </form>
-          <div class="ft-right mg-y-20">
-            <p>test</p>
-          </div>
           <div class="ht-150 d-flex align-items-center justify-content-center">
             <ul class="pagination pagination-circle mg-b-0">
               <li class="page-item hidden-xs-down">
@@ -321,5 +432,10 @@
     <script src="js/qvey.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/common.js"></script>
+    <script>
+      $('#compMem tr td').on('click', function(){
+        location.href='qvey_company_detail.html';
+      });
+    </script>
   </body>
 </html>

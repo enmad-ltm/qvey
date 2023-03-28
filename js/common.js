@@ -19,7 +19,7 @@ function numMax(e) {
     }
 }
 
-// 2023-02-24 하다가 퇴근.. checked 가져와야해
+
 function checkedCheck (e){
     // console.log($(e).attr('id'));
     var eID = $(e).attr('id');
@@ -99,3 +99,35 @@ function checkedCheck (e){
     }
 }
 
+function schCust(word) {
+    console.log($(word).val());
+    // word가 포함된 단어로된 고객사가 있을때 printCust()실행 + 해당 기업회원에게 검색된 기업 관리 권한 부여
+
+    var gtLeng = $('.bootstrap-tagsinput .tag').length;
+    const gtid = 'gt'+gtLeng;
+    var relDiv = $('.bootstrap-tagsinput');
+    var groupTag = '<span id="'+gtid+'" class="tag label">'+$(word).val()+'<span onclick="delGroupTag(this)" data-role="remove"></span></span>';
+    if(gtLeng == 0) {
+        relDiv.css('display','block');
+        relDiv.append(groupTag);
+    } else {
+        relDiv.append(groupTag);
+    }
+    $('input[name=custSchIp]').val('');
+}
+
+function delGroupTag (e) {
+    var delEId = e.parentNode.id;
+    dLeng = $('.bootstrap-tagsinput .tag').length;
+    $('#'+delEId).remove();
+    
+    if(dLeng==1){
+        $('.bootstrap-tagsinput').css('display','none');
+    }
+}
+
+function saveCustInfo (){
+    var custInfoForm = $('#custInfo').serialize();
+    console.log('custInfoForm: ',custInfoForm);
+    spinerModal();
+}

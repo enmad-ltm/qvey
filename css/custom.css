@@ -422,6 +422,48 @@ textarea::placeholder {
               transform: scale(1); } 
 }
 
+/* qvey company */
+
+#compMem tr td {
+    cursor: pointer;
+}
+
+select[name='checkAuth'], select[name='memStat'], .sch-comp {
+    border: 1px solid #ced4da!important;
+    padding: 10px!important;
+}
+.sch-comp {
+    padding: 0!important;
+    border-radius: 3px;
+}
+.sch-comp input.form-control {
+    padding-left: 10px;
+}
+
+@media (min-width: 768px) {
+    select[name='checkAuth'], select[name='memStat'], .sch-comp {
+        width: 50%!important;
+    }
+}
+
+.sch-comp button.btn {
+    background-color: #ced4da;
+}
+.sch-comp button.btn i {
+    color: #fff;
+}
+.bootstrap-tagsinput {
+    display: none;
+    padding: 10px;
+}
+.tag.label {
+    background-color: #6c757d;
+    margin-right: 4px;
+}
+.tag.label >span {
+    padding-left: 4px;
+    cursor: pointer;
+}
 
 
 /* ############################## USER ############################## */
