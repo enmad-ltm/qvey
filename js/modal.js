@@ -83,6 +83,10 @@ function openAuth() {
     var popup = window.open('phoneAuth.html', 'check phone auth', 'width=330px,height=440px,scrollbars=yes,top=100%, left=100%');
 }
 
+function openCustSch() {
+    var popup = window.open('customer_serch.html', 'check phone auth', 'width=800px,height=640px,scrollbars=yes,top=100%, left=100%');
+}
+
 
 
 function findAcReq(){

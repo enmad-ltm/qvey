@@ -466,6 +466,15 @@ select[name='checkAuth'], select[name='memStat'], .sch-comp {
 }
 
 
+/* customer serch */
+
+form#rstTbl {
+    max-height: 280px;
+    overflow-y: scroll;
+}
+
+
+
 /* ############################## USER ############################## */
 
 

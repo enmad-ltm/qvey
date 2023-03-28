@@ -130,4 +130,6 @@ function saveCustInfo (){
     var custInfoForm = $('#custInfo').serialize();
     console.log('custInfoForm: ',custInfoForm);
     spinerModal();
+    $('#saveCustInfoMd').remove();
 }
+
