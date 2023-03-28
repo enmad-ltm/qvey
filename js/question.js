@@ -80,16 +80,16 @@ $('button[name=regBtn]').on('click', function(){
 
 $('input[name^=certi-chk]').change(function(){
   var keyVal = $(this).val();
-  switch(keyVal){
-    case 'pUnivCert':
-      $('#relativeBox .certi-file').addClass('d-block');
-      break;
-    case 'sUnivCert':
-      $('#relativeBox2 .certi-file').addClass('d-block');
-      break;
-    default:
-      $('.certi-file').removeClass('d-block');
+  console.log('tab:', crtTab);
+
+  if (keyVal == 'GA' && crtTab == 'privacy') {
+    $('#relativeBox .certi-file').addClass('d-block');
+  } else if(keyVal == 'GA' && crtTab == 'survey') {
+    $('#relativeBox2 .certi-file').addClass('d-block');
+  } else {
+    $('.certi-file').removeClass('d-block');
   }
+
 });
 
 $('select[name=sfaSelect]').change(function(){
@@ -151,6 +151,8 @@ function reqAdd(req) {
   
   var mcaTtl = $('#qIp').val();
   var sfaTtl = $('#qIpS').val();
+  var pTabQType = $('#slWrapper select').val();
+  var sTabQType = $('#slWrapper3 select').val();
   
   console.log('reqType: ', reqType);
 
@@ -165,14 +167,18 @@ function reqAdd(req) {
   var mcaPreviewB = '';
   var mcaPreviewC = '</div></div></div>';
 
-
-  if ($('#slWrapper select').val() !='' && mcaTtl == '') {
-    alert('질문을 입력해주세요');
+  if ((pTabQType =='' && crtTab=='privacy') || (sTabQType =='' && crtTab =='survey') ){
+    alert('질문 유형을 선택해주세요.');
     return false;
   }
 
-  if ($('#slWrapper3 select').val() !='' && sfaTtl == '') {
-    alert('질문을 입력해주세요');
+  if ( (pTabQType == 'multi-choice' || pTabQType == 'short-form') && mcaTtl == '') {
+    alert('질문 내용을 입력해주세요');
+    return false;
+  }
+
+  if ( (sTabQType == 's-multi-choice' || sTabQType == 's-short-form') && sfaTtl == '') {
+    alert('질문 내용을 입력해주세요');
     return false;
   }
 
@@ -327,8 +333,23 @@ function chgIconArrow(){
   
 }
 
+function modEvt() {
+  qType = 'event-detail';
+  /*
+  변경 전과 비교해서 똑같으면 {
+  alert('변경내용이 없습니다.');
+  return false;
+  } 안똑같으면 저장,
+  비교대상 : 1.이벤트 옵션, 2.문항 (변경/삭제)
+  */
+  saveEvt();
+  
+
+}
+
 function saveEvt() {
   // null valid
+  console.log('qtype:',qType);
   if ( (qType == '' || qType == 'multi-choice' || qType == 'short-form') && $('#collapseOne .card-block').length == 0){
     alert('적용된 문항이 없습니다.');
     return false;
@@ -340,9 +361,17 @@ function saveEvt() {
   spinerModal();
 
   // result
+
+  if (qType == 'event-detail'){
+    var evtType = '.br-pagebody';
+  } else {
+    var evtType = $('#createNewEvt>div>ul a.active').attr('href');
+  }
   var evtRst = new Object();
-  var evtType = $('#createNewEvt>div>ul a.active').attr('href');
   var qLeng = $(evtType+' div[id^=q]').length;
+
+  console.log('test qLeng: ', qLeng);
+  console.log('test evtType: ', evtType);
 
   evtRst['crtTab'] = crtTab;
   evtRst['eventName'] = $(evtType+' input[name="eventName"]').val();
@@ -360,6 +389,7 @@ function saveEvt() {
     var ipName = $('#q'+i+' input').attr('name');
     var divisKey = ipName.replace(/[0-9]/g,"");
     var rLeng = $(evtType+' #q'+i+' input[name='+ipName+']').length;
+    
     evtRst['questionInfo']['q'+i] = {};
     // evtRst['questionInfo']['q'+i]['type'] = divisKey;
     evtRst['questionInfo']['q'+i]['qTtl'] = $(evtType+' #q'+i+' h6').text();
@@ -398,25 +428,6 @@ function saveEvt() {
         evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
         evtRst['questionInfo']['q'+i]['dtType'] = 'FE';
         break;
-      /*
-      case 'sf-phone':
-        case 'sf-addr':
-          case 'sf-txt':
-            case 'sf-email':
-              case 'sf-date':
-        evtRst['questionInfo']['q'+i] = $(evtType+' #q'+i+' input[name^="'+divisKey+'"]').val();
-        break;
-      
-      case 'sf-juminFt':
-        evtRst['questionInfo']['q'+i] = $(evtType+' #q'+i+' input[name^="sf-juminFt"]').val();
-        evtRst['questionInfo']['q'+i] += '-';
-        evtRst['questionInfo']['q'+i] += $(evtType+' #q'+i+' input[name^="sf-juminBk"]').val();
-        break;
-      
-      case 'sf-file':
-        evtRst['questionInfo']['q'+i] = 'file'; // get file path on
-        break;
-        */
     }
   }
 
@@ -436,6 +447,10 @@ var delId = '';
 function qRmvReq(reqDelId) {
   delId = reqDelId;
   $('#delConfirmMd').modal('show');
+}
+
+function delIdReset(){
+  delId = '';
 }
 
 function qRmvReqDel() {
