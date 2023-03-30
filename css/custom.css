@@ -119,8 +119,16 @@ table#logTbl {
 
 /* alert */
 #sucAlert {
+    opacity: 0;
     bottom: 0;
     right: 1%;
+}
+
+img.qr-img:hover {
+    cursor: pointer;
+    border: 2px solid #17A2B8 inset;
+    box-sizing: border-box;
+    opacity: 0.5;
 }
 
 /* create new event */
@@ -128,7 +136,6 @@ table#logTbl {
     position: relative;
     right: 0;
 }
-
 @media (min-width: 992px) {
     #eventCreate {
         justify-content: center;

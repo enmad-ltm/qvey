@@ -211,6 +211,13 @@
             </div>
           </div>
         </div><!-- row -->
+        <div class="row no-gutters">
+          <div class="col-5 col-sm-4">QR 이미지</div>
+          <div class="col-7 col-sm-8">
+            <img onclick="qrUrlCopy()" src="img/qrimg.png" class="qr-img" title="URL 복사" alt="">
+            <input class="d-block bd-0" type="text" id="qrImg"  value="(URL) img/qrimg.png">
+          </div>
+        </div><!-- row -->
         <div class="row no-gutters mg-b-100">
           <div class="col-5 col-sm-4">
             이벤트 진행상태
@@ -577,13 +584,14 @@
 
 <!-- ########## START: ALERT ########## -->
 <!-- success -->
-<div id="sucAlert" class="op-0 alert alert-info pos-fixed col-lg-5 col-12 z-index-100" role="alert">
+<div id="sucAlert" class="alert alert-info pos-fixed col-lg-5 col-12 z-index-100" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
   <div class="d-flex align-items-center justify-content-start">
     <i class="icon ion-ios-checkmark alert-icon tx-32 mg-t-5 mg-xs-t-0"></i>
-    <span><strong>완료</strong> : 비밀번호가 정상적으로 변경되었습니다.</span>
+    <strong>완료</strong>
+    <span class="alert-msg"> : 비밀번호가 정상적으로 변경되었습니다.</span>
   </div><!-- d-flex -->
 </div><!-- alert -->
 <!-- ########## END: ALERT ########## -->

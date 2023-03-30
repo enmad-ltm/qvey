@@ -45,12 +45,16 @@ function findAcc(type){
 }
 
 
-function alertShow() {
-    console.log('r u in!');
+function alertShow(msg) {
+    $('#sucAlert .alert-msg').text(msg);
     $('#sucAlert').removeClass('op-0');
-    $('#sucAlert').addClass('fadeInUp_');
+    $('#sucAlert').addClass('opacity-1');
 }
 
+function alertNone(){
+    $('#sucAlert').removeClass('opacity-1');
+    $('#sucAlert').addClass('op-0');
+}
 
 function passChk(){
     var curPass = $('input[name=crnt-password]').val();

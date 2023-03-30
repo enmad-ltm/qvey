@@ -132,3 +132,15 @@ function saveCustInfo (){
     spinerModal();
     $('#saveCustInfoMd').remove();
 }
+
+function qrUrlCopy () {
+    var copyText = document.getElementById('qrImg');
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    
+    alertShow(' : QR 이미지 주소가 복사되었습니다.');
+    setTimeout(function(){
+        alertNone();
+    },2000);
+}
