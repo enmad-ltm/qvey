@@ -48,11 +48,11 @@ function findAcc(type){
 function alertShow(msg) {
     $('#sucAlert .alert-msg').text(msg);
     $('#sucAlert').removeClass('op-0');
-    $('#sucAlert').addClass('opacity-1');
+    $('#sucAlert').addClass('op-8-force');
 }
 
 function alertNone(){
-    $('#sucAlert').removeClass('opacity-1');
+    $('#sucAlert').removeClass('op-8-force');
     $('#sucAlert').addClass('op-0');
 }
 
