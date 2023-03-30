@@ -132,4 +132,3 @@ function saveCustInfo (){
     spinerModal();
     $('#saveCustInfoMd').remove();
 }
-
