@@ -13116,7 +13116,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::
   display: flex;
   align-items: center;
   z-index: 1030;
-  transition: all 0.2s ease-in-out; }
+  /* transition: all 0.2s ease-in-out; */ }
   @media screen and (prefers-reduced-motion: reduce) {
     .br-logo {
       transition: none; } }
@@ -13135,7 +13135,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::
       font-weight: 300;
       color: #1CAF9A;
       display: inline-block;
-      transition: all 0.2s ease-in-out; }
+      /*transition: all 0.2s ease-in-out;*/ }
       @media screen and (prefers-reduced-motion: reduce) {
         .br-logo > a span {
           transition: none; } }
@@ -13162,7 +13162,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::
 .br-sideleft-menu {
   padding: 0;
   margin: 0;
-  transition: all 0.2s ease-in-out; }
+  /*transition: all 0.2s ease-in-out; */}
   @media screen and (prefers-reduced-motion: reduce) {
     .br-sideleft-menu {
       transition: none; } }
@@ -13182,7 +13182,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::
   font-size: 14px;
   position: relative;
   border-radius: 2px;
-  transition: all 0.2s ease-in-out; }
+  /*transition: all 0.2s ease-in-out;*/ }
   @media screen and (prefers-reduced-motion: reduce) {
     .br-menu-link {
       transition: none; } }
