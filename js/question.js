@@ -158,10 +158,10 @@ function reqAdd(req) {
 
   if (qType == 'multi-choice' || qType == 'short-form') {
     var qNum = $('#collapseOne .card-block').length +1;
-    var mcaPreviewA = '<div id="q'+reqCnt+'" class="card-block" name="'+qType+'"><div class="col-md-12 mg-y-10"><div class="list-group pd-b-20"><div class="list-group-item"><div class="media justify-content-center align-items-center"><div class="media-body"><h6 class="tx-inverse mg-0"><span class="pre-ttl-num">'+qNum+'.&nbsp;</span>'+mcaTtl+'</h6></div><i onclick="qRmvReq('+"'q"+(qNum - 1)+"'"+');" class="icon ion-ios-close-empty tx-28 mg-l-20 question-set"></i></div></div>';
+    var mcaPreviewA = '<div id="q'+(qNum - 1)+'" class="card-block" name="'+qType+'"><div class="col-md-12 mg-y-10"><div class="list-group pd-b-20"><div class="list-group-item"><div class="media justify-content-center align-items-center"><div class="media-body"><h6 class="tx-inverse mg-0"><span class="pre-ttl-num">'+qNum+'.&nbsp;</span>'+mcaTtl+'</h6></div><i onclick="qRmvReq('+"'q"+(qNum - 1)+"'"+');" class="icon ion-ios-close-empty tx-28 mg-l-20 question-set"></i></div></div>';
   } else if (qType == 's-multi-choice' || qType == 's-short-form') {
     var qNum = $('#collapseOneS .card-block').length +1;
-    var mcaPreviewA = '<div id="q'+reqCnt+'" class="card-block" name="'+qType+'"><div class="col-md-12 mg-y-10"><div class="list-group pd-b-20"><div class="list-group-item"><div class="media justify-content-center align-items-center"><div class="media-body"><h6 class="tx-inverse mg-0"><span class="pre-ttl-num">'+qNum+'.&nbsp;</span>'+sfaTtl+'</h6></div><i onclick="qRmvReq('+"'q"+(qNum - 1)+"'"+');" class="icon ion-ios-close-empty tx-28 mg-l-20 question-set"></i></div></div>';
+    var mcaPreviewA = '<div id="q'+(qNum - 1)+'" class="card-block" name="'+qType+'"><div class="col-md-12 mg-y-10"><div class="list-group pd-b-20"><div class="list-group-item"><div class="media justify-content-center align-items-center"><div class="media-body"><h6 class="tx-inverse mg-0"><span class="pre-ttl-num">'+qNum+'.&nbsp;</span>'+sfaTtl+'</h6></div><i onclick="qRmvReq('+"'q"+(qNum - 1)+"'"+');" class="icon ion-ios-close-empty tx-28 mg-l-20 question-set"></i></div></div>';
   }
   
   var mcaPreviewB = '';
