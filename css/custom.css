@@ -586,3 +586,6 @@ form#rstTbl {
 #stBtn button:hover {
     cursor: pointer;
 }
+table#histTbl {
+    min-width: 1000px;
+}
