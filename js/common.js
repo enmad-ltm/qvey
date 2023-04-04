@@ -169,10 +169,10 @@ function joinStatPrint (stVal){
     // 가입상태 표기(statVal) 에 따라 ui에 회원상태 출력
     var appendPoint = $('#stBtn');
     var statBtn = {};
-      statBtn.sbMs = '<button class="btn btn-danger disabled">미승인 회원</button>';
-      statBtn.sbSi = '<button class="btn btn-info disabled">승인 회원</button>';
-      statBtn.sbBr = '<button class="btn btn-purple disabled">보류 회원</button>';
-      statBtn.sbTt = '<button class="btn btn-secondary disabled">탈퇴 회원</button>';
+      statBtn.sbMs = '<button onclick="movLink(\'memStat\')" class="btn btn-danger disabled">미승인 회원</button>';
+      statBtn.sbSi = '<button onclick="movLink(\'memStat\')" class="btn btn-info disabled">승인 회원</button>';
+      statBtn.sbBr = '<button onclick="movLink(\'memStat\')" class="btn btn-purple disabled">보류 회원</button>';
+      statBtn.sbTt = '<button onclick="movLink(\'memStat\')" class="btn btn-secondary disabled">탈퇴 회원</button>';
     switch (stVal){
       case 'sbMs':
         appendPoint.append(statBtn.sbMs);

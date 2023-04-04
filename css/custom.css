@@ -583,3 +583,6 @@ form#rstTbl {
     background-color: #9be7ef;
     color: #495057;
 }
+#stBtn button:hover {
+    cursor: pointer;
+}
