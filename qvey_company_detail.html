@@ -112,15 +112,50 @@
           <h4>고객사 상세 조회</h4>
           <p class="mg-b-0">전체 데이터 또는 입력한 조건에 맞는 검색 결과를 다운로드할 수 있습니다. 엑셀 업로드 또는 직접 입력을 통해 신청자 정보를 등록 하며, 체크한 데이터를 삭제할 수 있습니다.</p>
         </div>
-      </div><!-- d-flex -->
+      </div>
+
+      <div class="card widget-4 compdt-wd">
+        <div class="card-header">
+          <div id="stBtn" class="hidden-xs-down"></div>
+          <div class="tx-24 hidden-xss-down">
+            <a href=""><i class="icon ion-more"></i></a>
+          </div>
+        </div><!-- card-header -->
+        <div id="detailTop" class="card-body">
+          <div class="card-profile-img">
+            <img src="https://via.placeholder.com/500" alt="">
+          </div><!-- card-profile-img -->
+          <h4 class="tx-normal tx-roboto tx-inverse"></h4>
+          <p class="mg-b-25"><span class="compId"></span> / <span class="mngEmail"></span></p>
+          <p class="wd-md-500 mg-md-l-auto mg-md-r-auto mg-b-30">고객사 : <span class="custList"></span>&nbsp;<a href="javascript:void(0)" onclick="movLink('custSchIp')">[수정]</a></p>
+          <div class="row">
+            <div class="col-6 tx-right pd-r-20">
+              <small class="tx-10 tx-mont tx-uppercase tx-medium">현재 사용 가능 금액</small>
+              <h1 class="tx-24 tx-bold tx-lato d-block tx-gray-800 hover-info">&#8361; <span class="balance">3,000</span></h1>
+            </div>
+            <div class="col-6 tx-left pd-l-20 d-flex align-items-center">
+              <a class="cBtn" href="#chargeAmount"><button onclick="" class="btn btn-outline-info">금액 충전</button></a>
+            </div>
+          </div>
+        </div><!-- card-body -->
+        <div class="card-footer tx-14 d-sm-flex justify-content-sm-center">
+          <nav class="nav nav-inline flex-column flex-sm-row">
+            <a href="javascript:void(0)" onclick="movLink('passReset')" class="nav-link">#패스워드_초기화</a>
+            <a href="javascript:void(0)" onclick="movLink('checkAuth')" class="nav-link">#회원권한_설정</a>
+            <a href="javascript:void(0)" onclick="movLink('custSchIp')" class="nav-link">#고객사_수정</a>
+            <a href="javascript:void(0)" onclick="movLink('memStat')" class="nav-link">#회원상태_변경</a>
+          </nav>
+        </div><!-- card-footer -->
+      </div>
+
       <div class="br-pagebody">
         <div class="br-section-wrapper">
             <form id="custInfo" class="form-layout form-layout-7">
                 <h6 class="br-section-label">기업회원 관리</h6>
-                <p class="br-section-text">해당 이벤트의 이벤트명, 진행기간, 개인 인증 여부 등을 설정할 수 있습니다.</p>
+                <p class="br-section-text mg-b-30">해당 이벤트의 이벤트명, 진행기간, 개인 인증 여부 등을 설정할 수 있습니다.</p>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">아이디</div>
-                    <div class="col-7 col-sm-8"><input class="form-control" type="text" name="compId" placeholder="입력란" value="ㅇㅇ"></div>
+                    <div class="col-7 col-sm-8"><input class="form-control" type="text" name="compId" placeholder="입력란" value="compId"></div>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">사업자명</div>
@@ -140,7 +175,7 @@
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">담당자명</div>
-                    <div class="col-7 col-sm-8"><input class="form-control" type="text" name="mngName" placeholder="입력란" value="¿표믕롬"></div>
+                    <div class="col-7 col-sm-8"><input class="form-control" type="text" name="mngName" placeholder="입력란" value="David Beckham"></div>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">담당자연락처</div>
@@ -148,20 +183,20 @@
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">이메일</div>
-                    <div class="col-7 col-sm-8"><input class="form-control" type="text" name="mngEmail" placeholder="입력란" value="asdf@email.com"></div>
+                    <div class="col-7 col-sm-8"><input class="form-control" type="text" name="mngEmail" placeholder="입력란" value="mailAddr@email.com"></div>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">비밀번호 초기화</div>
                     <div class="col-7 col-sm-8">
                         <div class="certi-file d-block">
-                            <div onclick="" class="btn btn-outline-light col-xl-3 col-md-4">비밀번호초기화</div>
+                            <div id="passReset" name="passReset" onclick="" class="btn btn-outline-light col-xl-3 col-md-4">비밀번호초기화</div>
                         </div>
                     </div>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">권한</div>
                     <div class="col-7 col-sm-8">
-                        <select name="checkAuth" id="" class="form-control select2">
+                        <select name="checkAuth" id="checkAuth" class="form-control select2">
                             <option label="권한유형"></option>
                             <option value="adminAuth">최고관리자</option>
                             <option value="operAuth">운영관리자</option>
@@ -176,17 +211,19 @@
                             <div class="input-group-append">
                               <button name="schCustBtn" class="btn" type="button" onclick="openCustSch()"><i class="fa fa-search"></i></button>
                             </div>
-                            <input name="custSchIp" type="text" value="" class="form-control" placeholder="고객사 검색" onkeyup="if(window.event.keyCode==13){schCust(this)}">
+                            <input id="custSchIp" name="custSchIp" type="text" value="" class="form-control" placeholder="고객사 검색" onkeyup="if(window.event.keyCode==13){schCust(this)}">
                         </div>
                         <!-- test -->
-                        <div class="bootstrap-tagsinput"></div>
+                        <div class="bootstrap-tagsinput" style="display: block;">
+                          <span id="gt0" class="tag label">네이버<span onclick="delGroupTag(this)" data-role="remove"></span></span><span id="gt1" class="tag label">카카오<span onclick="delGroupTag(this)" data-role="remove"></span></span><span id="gt2" class="tag label">라인<span onclick="delGroupTag(this)" data-role="remove"></span></span><span id="gt3" class="tag label">용감한형제<span onclick="delGroupTag(this)" data-role="remove"></span></span><span id="gt4" class="tag label">쿠팡<span onclick="delGroupTag(this)" data-role="remove"></span></span><span id="gt5" class="tag label">당근<span onclick="delGroupTag(this)" data-role="remove"></span></span><span id="gt6" class="tag label">토스<span onclick="delGroupTag(this)" data-role="remove"></span></span>
+                        </div>
                         <!-- test -->
                     </div>
                 </div>
                 <div class="row no-gutters">
                     <div class="col-5 col-sm-4">회원상태</div>
                     <div class="col-7 col-sm-8">
-                        <select name="memStat" id="" class="form-control select2">
+                        <select name="memStat" id="memStat" class="form-control select2">
                             <option value="1">미승인</option>
                             <option value="3">승인</option>
                             <option value="3">보류</option>
@@ -194,17 +231,134 @@
                         </select>
                     </div>
                 </div>
-                <div class="tx-center mg-t-30">
-                    <a href="javascript:history.back();" class="btn btn-secondary pd-x-50">이전으로</a>
-                    <a onclick="modalOpen('saveCustInfoMd')" href="javascript:void(0);" class="btn btn-info pd-x-50">저장</a>
+                <div class="tx-center mg-t-60">
+                  <a href="javascript:history.back();" class="btn btn-secondary pd-x-50">이전으로</a>
+                  <a onclick="modalOpen('saveCustInfoMd')" href="javascript:void(0);" class="btn btn-info pd-x-50">저장</a>
                 </div>
             </form><!-- form -->
         </div>
-        <footer class="br-footer">
-            <div class="footer-left">
-              <div class="mg-b-2">Copyright &copy; 2023. SYSCUSS Corp. All rights reserved.</div>
+
+        <div class="br-section-wrapper mg-t-30">
+          <form id="chargeAmount" class="mg-y-30">
+            <h6 class="br-section-label">금액 충전</h6>
+            <p class="br-section-text mg-b-30">요금 충전 탭에서 현재 잔액을 확인하고 기업회원의 요금을 충전할 수 있습니다.</p>
+      
+            <div class="row">
+              <div class="col-lg card-wrap">
+                <div class="card wd-100p">
+                  <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#sectA" role="tab">요금 충전</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#sectB" role="tab">사용 이력</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#sectC" role="tab">수수료</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="card-body tab-content color-gray-lighter">
+                    <div class="tab-pane pd-x-20 active" id="sectA" role="tabpanel">
+                      <div class="card-title">충전 정보</div>
+                      <div class="form-group">
+                        <label class="form-control-label mg-r-10">사용 구분 : </label>
+                        <label class="rdiobox d-inline-block">
+                          <input name="chargeType" value="plus" type="radio" checked="">&nbsp;충전
+                          <span></span>
+                        </label>
+                        <label class="rdiobox d-inline-block mg-xs-l-20">
+                          <input name="chargeType" value="minus" type="radio">&nbsp;차감
+                          <span></span>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-control-label">사용 금액</label>
+                        <input type="text" name="cardno" class="form-control">
+                      </div>
+      
+                      <div class="form-group">
+                        <label class="form-control-label">사용 내용</label>
+                        <input type="text" name="cardname" class="form-control">
+                      </div>
+                      <div class="">
+                        <a onclick="modalOpen('amountMd')" href="javascript:void(0);" class="btn btn-info pd-x-50 mg-y-20">요청</a>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="sectB" role="tabpanel">
+                      <form class="rounded table-responsive applicant-tbl-wrap mg-y-10">
+                        <table id="histTbl" class="table table-hover mg-b-0 applicant-tbl">
+                          <thead>
+                            <tr>
+                              <th>번호</th>
+                              <th>사용 일자</th>
+                              <th>사용 내용</th>
+                              <th>사용 구분</th>
+                              <th>사용 금액 (&#8361;)</th>
+                              <th>사용 가능 금액 (&#8361;)</th>
+                              <th>요청자</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>2</td>
+                              <td>2022-09-26</td>
+                              <td>QR이벤트 진행</td>
+                              <td>차감</td>
+                              <td>100</td>
+                              <td>9,900</td>
+                              <td>조세 무리뉴</td>
+                            </tr>
+                            <tr>
+                              <td>1</td>
+                              <td>2022-09-26</td>
+                              <td>QR이벤트 진행</td>
+                              <td>충전</td>
+                              <td>10,000</td>
+                              <td>10,000</td>
+                              <td>조세 무리뉴</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="ht-80 d-flex align-items-center justify-content-center mg-y-10">
+                          <ul class="pagination pagination-circle mg-b-0">
+                            <li class="page-item hidden-xs-down">
+                              <a class="page-link" href="#" aria-label="First"><i class="fa fa-angle-double-left"></i></a>
+                            </li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Previous"><i class="fa fa-angle-left"></i></a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item hidden-xs-down"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item hidden-xs-down"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                            <li class="page-item"><a class="page-link" href="#">10</a></li>
+                            <li class="page-item">
+                              <a class="page-link" href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a>
+                            </li>
+                            <li class="page-item hidden-xs-down">
+                              <a class="page-link" href="#" aria-label="Last"><i class="fa fa-angle-double-right"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="tab-pane" id="sectC" role="tabpanel">
+                      <p>test C</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </footer>
+          </form>
+        </div>
+        <footer class="br-footer">
+          <div class="footer-left">
+            <div class="mg-b-2">Copyright &copy; 2023. SYSCUSS Corp. All rights reserved.</div>
+          </div>
+        </footer>
       </div>
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
@@ -275,6 +429,26 @@
     </div>
   </div>
 
+  <!-- saveCustInfo -->
+<div id="amountMd" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="tx-info tx-semibold mg-y-20">Confirm: 금액 충전/차감</h4>
+        <p id="saveCustInfoCopy" class="mg-b-20 mg-x-20">작성하신 내용으로 요청 하시겠습니까?</p>
+        <input id="delVal" type="hidden" value="">
+        <div class="modal-footer justify-content-center bd-t-0">
+          <button id="" type="button" onclick="amountReq()" class="btn btn-info tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium">확인</button>
+          <button type="button" class="btn btn-light tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium" data-dismiss="modal" aria-label="Close">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ########## END: MAIN PANEL ########## -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/jquery-ui/ui/widgets/datepicker.js"></script>
@@ -284,9 +458,10 @@
     <script src="js/modal.js"></script>
     <script src="js/common.js"></script>
     <script>
-      $('#compMem tr td').on('click', function(){
-        location.href='qvey_company_detail.html';
-      });
+      // ▼ check status Value and joinStatPrint as page load
+      joinStatPrint('sbMs');
+      loadCustList();
+      setCustInfo();
     </script>
   </body>
 </html>

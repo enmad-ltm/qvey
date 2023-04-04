@@ -144,3 +144,74 @@ function qrUrlCopy () {
         alertNone();
     },1500);
 }
+
+function movLink(movSelector){
+
+    var selector = $('#'+movSelector);
+    var scrollValue = selector.offset();
+    //$(selector).scrollTop(scrollValue.top);
+    var objHeight = selector.outerHeight();
+
+    console.log('objHeight:',objHeight);
+    $('html, body').animate({scrollTop : scrollValue.top - (objHeight+180)}, 200);
+
+    // css
+    selector.addClass('bg-point');
+    setTimeout(function(){
+        selector.removeClass('bg-point');
+    },1200);
+    
+}
+
+
+function joinStatPrint (stVal){
+    $('#stBtn').children().remove();
+    // 가입상태 표기(statVal) 에 따라 ui에 회원상태 출력
+    var appendPoint = $('#stBtn');
+    var statBtn = {};
+      statBtn.sbMs = '<button class="btn btn-danger disabled">미승인 회원</button>';
+      statBtn.sbSi = '<button class="btn btn-info disabled">승인 회원</button>';
+      statBtn.sbBr = '<button class="btn btn-purple disabled">보류 회원</button>';
+      statBtn.sbTt = '<button class="btn btn-secondary disabled">탈퇴 회원</button>';
+    switch (stVal){
+      case 'sbMs':
+        appendPoint.append(statBtn.sbMs);
+        break;
+      case 'sbSi':
+        appendPoint.append(statBtn.sbSi);
+        break;
+      case 'sbBr':
+        appendPoint.append(statBtn.sbBr);
+        break;
+      case 'sbTt':
+        appendPoint.append(statBtn.sbTt);
+        break;
+    }
+  }
+
+  function amountReq() {
+    var chargAmountVal = $('#chargeAmount').serialize();
+    console.log('chargAmountVal:',chargAmountVal);
+    alert('console => chargAmountVal 확인'); 
+  }
+
+  function loadCustList() {
+    var regCustLeng = $('[id^=gt]').length;
+    for(var i=0; i<regCustLeng; i++){
+        var custItem ='';
+        custItem = $('#gt'+i).text();
+        $('.custList').append(custItem+' ');
+        console.log('custItem:',custItem);
+    }
+    console.log('regCustLeng:',regCustLeng);
+  }
+
+
+  function setCustInfo() {
+    var custId = $('#custInfo input[name="compId"]').val(),
+        custName = $('#custInfo input[name="mngName"]').val(),
+        custEmail=  $('#custInfo input[name="mngEmail"]').val();
+        $('#detailTop h4.tx-roboto').append(custName);
+        $('#detailTop span.compId').append(custId);
+        $('#detailTop span.mngEmail').append(custEmail);
+  }

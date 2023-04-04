@@ -146,15 +146,3 @@ function spinerModal (delId){
     },1000);
 }
 
-//  일시 보류
-// $('#regBtn').on('click', function(){
-//     $('#registQ').modal('show');
-// });
-
-
-// confirm
-
-// "계속하면 (동작)하겠습니다. (동작)하시겠습니까?"
-// 취소: 머무르기, 확인: 동작 실행
-
-
