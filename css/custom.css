@@ -611,3 +611,36 @@ form#rstTbl {
 table#histTbl {
     min-width: 1000px;
 }
+
+@media (max-width: 479px) {
+    .card-header-tabs {
+        flex-direction: row;
+    }
+    .card-header-tabs .nav-link.active, .card-header-tabs .nav-link.active, .card-header-tabs .nav-link.active:hover {
+        border-bottom-color: #fff;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
+#qveyCompanyDetail .br-pagebody .br-section-wrapper {
+    padding: 40px 34px;
+}
+#qveyCompanyDetail .br-pagebody .br-section-wrapper.mg-t-30 {
+    padding: 40px 46px;
+}
+
+@media (max-width: 575px) {
+    #qveyCompanyDetail .compdt-wd {
+        margin: 20px 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    #qveyCompanyDetail .br-pagebody .br-section-wrapper {
+        padding: 30px 14px;
+    }
+    #qveyCompanyDetail .br-pagebody .br-section-wrapper.mg-t-30 {
+        padding: 30px;
+    }
+}
