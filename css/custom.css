@@ -144,6 +144,11 @@ img.qr-img:hover {
         max-width: 16.66667%;
     }
 }
+@media (max-width: 393px) {
+    #createNewEvt .br-section-wrapper .tx-center a {
+        padding: 10px 30px;
+    }
+}
 
 /* placeholder */
 input::placeholder {
