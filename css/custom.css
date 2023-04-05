@@ -148,7 +148,15 @@ img.qr-img:hover {
     #createNewEvt .br-section-wrapper .tx-center a {
         padding: 10px 30px;
     }
+    [id^="preview"] {
+        padding: 30px 20px;
+    }
 }
+
+/* event detail */
+.qr-img { width: 50%; }
+
+
 
 /* placeholder */
 input::placeholder {
