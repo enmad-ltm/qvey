@@ -233,6 +233,15 @@ input::placeholder {
     }
 }
 
+@media (max-width: 575px){
+    .form-layout.form-layout-5 > .row .col-sm-5 {
+        width: 70%;
+    }
+    .form-layout.form-layout-5 > .row .col-sm-3 {
+        width: 20%;
+        margin-top: 10px;
+    }
+}
 
 /* ### index.html find-account ### */
 @media (min-width: 576px){
