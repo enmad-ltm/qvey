@@ -358,9 +358,7 @@ label.rdiobox { margin: 0; }
     padding: 0;
 }
 
-
 #sendInfoB tbody td input {
-
     /* padding: 4px; */
     text-align: center;
     border: 0;
@@ -373,13 +371,40 @@ textarea::placeholder {
     color: #ddd!important;
 }
 
+/*
 #linkIn {
     border: 1px solid #ced4da;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 5.6px 31px!important;
-    margin: 0;
+}
+*/
+#rlWrap {
+    width: auto;
+    padding: 0 1%;
+}
+
+#rlWrap label {
+    flex: 0 0 19%;
+    max-width: 19%;
+    margin: 0 -0.5%;
+}
+
+
+
+.pl-wrap {
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.rl-wrap {
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+    margin: 20px -5px;
 }
 
 @media (max-width: 575.98px) {
@@ -388,11 +413,44 @@ textarea::placeholder {
         flex: 0 0 80%;
         max-width: 80%;
     }
+    #linkIn, #sendInfoB .btn.btn-outline-light.mg-l-10.d-block, .submit-btns a {
+        width: auto!important;
+    }
+    /*
     #linkIn {
         flex: 0 0 6%;
         max-width: 6%;
     }
+    */
 }
+
+@media (max-width: 991px) {
+    #sendView .row.no-gutters {
+        padding: 0 2.5%;
+    }
+    #sendView #svTtl label, #sendView #svCont label {
+        max-width: unset;
+        flex: unset;
+        justify-content: start;
+    }
+    #sendTtl, #sendCont {
+        margin-top: 10px;
+    }
+    #rlWrap, #sendInfoB .calling-number-group {
+        padding: 0 0.6%;
+    }
+    .reqNum-wrap, .receiving-number-wrap, #sendInfoB .col-lg-2.col-sm-2.form-control-label {
+        width: auto!important;
+    }
+    #rlWrap label {
+        display: none;
+    }
+    #sendInfoB .sendTbl-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
 
 /* send infoB */
 #sendInfoB .align-center {

@@ -135,7 +135,7 @@ $(document).ready(function () {
 */
 
 // replace Charactor
-$('#repCharWrap select[name="repCharOp"]').on("change", function(){
+$('select[name="repCharOp"]').on("change", function(){
     let aplyVal = $(this).val();
     const previewTa = $('#sendCont');
     var crntTaVal = previewTa.val();
