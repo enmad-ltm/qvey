@@ -485,17 +485,41 @@ function qRmvReqDel() {
   --reqCnt;
 }
 
+/*
+function openConfirmMd(modalId, e){
+  $('#'+modalId).modal('show');
+  $('#movTabBtn').attr('onclick','resetEvt("'+e+'")');
+}
+*/
+
 // reset question case change tab
 function resetEvt(e) {
-  crtTab = $(e).attr('value');
-  console.log('crtTab:',  crtTab);
-  console.log('this class: ', $(e).attr('class'));
-  if(!$(e).hasClass('active')){
-    $('#preview, #previewS').css('display','none');
-    $('#collapseOne div, #collapseOneS div, #groupRelative .reset, #groupRelativeS .reset, #groupRelativeS .reset').remove();
-    $('#privacySFA, #surveySFA, #privacyMCA, #surveyMCA').removeClass('d-block');
-    $('select[name=slWrapperSelect], select[name=sfaSelect], input[name=eventName], textarea[name=eventDescript], input[name=eventDateSt], input[name=eventDateEd], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
-    $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked').prop('checked','');
+
+  if(confirm("탭 이동 시 작성하시던 내용이 삭제됩니다.")){
+    var eVal = $(e).attr('value');
+    if(eVal == 'privacy') {
+      $('#tabSurvey').removeClass('active show');
+      $('#createNewEvt ul li.nav-item:nth-child(2) a.nav-link').removeClass('active show');
+      $('#tabPrivacy').addClass('active show');
+      $('#createNewEvt ul li.nav-item:nth-child(1) a.nav-link').addClass('active show');
+    } else if(eVal == 'survey') {
+      $('#tabPrivacy').removeClass('active show');
+      $('#createNewEvt ul li.nav-item:nth-child(1) a.nav-link').removeClass('active show');
+      $('#tabSurvey').addClass('active show');
+      $('#createNewEvt ul li.nav-item:nth-child(2) a.nav-link').addClass('active show');
+    }
+    crtTab = $(e).attr('value');
+    console.log('crtTab:',  crtTab);
+    console.log('this class: ', $(e).attr('class'));
+    console.log('asdfsadf');
+    if($(e).hasClass('active')){
+      console.log('asdfsadf');
+      $('#preview, #previewS').css('display','none');
+      $('#collapseOne div, #collapseOneS div, #groupRelative .reset, #groupRelativeS .reset, #groupRelativeS .reset').remove();
+      $('#privacySFA, #surveySFA, #privacyMCA, #surveyMCA').removeClass('d-block');
+      $('select[name=slWrapperSelect], select[name=sfaSelect], input[name=eventName], textarea[name=eventDescript], input[name=eventDateSt], input[name=eventDateEd], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
+      $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked').prop('checked','');
+    }
   }
 }
 
