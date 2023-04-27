@@ -249,6 +249,8 @@ function reqAdd(req) {
       case 'sfaTxt':
         mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input name="sf-txt'+(reqCnt+1)+'" id="" class="form-control" type="text" placeholder="답안을 입력해 주세요" value=""></div></div></div></div>';
         break;
+      case 'sfaName':
+        mcaPreviewB += '<div name='+sfaType+' class="list-group-item pd-y-14"><div class="media"><div class="media-body"><div class="input-group"><input name="sf-name'+(reqCnt+1)+'" id="" class="form-control" type="text" placeholder="이름을 입력해 주세요" value=""></div></div></div></div>';
     }
   }
   console.log("mcaPreviewA= ", mcaPreviewA);
@@ -365,7 +367,16 @@ function saveEvt() {
   if (qType == 'event-detail'){
     var evtType = '.br-pagebody';
   } else {
-    var evtType = $('#createNewEvt>div>ul a.active').attr('href');
+    var tabVal = $('#createNewEvt>div>ul>li.nav-item a.active').attr('value');
+    console.log('tabVal : ', tabVal);
+    switch(tabVal) {
+      case 'privacy':
+        var evtType = '#tabPrivacy';
+        break;
+      case 'survey':
+        var evtType = '#tabSurvey';
+        break;
+    }
   }
   var evtRst = new Object();
   var qLeng = $(evtType+' div[id^=q]').length;
@@ -383,8 +394,7 @@ function saveEvt() {
   evtRst['qrUse'] = $(evtType+' input[name="qrUse"]:checked').val();
   evtRst['questionInfo'] = {};
   
-  console.log('evtRst: ', evtRst);
-
+  
   for(var i=0; i<qLeng; i++){
     var ipName = $('#q'+i+' input').attr('name');
     var divisKey = ipName.replace(/[0-9]/g,"");
@@ -428,10 +438,17 @@ function saveEvt() {
         evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
         evtRst['questionInfo']['q'+i]['dtType'] = 'FE';
         break;
+      case 'sf-name':
+        evtRst['questionInfo']['q'+i]['qType'] = 'SAA';
+        evtRst['questionInfo']['q'+i]['dtType'] = 'NE';
+        break;
     }
   }
 
   console.log('evtRst: ', evtRst);
+
+  
+  alert(JSON.stringify(evtRst));
 
   //fin
   /*
