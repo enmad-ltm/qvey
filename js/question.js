@@ -448,7 +448,7 @@ function saveEvt() {
   console.log('evtRst: ', evtRst);
 
   
-  alert(JSON.stringify(evtRst));
+  //alert(JSON.stringify(evtRst));
 
   //fin
   /*
