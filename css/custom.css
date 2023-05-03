@@ -350,7 +350,7 @@ label.rdiobox { margin: 0; }
 
 /* send view */
 #sendInfoB table {
-    max-height: 262px;
+    max-height: 200px;
     overflow: auto;
 }
 
@@ -464,10 +464,22 @@ textarea::placeholder {
     border-bottom-right-radius: 3px;
 }
 
+.reg-type-wrap label {
+    display: inline-block;
+    margin-left: 20px;
+}
+.reg-type-wrap label:first-child {
+    margin-left: 0;
+}
 
-
-
-
+#uploadRow {
+    display: none;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.custom-file-label {
+    color: unset;
+}
 
 
 /* spinner */

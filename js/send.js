@@ -143,17 +143,34 @@ $('select[name="repCharOp"]').on("change", function(){
     previewTa.val(crntTaVal+aplyVal);
 });
 
+// reg-type select
+$('input[name="reg-type"]').on("change", function(){
+    // console.log('val: ', $(this).val());
+    var regType = $(this).val();
+    if(regType == 'total'){
+        $('#sendTbl').css('display', 'none');
+        $('#uploadRow').css('display', 'flex');
+        $('#delDupNumRow').css('display','none');
+    } else if (regType == 'ip-direct'){
+        $('#sendTbl').css('display', 'block');
+        $('#uploadRow').css('display', 'none');
+        $('#delDupNumRow').css('display','flex');
+    }
+});
+
 // submit
 var totRst = new Object();
 var sendTbls = new Object();
 $('#gotoListBtn').on('click', function(){  
     // console.log('sendViewRst', Object.keys(sendViewRst));
 
+    totRst['regType'] = $('.reg-type-wrap input[name="reg-type"]').val();
     totRst['sendTtl'] = $('#sendTtl').val();
     totRst['sendCont'] = new Object();
     totRst['reqDate'] = $('#datepickerNoOfMonths').val()+' '+$('#reqTime').val();
     totRst['reqNum'] = $('#reqNum').val();
     totRst['reqType'] = $('#sendBtn button.active').val();
+    // console.log('testRegTypeVal: ', testRegTypeVal);
 
     
     if($('#delDuplicateNum').is(':checked')) {
@@ -182,8 +199,11 @@ $('#gotoListBtn').on('click', function(){
     }
     totRst['sendCont'] = sendTbls;
     console.log('totRst : ', totRst);
+    
+console.log('chk: ', $('input[name="reg-type"]:checked').val());
 
-    if (Object.keys(sendTbls) == ''){
+
+    if (Object.keys(sendTbls) == '' && $('input[name="reg-type"]:checked').val() == 'ip-direct'){
         alert('적용된 항목이 없습니다.');
         return false;
     }

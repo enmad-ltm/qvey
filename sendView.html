@@ -105,6 +105,19 @@
                     <div id="sendInfoB" class="col-lg-7 bg-white">
                         <div class="pd-y-0 pd-xl-x-30">
                             <div class="pd-x-20 pd-y-10 sendTbl-wrap">
+                              <div class="row pd-10">
+                                <label class="col-lg-2 col-sm-2 form-control-label">등록방법</label>
+                                <div class="col-lg-10 col-sm-10 mg-sm-t-0 reg-type-wrap">
+                                  <label class="rdiobox">
+                                    <input name="reg-type" value="ip-direct" type="radio" checked>
+                                    <span>직접 등록</span>
+                                  </label>
+                                  <label class="rdiobox">
+                                    <input name="reg-type" value="total" type="radio">
+                                    <span>일괄 등록</span>
+                                  </label>
+                                </div>
+                              </div>
                                 <table id="sendTbl" class="table table-responsive table-bordered tx-13 tx-gray-700 bd">
                                     <thead>
                                       <tr class="bg-gray-100 tx-11 tx-uppercase tx-gray-800 tx-center">
@@ -213,7 +226,17 @@
                                       </tr>
                                     </tbody>
                                 </table>
-                                <div class="row mg-t-6 pd-10">
+
+                                <div id="uploadRow" class="row">
+                                  <div class="col-lg-8">
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" id="customFile">
+                                      <label class="custom-file-label" for="customFile">일괄등록할 파일을 업로드해주세요</label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div id="delDupNumRow" class="row mg-t-6 pd-10">
                                   <label class="col-lg-2 col-sm-2 form-control-label">수신번호</label>
                                   <div class="col-lg-10 col-sm-10 mg-sm-t-0 receiving-number-wrap">
                                     <label class="ckbox d-inline-block mg-r-10">
