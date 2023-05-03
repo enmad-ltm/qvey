@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Qvey Admin(draft)</title>
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+  </head>
+
+  <body>
+
+    <div id="userCert" class="d-flex align-items-center justify-content-center bg-gray-200 ht-100v">
+
+      <div class="login-wrapper wd-100p wd-xs-500 pd-25 pd-y-45 pd-xs-40 pd-xs-y-60 bg-white rounded shadow-base">
+        <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span id="compName" class="tx-primary">유플러스</span>&nbsp;<span id="evtName">제세공과금 정보 입력</span></div>
+        <div class="tx-center tx-18 mg-y-50">범용인증키를 입력해주세요</div>
+        <div class="form-group">
+          <input id="userPhoneNum" maxlength="12" type="url" class="form-control" placeholder="demo&#41;&nbsp;&#39;test12345678&#39;를 입력하세요" onkeyup="if(window.event.keyCode==13){confirm()}">
+        </div>
+        <button type="submit" onclick="confirm()" class="btn btn-primary btn-block">완료</button>
+        <!-- <div class="mg-t-60 tx-center">큐베이푸시 관리자 페이지 <a href="signUp.html" class="tx-info">신규 회원 가입</a></div> -->
+      </div>
+    </div>
+
+    <div id="userCertFailModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+            <h4 id="modalTtl" class="tx-danger  tx-semibold mg-b-20"></h4>
+            <p id="modalCopy" class="mg-b-20 mg-x-20"></p>
+            <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">뒤로</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="userCertSucModal" class="modal fade">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+          <div class="modal-body tx-center pd-y-20 pd-x-20">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <i class="icon ion-ios-checkmark-outline tx-100 tx-primary lh-1 mg-t-20 d-inline-block"></i>
+            <h4 class="tx-primary tx-semibold mg-b-20">휴대폰일치</h4>
+            <p class="mg-b-20 mg-x-20">인증을 성공적으로 완료했습니다.</p>
+            <button onclick="go2path('user_index')" type="button" class="btn btn-primary tx-11 tx-uppercase pd-y-15 pd-x-40 tx-mont tx-medium mg-b-20" >확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/qvey.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        function confirm(){
+            if ($('#userPhoneNum').val() == ''){
+                modalOpen('userCertFailModal', '입력오류; 공백', '데모 범용인증키를 입력해주세요.');
+            } else if($('#userPhoneNum').val() !== 'test12345678') {
+                modalOpen('userCertFailModal', '입력오류; 불일치', '데모 범용인증키를 입력해주세요.');
+            } else if($('#userPhoneNum').val() == 'test12345678') {
+                modalOpen('userCertSucModal');
+            }
+        }
+    </script>
+  </body>
+</html>
