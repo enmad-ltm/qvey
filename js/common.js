@@ -1,3 +1,11 @@
+function popupXmov(path, xMd){
+    $('#'+xMd).removeClass('show');
+    $('.modal-backdrop').remove();
+    $('body').removeClass('modal-open');
+    console.log(path);
+    go2path(path);
+}
+
 function go2path(path){
     location.href=path+'.html';
 }
