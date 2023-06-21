@@ -218,6 +218,7 @@
                 <th>진행상태</th>
                 <th>이벤트 수정</th>
                 <th class="tx-center">발송</th>
+                <th class="tx-center">결과 통계</th>
               </tr>
             </thead>
             <tbody>
@@ -231,6 +232,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>2</td>
@@ -242,6 +244,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>3</td>
@@ -253,6 +256,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>4</td>
@@ -264,6 +268,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>5</td>
@@ -275,6 +280,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>6</td>
@@ -286,6 +292,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>7</td>
@@ -297,6 +304,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>8</td>
@@ -308,6 +316,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>9</td>
@@ -319,6 +328,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
               <tr>
                 <td>10</td>
@@ -330,6 +340,7 @@
                 <td>진행</td>
                 <td><a href="event_detail.html">[수정하기]</a></td>
                 <td><div onclick="openSendView()" class="send-btn"><i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>&nbsp;<span>발송</span></div></td>
+                <td><i onclick="downloadData()" class="question-set icon tx-24 ion-ios-download-outline d-flex align-items-center justify-content-center"></i></td>
               </tr>
             </tbody>
           </table>
@@ -444,6 +455,9 @@
   $('#evtDateFt, #evtDateBk').datepicker({
     showOtherMonths: true,
   });
+  function downloadData(){
+    console.log('download');
+  }
 </script>
   </body>
 </html>
