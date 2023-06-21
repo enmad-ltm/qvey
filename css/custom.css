@@ -714,3 +714,15 @@ table#histTbl {
         padding: 30px;
     }
 }
+.custom-file {
+    width: 70%;
+}
+.samp-btn-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.samp-btn {
+    color: #495057;
+    font-size: 16px;
+}
