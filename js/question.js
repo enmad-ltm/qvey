@@ -397,28 +397,53 @@ function saveEvt() {
   console.log('test evtType: ', evtType);
 
   evtRst['crtTab'] = crtTab;
-  if($(evtType+' input[name="ttlAccent"]:checked').val() == 'on') {
 
-    evtRst['eventName'] = [];
+  switch ($(evtType+' input[name="ttlAccent"]:checked').val()) {
+    case '', undefined :
+      evtRst['eventName'] = $(evtType+' input[name="eventName"]').val();
+      console.log('강조할 문자가 없어요');
+      break;
 
-    var testArr0 = $(evtType+' input[name="eventName"]').val().split("{");
-    var testArr1 = testArr0[0];
-    var testArr2 = testArr0[1].split("}");
-    var testArr3 = testArr2[0];
-    var testArr4 = testArr2[1];
-    console.log('앞문장: ',testArr1);
-    console.log('강조문장: ',testArr3);
-    console.log('뒷문장: ',testArr4);
+    case 'on':
+      var evtName = $(evtType+' input[name="eventName"]').val();
 
-    evtRst['eventName'][0] = testArr1;
-    evtRst['eventName'][1] = testArr3;
-    evtRst['eventName'][2] = testArr4;
+      var chkCnt = 0;
+      var chkChar = '{';
+      var chkPos = evtName.indexOf(chkChar);
 
-    console.log('eventName: ', evtRst['eventName']);
+      if(chkPos == -1) {
+        alert('강조 사용을 체크하셨으면 중괄호를 이용해보세요.');
+        return false;
+      }
 
-  } else if($(evtType+' input[name="ttlAccent"]:checked').val() !== 'on') {
-    evtRst['eventName'] = $(evtType+' input[name="eventName"]').val();
-    console.log('강조할 문자가 없어요');
+      while (chkPos !== -1) {
+        chkCnt++;
+        chkPos = evtName.indexOf(chkChar, chkPos + 1);
+      }
+
+      if(chkCnt > 1) {
+        alert('중괄호를 이용한 강조는 한번만 사용할 수 있습니다.');
+        return false;
+      }
+
+      evtRst['eventName'] = [];
+
+      var testArr0 = evtName.split("{");
+      var testArr1 = testArr0[0];
+      var testArr2 = testArr0[1].split("}");
+      var testArr3 = testArr2[0];
+      var testArr4 = testArr2[1];
+      console.log('앞문장: ',testArr1);
+      console.log('강조문장: ',testArr3);
+      console.log('뒷문장: ',testArr4);
+
+      evtRst['eventName'][0] = testArr1;
+      evtRst['eventName'][1] = testArr3;
+      evtRst['eventName'][2] = testArr4;
+
+      console.log('eventName: ', evtRst['eventName']);
+      break;
+
   }
   if ($(evtType+' input[name="agreeUse"]:checked').val() == 'use'){
     evtRst['agreeUse'] = $(evtType+' input[name="agreeUse"]:checked').val();
@@ -581,7 +606,7 @@ function resetEvt(e) {
       $('.agr-dec-wrap').removeClass('d-flex');
       $('.br-toggle').removeClass('on');
       $('select[name=slWrapperSelect], select[name=sfaSelect], input[name=eventName], textarea[name=eventDescript], textarea[name=agreeDescript], input[name=eventDateSt], input[name=eventDateEd], input[name=agrDscTtl], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
-      $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked', 'input[name="agreeUse":checked]' ).prop('checked','');
+      $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked', 'input[name=agreeUse]:checked' ).prop('checked','');
     }
   }
 }
