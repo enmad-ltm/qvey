@@ -143,6 +143,19 @@
                 </div>
                 <div class="col-7 col-sm-8">
                   <input class="form-control" type="text" name="eventName" placeholder="입력란">
+                  <label class="ckbox ttl-accent">
+                    <input name="ttlAccent" type="checkbox">
+                    <span class="use-point-chk">강조 사용 
+                      <i class="icon ion-help-circled"></i>
+                      <div class="use-tooltip popover bs-popover-right">
+                        <div class="arrow"></div>
+                        <div class="tt-wrap popover-body">
+                          <p class="mg-b-5">중괄호{}를 사용해 제목을 작성하면 사용자 화면에서 색상이 강조됩니다.<br /> ex: {강조} 타이틀 => <span class="tx-primary">강조</span> 타이틀</p>
+                          <p>※ 위치, 글자 수 상관없이 <b>1회만 사용 가능</b></p>
+                        </div>
+                      </div>
+                    </span>
+                  </label>
                 </div>
               </div><!-- row -->
               <div class="row no-gutters">
@@ -192,10 +205,6 @@
                         <span>인증 없음</span>
                       </label>
                     </div>
-                    <!-- <label id="certReal" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan" title="개인정보 취합시 문자 발송 인원만 응답 허용, 휴대폰 번호 실명 인증">실명 인증</span></label>
-                    <label id="certPhone" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span onclick="chkChg();" id="certPhoneSpan" title="발송 휴대폰 번호로 인증 (휴대폰 실명 인증 아님)">휴대폰 인증</span></label>
-                    <label id="certComm" class="ckbox d-inline-block mg-r-10"><input type="checkbox"><span id="certCommSpan" title="수동으로 인증번호 입력">범용 인증</span></label>
-                    <label id="certNone" class="ckbox d-inline-block"><input type="checkbox"><span id="certNoneSpan">인증 없음</span></label> -->
                   </div>
                   <div class="certi-file">
                     <div onclick="modalOpen('authUpload')" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
@@ -203,6 +212,38 @@
                     </div>
                     <div id="formDownload" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10">
                       <i class="icon ion-ios-download-outline tx-16 mg-r-4"></i> 양식 다운로드
+                    </div>
+                  </div>
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters">
+                <div class="col-5 col-sm-4">개인정보취합 안내 노출 여부</div>
+                <div class="col-7 col-sm-8">
+                  <div class="col-lg-2 d-inline-block">
+                    <label class="rdiobox">
+                      <input name="agreeUse" type="radio" value="use">
+                      <span>유</span>
+                    </label>
+                  </div>
+                  <div class="col-lg-2 d-inline-block">
+                    <label class="rdiobox">
+                      <input name="agreeUse" type="radio" value="unuse">
+                      <span>무</span>
+                    </label>
+                  </div>
+                </div>
+              </div><!-- row -->
+              <div class="row no-gutters agr-dec-wrap">
+                <div class="col-5 col-sm-4">
+                  개인정보취합 안내문 입력
+                </div>
+                <div class="col-7 col-sm-8">
+                  <input class="form-control" name="agrDscTtl" type="text" placeholder="타이틀 작성">
+                  <textarea class="form-control mg-b-20" type="text" name="agreeDescript" placeholder="입력란"></textarea>
+                  <div class="pos-relative">
+                    <p class="">예시보기</p>
+                    <div class="br-toggle br-toggle-info pos-absolute t-0 l-60">
+                      <div class="br-toggle-switch"></div>
                     </div>
                   </div>
                 </div>
@@ -393,6 +434,19 @@
                       </div>
                       <div class="col-7 col-sm-8">
                         <input class="form-control" type="text" name="eventName" placeholder="입력란">
+                        <label class="ckbox ttl-accent">
+                          <input name="ttlAccent" type="checkbox">
+                          <span class="use-point-chk">강조 사용 
+                            <i class="icon ion-help-circled"></i>
+                            <div class="use-tooltip popover bs-popover-right">
+                              <div class="arrow"></div>
+                              <div class="tt-wrap popover-body">
+                                <p class="mg-b-5">중괄호{}를 사용해 제목을 작성하면 사용자 화면에서 색상이 강조됩니다.<br /> ex: {강조} 타이틀 => <span class="tx-primary">강조</span> 타이틀</p>
+                                <p>※ 위치, 글자 수 상관없이 <b>1회만 사용 가능</b></p>
+                              </div>
+                            </div>
+                          </span>
+                        </label>
                       </div>
                     </div><!-- row -->
                     <div class="row no-gutters">
@@ -456,6 +510,38 @@
                           </div>
                         </div>
                       </div><!-- col-8 -->
+                    </div><!-- row -->
+                    <div class="row no-gutters">
+                      <div class="col-5 col-sm-4">개인정보취합 안내 노출 여부</div>
+                      <div class="col-7 col-sm-8">
+                        <div class="col-lg-2 d-inline-block">
+                          <label class="rdiobox">
+                            <input name="agreeUse" type="radio" value="use">
+                            <span>유</span>
+                          </label>
+                        </div>
+                        <div class="col-lg-2 d-inline-block">
+                          <label class="rdiobox">
+                            <input name="agreeUse" type="radio" value="unuse">
+                            <span>무</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div><!-- row -->
+                    <div class="row no-gutters agr-dec-wrap">
+                      <div class="col-5 col-sm-4">
+                        개인정보취합 안내문 입력
+                      </div>
+                      <div class="col-7 col-sm-8">
+                        <input class="form-control" name="agrDscTtl" type="text" placeholder="타이틀 작성">
+                        <textarea class="form-control mg-b-20" type="text" name="agreeDescript" placeholder="입력란"></textarea>
+                        <div class="pos-relative">
+                          <p class="">예시보기</p>
+                          <div class="br-toggle br-toggle-info pos-absolute t-0 l-60">
+                            <div class="br-toggle-switch"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div><!-- row -->
                     <div class="row no-gutters">
                       <div class="col-5 col-sm-4">QR 간편인증 사용 여부</div>
@@ -848,6 +934,29 @@
   $('input[name=eventDateSt], input[name=eventDateEd]').datepicker({
     showOtherMonths: true,
   });
+
+  var agrDscTtl = '개인정보 보호를 위한 이용자 동의사항';
+  var agreeTxt = "o 개인정보의 수집 및 이용 목적\n - 이벤트 참여 및 경품 발송\no 개인정보 수집 항목\n - 휴대폰 번호\no 개인정보 보유 및 이용 기간\n - 경품 발송일로부터 180일 이후 복구 불가능한 방법으로 삭제\no 개인정보 제 3자 제공에 관한 사항\n응모자의 정보를 '개인정보 처리 목적'에 명시한 범위 내에서만 처리하며, 제 3자에게 제공하지 않습니다.\n단, 정보 주체의 동의, 법률의 특별한 규정 등 개인정보보호법 제17조 및 18조에 해당하는 경우에만 개인정보를 제 3자에게 제공합니다.\n - 취급을 위탁 받는 자: ㈜모바일이앤앰애드\n - 업무내용: 이벤트 경품 발송 관련\n - 제공정보: 휴대폰 번호\n\n※ 위 사항에 동의하지 않으시면 쿠폰 발송이 어렵습니다.";
+  var dscTtl = $('input[name="agrDscTtl"]');
+  var dscTxa = $('textarea[name="agreeDescript"]');
+
+  $('.br-toggle').on('click', function(e){
+    e.preventDefault();
+    $(this).toggleClass('on');
+    if($(this).hasClass('on')){
+      //on
+      dscTxa.val(agreeTxt);
+      dscTtl.val(agrDscTtl);
+      dscTxa.addClass('ex-on');
+    } else {
+      //off
+      dscTxa.val('');
+      dscTtl.val('');
+      dscTxa.removeClass('ex-on');
+    }
+     
+  })
+
 </script>
 </body>
 </html>

@@ -330,7 +330,9 @@ label.rdiobox { margin: 0; }
 }
 
 .tab-pane .br-section-wrapper .form-layout.form-layout-7 textarea {
-    height: 50px;
+    height: 80px;
+    border: 1px solid #efefef;
+    padding: 0.5rem;
 }
 
 /* preview card */
@@ -725,4 +727,66 @@ table#histTbl {
 .samp-btn {
     color: #495057;
     font-size: 16px;
+}
+
+
+#tabPrivacy i.icon.ion-help-circled {
+    position: absolute;
+    left: 70px;
+    bottom: -1.5px;
+    font-size: 15px;
+}
+.use-point-chk {
+    font-size: 12px;
+    padding-left: 0px !important;
+    cursor: pointer;
+}
+.use-point-chk .use-tooltip {
+    left: 6rem;
+    top: -1rem;
+    opacity: 0;
+}
+.use-point-chk:hover .use-tooltip {
+    opacity: 1;
+}
+.bs-popover-right .arrow {
+    top: 1rem;
+}
+.tt-wrap .tx-primary::before {
+    display: none;
+}
+
+
+#userAgree.card .card-body {
+    padding: 2rem 0;
+}
+
+#userAgree.card .card-text {
+    border: 1px solid #ddd;
+    overflow-y: scroll;
+    max-height: 100px;
+    font-size: 9px;
+    padding: 0.25rem 0.5rem;
+}
+
+#userCert .ckbox span:after {
+    background-color: #2985db;
+}
+
+.agr-dec-wrap {
+    display: none;
+}
+
+textarea[name="agreeDescript"] {
+    color: #888;
+}
+textarea[name="agreeDescript"].ex-on {
+    height: 180px!important;
+}
+
+input[name="agrDscTtl"] {
+    border: 1px solid #efefef!important;
+    margin-bottom: 10px;
+    padding: 0.25rem 0.5rem!important;
+    color: #888;
 }

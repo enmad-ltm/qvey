@@ -21,15 +21,50 @@
       <div class="login-wrapper wd-100p wd-xs-500 pd-25 pd-y-45 pd-xs-40 pd-xs-y-60 bg-white rounded shadow-base">
         <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span id="compName" class="tx-primary">유플러스</span>&nbsp;<span id="evtName">제세공과금 정보 입력</span></div>
         <div id="evtInfo" class="tx-center tx-18 mg-t-50 mg-b-50">안녕하세요. 유플러스 000이벤트 제세공과금 처리를 위탁받은 ㈜모바일이앤엠애드입니다.<br><br>2023년 3월까지 제세공과금 처리를 위한<br>정보입력 부탁드립니다.</div>
-        <button type="submit" onclick="go2path('user_qvey')" class="btn btn-primary btn-block">응답하기</button>
-        <!-- <div class="mg-t-60 tx-center">큐베이푸시 관리자 페이지 <a href="signUp.html" class="tx-info">신규 회원 가입</a></div> -->
+<!-- userAgree -->
+        <div id="userAgree" class="card">
+          <div class="card-body">
+            <!-- <h5 class="card-title">개인정보 보호를 위한 이용자 동의사항</h5> -->
+            <p class="card-subtitle mg-y-10">개인정보 보호를 위한 이용자 동의사항</p>
+            <p class="card-text">
+              o 개인정보의 수집 및 이용 목적<br />
+              &nbsp;- 이벤트 참여 및 경품 발송<br />
+              o 개인정보 수집 항목<br />
+              &nbsp;- 휴대폰 번호<br />
+              o 개인정보 보유 및 이용 기간<br />
+              &nbsp;- 경품 발송일로부터 180일 이후 복구 불가능한 방법으로 삭제<br />
+              o 개인정보 제 3자 제공에 관한 사항<br />
+              응모자의 정보를 '개인정보 처리 목적'에 명시한 범위 내에서만 처리하며, 제 3자에게 제공하지 않습니다.<br />
+              단, 정보 주체의 동의, 법률의 특별한 규정 등 개인정보보호법 제17조 및 18조에 해당하는 경우에만 개인정보를 제 3자에게 제공합니다.<br />
+              &nbsp;- 취급을 위탁 받는 자: ㈜모바일이앤앰애드<br />
+              &nbsp;- 업무내용: 이벤트 경품 발송 관련<br />
+              &nbsp;- 제공정보: 휴대폰 번호<br /><br />
+              ※ 위 사항에 동의하지 않으시면 쿠폰 발송이 어렵습니다.
+            </p>
+            <label class="ckbox">
+              <input name="userAgree" type="checkbox">
+              <span class="tx-12 pd-l-0-force">상기 내용을 확인하였으며 동의합니다.</span>
+            </label>
+          </div>
+        </div>
+        <button type="submit" onclick="agreeChk()" class="btn btn-primary btn-block">응답하기</button>
+<!-- userAgree end -->
       </div>
     </div>
-
-    
-
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/common.js"></script>
+    <script>
+      function agreeChk(){
+        if($('input[name="userAgree"]:checked').val() == 'on'){
+          go2path('user_qvey');
+        } else {
+          alert ('위 사항에 동의하지 않으시면 쿠폰 발송이 어렵습니다.');
+          return false;
+        }
+        
+        // go2path('user_qvey');
+      }
+    </script>
   </body>
 </html>

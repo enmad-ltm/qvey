@@ -103,6 +103,18 @@ $('select[name=sfaSelect]').change(function(){
   $('#prReqBtn').val(reqAddVal);
 });
 
+$('input[name^="agreeUse"]').change(function(){
+  var agreeVal = $(this).val();
+
+  if(agreeVal == 'use') {
+    $('.agr-dec-wrap').addClass('d-flex');
+  } else if (agreeVal == 'unuse') {
+    $('.agr-dec-wrap').removeClass('d-flex');
+  }
+})
+
+
+
 function rmvThis (req){
   var delElId = req.parentNode.id;
   var primStr = delElId.replace(/[0-9]/g,"");
@@ -385,7 +397,38 @@ function saveEvt() {
   console.log('test evtType: ', evtType);
 
   evtRst['crtTab'] = crtTab;
-  evtRst['eventName'] = $(evtType+' input[name="eventName"]').val();
+  if($(evtType+' input[name="ttlAccent"]:checked').val() == 'on') {
+
+    evtRst['eventName'] = [];
+
+    var testArr0 = $(evtType+' input[name="eventName"]').val().split("{");
+    var testArr1 = testArr0[0];
+    var testArr2 = testArr0[1].split("}");
+    var testArr3 = testArr2[0];
+    var testArr4 = testArr2[1];
+    console.log('앞문장: ',testArr1);
+    console.log('강조문장: ',testArr3);
+    console.log('뒷문장: ',testArr4);
+
+    evtRst['eventName'][0] = testArr1;
+    evtRst['eventName'][1] = testArr3;
+    evtRst['eventName'][2] = testArr4;
+
+    console.log('eventName: ', evtRst['eventName']);
+
+  } else if($(evtType+' input[name="ttlAccent"]:checked').val() !== 'on') {
+    evtRst['eventName'] = $(evtType+' input[name="eventName"]').val();
+    console.log('강조할 문자가 없어요');
+  }
+  if ($(evtType+' input[name="agreeUse"]:checked').val() == 'use'){
+    evtRst['agreeUse'] = $(evtType+' input[name="agreeUse"]:checked').val();
+    evtRst['agreeDescript'] = $(evtType+' textarea[name="agreeDescript"]').val();
+    evtRst['agrDscTtl'] = $(evtType+' input[name="agrDscTtl"]').val();
+  }else if($(evtType+' input[name="agreeUse"]:checked').val() == 'unuse') {
+    evtRst['agreeUse'] = $('input[name="agreeUse"]:checked').val();
+    evtRst['agreeDescript'] = '';
+    evtRst['agrDscTtl'] = '';
+  }
   evtRst['eventDescript'] = $(evtType+' textarea[name="eventDescript"]').val();
   evtRst['eventDateSt'] = $(evtType+' input[name="eventDateSt"]').val();
   evtRst['eventDateEd'] = $(evtType+' input[name="eventDateEd"]').val();
@@ -519,6 +562,7 @@ function resetEvt(e) {
       $('#createNewEvt ul li.nav-item:nth-child(2) a.nav-link').removeClass('active show');
       $('#tabPrivacy').addClass('active show');
       $('#createNewEvt ul li.nav-item:nth-child(1) a.nav-link').addClass('active show');
+
     } else if(eVal == 'survey') {
       $('#tabPrivacy').removeClass('active show');
       $('#createNewEvt ul li.nav-item:nth-child(1) a.nav-link').removeClass('active show');
@@ -534,8 +578,10 @@ function resetEvt(e) {
       $('#preview, #previewS').css('display','none');
       $('#collapseOne div, #collapseOneS div, #groupRelative .reset, #groupRelativeS .reset, #groupRelativeS .reset').remove();
       $('#privacySFA, #surveySFA, #privacyMCA, #surveyMCA').removeClass('d-block');
-      $('select[name=slWrapperSelect], select[name=sfaSelect], input[name=eventName], textarea[name=eventDescript], input[name=eventDateSt], input[name=eventDateEd], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
-      $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked').prop('checked','');
+      $('.agr-dec-wrap').removeClass('d-flex');
+      $('.br-toggle').removeClass('on');
+      $('select[name=slWrapperSelect], select[name=sfaSelect], input[name=eventName], textarea[name=eventDescript], textarea[name=agreeDescript], input[name=eventDateSt], input[name=eventDateEd], input[name=agrDscTtl], #qIp, #qIpS, #mcIp0, #mcIpS0').val('');
+      $('input[name=certi-chk]:checked, input[name=qrUse]:checked, input[name=evt-stat]:checked', 'input[name="agreeUse":checked]' ).prop('checked','');
     }
   }
 }
