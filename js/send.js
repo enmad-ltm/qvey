@@ -1,15 +1,26 @@
 // link url auto paste
 
 $('#linkIn').on('click', function(){
+    const selTxtArea = $('#sendCont')
     var crtTxtareaVal = $('#sendCont').val();
-    // console.log('crtTxtareaVal: ', crtTxtareaVal);
     const thisEvtURL = 'https://test.url.kr';
 
+    var sPos = selTxtArea.prop('selectionStart');
+    var ePos = selTxtArea.prop('selectionEnd');
+    var newMsg1 = crtTxtareaVal.substr(0, sPos);
+    var newMsg2 = crtTxtareaVal.substr(ePos, crtTxtareaVal.length);
+
+    selTxtArea.val(newMsg1+thisEvtURL+newMsg2);
+    
+    var fPos = sPos + thisEvtURL.length;
+    selTxtArea.prop('selectionEnd', fPos).focus();
+/*
     if(crtTxtareaVal == ''){
         $('#sendCont').val(thisEvtURL);
     } else {
         $('#sendCont').val(crtTxtareaVal+thisEvtURL);
     }
+*/
 });
 
 
@@ -136,11 +147,21 @@ $(document).ready(function () {
 
 // replace Charactor
 $('select[name="repCharOp"]').on("change", function(){
-    let aplyVal = $(this).val();
+    var aplyVal = $(this).val();
     const previewTa = $('#sendCont');
     var crntTaVal = previewTa.val();
 
-    previewTa.val(crntTaVal+aplyVal);
+    var sPos = previewTa.prop('selectionStart');
+    var ePos = previewTa.prop('selectionEnd');
+
+    var newMsg1 = crntTaVal.substr(0, sPos);
+    var newMsg2 = crntTaVal.substr(ePos, crntTaVal.length);
+
+    // previewTa.val(crntTaVal+aplyVal);
+    previewTa.val(newMsg1+aplyVal+newMsg2);
+    
+    var fPos = sPos + aplyVal.length;
+    previewTa.prop('selectionEnd', fPos).focus();
 });
 
 // reg-type select
