@@ -231,6 +231,23 @@
                         </select>
                     </div>
                 </div>
+                <div class="row no-gutters">
+                  <div class="col-5 col-sm-4">발신번호</div>
+                  <div class="col-7 col-sm-8">
+                    <input class="form-control d-inline-block" type="number" name="callingNum" placeholder="발신번호 입력 ('-'제외)" onkeyup="if(window.event.keyCode==13){addCallingNum();}" value="">
+                    <button type="button" class="btn d-inline-block pd-y-12 mg-l-10 calling-num-add-btn" onclick="addCallingNum();">추가</button>
+                    <p id="callingNumMsg" class="mg-t-20 mg-b-10"></p>
+                    <div id="callingNumBox" class="parsley-checkbox mg-b-10"></div>
+                    <div class="multi-del-wrap">
+                      <div id="checkDel" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10" onclick="allChk()">
+                        <span>전체 선택</span>
+                      </div>
+                      <div id="allDel" class="btn btn-outline-light col-xl-3 col-md-4 mg-t-10" onclick="rmvSelIp()">
+                        <span>선택 삭제</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="tx-center mg-t-60">
                   <a href="javascript:history.back();" class="btn btn-secondary pd-x-50">이전으로</a>
                   <a onclick="modalOpen('saveCustInfoMd')" href="javascript:void(0);" class="btn btn-info pd-x-50">저장</a>
@@ -467,6 +484,94 @@
       joinStatPrint('sbMs');
       loadCustList();
       setCustInfo();
+      setCallingNumLoad();
+
+      function allChk() {
+        $('#callingNumBox input:checkbox').prop('checked',true);
+      }
+
+      function setCallingNumLoad (){
+        // common.js에 callingList arr
+        console.log("callingList length: ",callingList.length);
+        if(callingList.length !==0){
+          $('#callingNumMsg').text(msgList.hasMsg);
+          var addEle ='';
+          for(var i=0; i<callingList.length; i++){
+            addEle += '<div class="callNum'+i+'"><label class="ckbox d-inline-block"><input type="checkbox" name="callingList['+i+']" value="'+callingList[i]+'"><span>'+callingList[i]+'</span></label><i class="d-inline-block" id="callNum'+i+'" onclick="rmvClNum(this)" data-role="remove"></i></div>';
+          }
+          $('#callingNumBox').css('display','block');
+          $('#callingNumMsg').text(msgList.hasMsg);
+          $('.multi-del-wrap').addClass('d-block');
+          $('#callingNumBox').html(addEle);
+        } else {
+          $('#callingNumBox').css('display','none');
+          $('#callingNumMsg').text(msgList.nullMsg);
+        }
+      }
+
+      function addCallingNum (){
+        if($('input[name="callingNum"]').val() == ''){
+          alert('발신번호를 입력해주세요.');
+          return false;
+        }
+        if($('#callingNumBox').css('display') == 'none'){
+          $('#callingNumBox').css('display','block');
+          $('#callingNumMsg').text(msgList.hasMsg);
+          $('.multi-del-wrap').addClass('d-block');
+        }
+        var v = $('input[name="callingNum"]').val();
+        var vl = callingList.length;
+        $("#callingNumBox").append('<div class="callNum'+vl+'"><label class="ckbox d-inline-block"><input type="checkbox" name="callingList['+vl+']" value="'+v+'"><span>'+v+'</span></label><i class="d-inline-block" id="callNum'+vl+'" onclick="rmvClNum(this)" data-role="remove"></i></div>');
+        callingList[callingList.length] = v;
+        $('input[name="callingNum"]').val('');
+      }
+
+      function rmvSelIp (){
+        if($('#callingNumBox input:checked').length == 0){
+          alert('삭제할 번호를 선택해주세요.');
+          return false;
+        }
+        var checkedBox = $('#callingNumBox input:checkbox');
+        for(var i=0; i<checkedBox.length; i++){
+          if($('#callingNumBox '+'.callNum'+i+' input:checked').prop("checked") == true){
+            delete callingList[i];
+          }
+        }
+        callingList = callingList.filter(function(item){
+          return item !== null && item !== undefined && item !== '';
+        });
+        // console.log('삭제후 callingList: ', callingList);
+        var addEle ='';
+        for(var i=0; i<callingList.length; i++){
+          addEle += '<div class="callNum'+i+'"><label class="ckbox d-inline-block"><input type="checkbox" name="callingList['+i+']" value="'+callingList[i]+'"><span>'+callingList[i]+'</span></label><i class="d-inline-block" id="callNum'+i+'" onclick="rmvClNum(this)" data-role="remove"></i></div>';
+        }
+        $('#callingNumBox').html(addEle);
+        if(callingList.length == 0){
+          $('#callingNumBox').css('display','none');
+          $('#callingNumMsg').text(msgList.nullMsg);
+          $('.multi-del-wrap').removeClass('d-block');
+        }
+      }
+
+      function rmvClNum (e){
+        if(callingList.length == 1){
+          $('#callingNumBox').css('display','none');
+          $('#callingNumMsg').text(msgList.nullMsg);
+          $('.multi-del-wrap').removeClass('d-block');
+        }
+
+        tmpArr = e.id.split('m');
+        delIdx = tmpArr[1];
+        callingList.splice(delIdx, 1);
+        // $("."+e.id).remove();
+
+        var addEle ='';
+        for(var i=0; i<callingList.length; i++){
+          addEle += '<div class="callNum'+i+'"><label class="ckbox d-inline-block"><input type="checkbox" name="callingList['+i+']" value="'+callingList[i]+'"><span>'+callingList[i]+'</span></label><i class="d-inline-block" id="callNum'+i+'" onclick="rmvClNum(this)" data-role="remove"></i></div>';
+        }
+        $('#callingNumBox').html(addEle);
+
+      }
     </script>
   </body>
 </html>

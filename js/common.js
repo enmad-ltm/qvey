@@ -135,8 +135,12 @@ function delGroupTag (e) {
 }
 
 function saveCustInfo (){
-    var custInfoForm = $('#custInfo').serialize();
+    // var custInfoForm = $('#custInfo').serialize();
+    $('input[name="callingNum"]').val('');
+    $('#callingNumBox input:checkbox').prop('checked',true);
+    var custInfoForm = $('#custInfo').serializeArray();
     console.log('custInfoForm: ',custInfoForm);
+    alert(JSON.stringify(custInfoForm));
     spinerModal();
     $('#saveCustInfoMd').remove();
 }
@@ -223,3 +227,11 @@ function joinStatPrint (stVal){
         $('#detailTop span.compId').append(custId);
         $('#detailTop span.mngEmail').append(custEmail);
   }
+
+    // qvey_company_detail.html 발신번호배열 state, db에 해당 계정 발신번호가 있으면 리스트에 넣어주세요
+    // var callingList = ['001','002','003','004','005','006','007'];
+    var callingList = [];
+    var msgList = {
+        nullMsg:"추가된 발신번호가 없습니다.",
+        hasMsg:"추가된 발신번호 목록 입니다."
+    };

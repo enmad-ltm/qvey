@@ -554,10 +554,10 @@ select[name='checkAuth'], select[name='memStat'], .sch-comp {
     }
 }
 
-.sch-comp button.btn {
+.sch-comp button.btn, .calling-num-add-btn {
     background-color: #ced4da;
 }
-.sch-comp button.btn i {
+.sch-comp button.btn i, .calling-num-add-btn {
     color: #fff;
 }
 .bootstrap-tagsinput {
@@ -573,6 +573,57 @@ select[name='checkAuth'], select[name='memStat'], .sch-comp {
     cursor: pointer;
 }
 
+input[name='callingNum'] {
+    width: 40%;
+    border: 1px solid #efefef!important;
+    padding: 0.5rem!important;
+}
+
+#callingNumBox.parsley-checkbox {
+    max-height: 140px;
+    overflow-y: scroll;
+    width: 50%;
+    border: 1px solid #efefef;
+    padding: 0.25rem 0.5rem;
+}
+@media (max-width: 767px) {
+    #callingNumBox.parsley-checkbox {
+        width: 100%;
+    }
+}
+
+#callingNumBox.parsley-checkbox label {
+    margin-top: 8px;
+}
+#callingNumBox i[data-role="remove"] {
+    padding-left: 4px;
+    cursor: pointer;
+    font-size: 0.76563rem;
+    color: #495057;
+    font-style: unset;
+    margin-left: 0.5rem;
+}
+#callingNumBox i[data-role="remove"]::after {
+    content: '\f2d7';
+    font-family: 'Ionicons';
+    font-size: 16px;
+    opacity: .75;
+}
+#callingNumBox i[data-role="remove"]:hover {
+    color: #222;
+    font-weight: bold;
+}
+
+.multi-del-wrap{
+    display: none;
+    width: 50%;
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .multi-del-wrap{
+        margin: 0 auto;
+    }
+}
 
 /* customer serch */
 
