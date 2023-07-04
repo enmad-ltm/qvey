@@ -957,6 +957,12 @@
      
   })
 
+  $('.ion-help-circled').hover(function(){
+    $(this).next('.use-tooltip').css('opacity',1);
+  },function(){
+    $(this).next('.use-tooltip').css('opacity',0);
+  });
+
 </script>
 </body>
 </html>

@@ -790,16 +790,16 @@ table#histTbl {
 .use-point-chk {
     font-size: 12px;
     padding-left: 0px !important;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .use-point-chk .use-tooltip {
     left: 6rem;
     top: -1rem;
     opacity: 0;
 }
-.use-point-chk:hover .use-tooltip {
+/* .use-point-chk:hover .use-tooltip {
     opacity: 1;
-}
+} */
 .bs-popover-right .arrow {
     top: 1rem;
 }
@@ -807,6 +807,9 @@ table#histTbl {
     display: none;
 }
 
+.ui-datepicker {
+    z-index: 9999!important;
+}
 
 #userAgree.card .card-body {
     padding: 2rem 0;
