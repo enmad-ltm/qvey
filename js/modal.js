@@ -86,6 +86,9 @@ function openSendView() {
 function openResendView() {
     var popup = window.open('resendView.html', 'send management', 'width=578px,height=768px,scrollbars=yes,top=100%, left=100%');
 }
+function openCreAcc() {
+    var popup = window.open('createAccount.html', 'create account', 'width=570px,height=780px,scrollbars=yes,top=100%, left=100%');
+}
 function openAuth() {
     var popup = window.open('phoneAuth.html', 'check phone auth', 'width=330px,height=440px,scrollbars=yes,top=100%, left=100%');
 }

@@ -198,34 +198,7 @@ input::placeholder {
   }
 
 
-/* @-webkit-keyframes fadeInUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
   
-    to {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
-  
-    to {
-      opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
-  } */
-
-
 /* ################## create_new_event ##################  */
 .form-layout-7 label {
     font-size: 1.2em;
@@ -285,7 +258,7 @@ ul.nav-tabs-style-1 {
 }
 
 /* tabPrivacy */
-#eventCreateA, #sendCreateB, #sendCreateA {
+#eventCreateA, #sendCreateB, #sendCreateA, #singleEnroll.singleEnrollBtn {
     padding: 10px 50px !important;
     align-items: center;
     justify-content: center;
