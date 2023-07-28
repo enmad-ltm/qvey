@@ -83,6 +83,9 @@ function openCertMngmt(){
 function openSendView() {
     var popup = window.open('sendView.html', 'send management', 'width=1024px,height=768px,scrollbars=yes,top=100%, left=100%');
 }
+function openResendView() {
+    var popup = window.open('resendView.html', 'send management', 'width=578px,height=768px,scrollbars=yes,top=100%, left=100%');
+}
 function openAuth() {
     var popup = window.open('phoneAuth.html', 'check phone auth', 'width=330px,height=440px,scrollbars=yes,top=100%, left=100%');
 }

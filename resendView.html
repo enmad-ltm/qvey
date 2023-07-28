@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <meta property="og:image" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:secure_url" content="http://themepixels.me/bracketplus/img/bracketplus-social.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+    <!-- vendor css -->
+    <link href="lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="lib/timepicker/jquery.timepicker.css" rel="stylesheet">
+
+    <!-- comp css -->
+    <link rel="stylesheet" href="css/qveyadmin.css">
+    <link rel="stylesheet" href="css/qveyadmin-white.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <title>Send View</title>
+</head>
+<body class="bg-white">
+    <div id="sendView" class="br-mainpanel mg-0-force">
+        <div class="br-pagebody mg-0 pd-0">
+            <div class="card widget-18 hadow-basemg-t-20 pd-y-30-force">
+                <div class="wt-content">
+                  <div class="wt-content-item">
+                    <h1 class="tx-gray-700">문자 전송</h1>
+                    <p class="mg-b-30">설정을 통해 문자를 예약 또는 즉시 전송할 수 있습니다. </p>
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                    <div class="col-lg-12">
+                        <div class="form-layout form-layout-5 bd-transparent pd-10">
+                            <div class="row" id="svTtl">
+                                <label class="col-lg-2 col-sm-1 form-control-label">제목</label>
+                                <div class="col-lg-10 mg-t-10 mg-sm-t-0 pd-x-20">
+                                    <input id="sendTtl" type="text" class="form-control" placeholder="제목을 입력해 주세요">
+                                </div>
+                            </div>
+                            <div class="row mg-t-20" id="svCont">
+                              <label class="col-lg-2 col-sm-1 form-control-label">내용</label>
+                              <div class="col-lg-10 mg-t-10 mg-sm-t-0 pd-x-20">
+                                <textarea id="sendCont" rows="8" class="form-control" placeholder="내용을 입력해 주세요 (*접속링크 삽입 필수)"></textarea>
+                              </div>
+                            </div>
+                            <div class="row tx-right pl-wrap">
+                              <!-- <label class="col-lg-2 col-sm-1 form-control-label"></label> -->
+                              <div id="" class="col-sm-10 mg-t-10 mg-sm-t-0">
+                                <span id="printLength"></span><span> / 1,000 byte</span>
+                              </div>
+                            </div>
+                        </div>
+                    </div><!-- left -->
+                    <div id="sendInfoB" class="col-lg-12 bg-white">
+                        <div class="pd-y-0 pd-xl-x-30">
+                            <div class="pd-x-20 pd-y-10 sendTbl-wrap">
+                                <div class="row mg-t-6 pd-10 pd-l-0-force">
+                                  <label class="col-lg-2 col-sm-2 form-control-label align-center justify-content-start pd-lg-r-0 justify-content-lg-end">전송시간</label>
+                                  <div class="col-lg-9 col-sm-10 mg-t-10 mg-sm-t-0 pd-0 pd-lg-5">
+                                    <div id="sendBtn" class="btn-group col-12" role="group">
+                                      <button type="button" id="sendNow" value="direct" class="btn btn-outline-light pd-12-force active">즉시전송</button>
+                                      <button type="button" id="sendRsv" value="reservation" class="btn btn-outline-light pd-12-force">예약전송</button>
+                                      <input id="datepickerNoOfMonths" type="text" class="form-control fc-datepicker mg-l-4" placeholder="날짜선택">
+                                      <input id="reqTime" type="text" class="form-control mg-l-4" placeholder="시간선택">
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tx-center mg-t-30 submit-btns">
+                  <a href="javascript:void(window.close());" class="btn btn-secondary pd-x-50-force mg-0-force">닫기</a>
+                  <a href="javascript:void(0);" onclick="modalOpen('sendCf')" class="btn btn-info pd-x-50-force mg-0-force">전송</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="sendCf" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content tx-size-sm">
+      <div class="modal-body tx-center pd-y-20 pd-x-20">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="tx-info tx-semibold mg-y-20">Confirm: 발송</h4>
+        <p class="mg-b-20 mg-x-20">작성하신 내용으로 전송하시겠습니까?</p>
+        <input type="hidden" value="">
+        <div class="modal-footer justify-content-center bd-t-0">
+          <button id="gotoListBtn" type="button" class="btn btn-info tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium">확인</button>
+          <button type="button" class="btn btn-light tx-14-force tx-uppercase pd-x-40-force pd-y-10-force tx-mont tx-medium" data-dismiss="modal" aria-label="Close">취소</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- js -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery-ui/ui/widgets/datepicker.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="lib/timepicker/jquery.timepicker.min.js"></script>
+<script src="js/qvey.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/send.js"></script>
+<script>
+  $('#datepickerNoOfMonths').datepicker({
+    showOtherMonths: true
+  });
+  
+  // Time Picker
+  $('#reqTime').timepicker({
+    step: 10,
+    timeFormat: "H:i"
+  });
+</script>
+</body>
+</html>
