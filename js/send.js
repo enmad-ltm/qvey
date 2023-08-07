@@ -1,3 +1,32 @@
+// 직접등록 handsontable add 2023-08-07
+const container = document.querySelector('#sendTbl');
+var data = [];
+for (var i = 0; i < 100; i++) {
+  data.push(['', '', '', '']);
+}
+const hot = new Handsontable(container, {
+data:data,
+rowHeaders: true,
+autoColumnSize: false,
+width:'100%',
+height: 180,
+colHeaders: [
+    "전화번호", "대치1","대치2","대치3"
+],
+columns:[
+    {width: 120},
+    {width: 120},
+    {width: 120},
+    {width: 120}
+],
+
+contextMenu: true,
+pasteMode: 'overwrite',
+licenseKey: 'non-commercial-and-evaluation'
+});
+// handsonTable apply END
+
+
 // link url auto paste
 
 $('#linkIn').on('click', function(){
@@ -221,7 +250,16 @@ $('#gotoListBtn').on('click', function(){
     totRst['sendCont'] = sendTbls;
     console.log('totRst : ', totRst);
     
-console.log('chk: ', $('input[name="reg-type"]:checked').val());
+    console.log('chk: ', $('input[name="reg-type"]:checked').val());
+
+
+    // 직접등록 handsontable render add 2023-08-07
+    hot.render();
+    var directData = hot.getData();
+    directData.forEach(function(row) {
+        console.log("directData row:", row);
+    });
+
 
 
     if (Object.keys(sendTbls) == '' && $('input[name="reg-type"]:checked').val() == 'ip-direct'){
@@ -229,3 +267,4 @@ console.log('chk: ', $('input[name="reg-type"]:checked').val());
         return false;
     }
 });
+

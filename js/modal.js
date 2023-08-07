@@ -81,7 +81,7 @@ function openCertMngmt(){
 }
 
 function openSendView() {
-    var popup = window.open('sendView.html', 'send management', 'width=1024px,height=768px,scrollbars=yes,top=100%, left=100%');
+    var popup = window.open('newSendView.html', 'send management', 'width=1024px,height=768px,scrollbars=yes,top=100%, left=100%');
 }
 function openResendView() {
     var popup = window.open('resendView.html', 'send management', 'width=578px,height=768px,scrollbars=yes,top=100%, left=100%');
