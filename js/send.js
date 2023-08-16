@@ -1,29 +1,31 @@
-// 직접등록 handsontable add 2023-08-07
-const container = document.querySelector('#sendTbl');
-var data = [];
-for (var i = 0; i < 100; i++) {
-  data.push(['', '', '', '']);
+// 직접등록 handsontable add 2023-08-07, 예외처리 추가 2023-08-16
+if (document.getElementById('sendTbl')){
+    const container = document.querySelector('#sendTbl');
+    var data = [];
+    for (var i = 0; i < 100; i++) {
+      data.push(['', '', '', '']);
+    }
+    const hot = new Handsontable(container, {
+    data:data,
+    rowHeaders: true,
+    autoColumnSize: false,
+    width:'100%',
+    height: 180,
+    colHeaders: [
+        "전화번호", "대치1","대치2","대치3"
+    ],
+    columns:[
+        {width: 120, type: 'numeric'},
+        {width: 120},
+        {width: 120},
+        {width: 120}
+    ],
+    
+    contextMenu: true,
+    pasteMode: 'overwrite',
+    licenseKey: 'non-commercial-and-evaluation'
+    });
 }
-const hot = new Handsontable(container, {
-data:data,
-rowHeaders: true,
-autoColumnSize: false,
-width:'100%',
-height: 180,
-colHeaders: [
-    "전화번호", "대치1","대치2","대치3"
-],
-columns:[
-    {width: 120},
-    {width: 120},
-    {width: 120},
-    {width: 120}
-],
-
-contextMenu: true,
-pasteMode: 'overwrite',
-licenseKey: 'non-commercial-and-evaluation'
-});
 // handsonTable apply END
 
 
@@ -58,6 +60,8 @@ $('#linkIn').on('click', function(){
 $('#sendNow, #sendRsv').on('click', function(){
     $('#sendNow').toggleClass("active");
     $('#sendRsv').toggleClass("active");
+
+    console.log('asdf:');
 
     var now = new Date();
     var year = now.getFullYear();
