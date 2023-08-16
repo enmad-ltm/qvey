@@ -61,7 +61,6 @@ $('#sendNow, #sendRsv').on('click', function(){
     $('#sendNow').toggleClass("active");
     $('#sendRsv').toggleClass("active");
 
-    console.log('asdf:');
 
     var now = new Date();
     var year = now.getFullYear();
